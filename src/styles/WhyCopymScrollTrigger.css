@@ -1,0 +1,208 @@
+/* Desktop ScrollTrigger styles */
+.why-copym-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.why-copym-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.why-copym-content,
+.why-copym-content .why-copym-section {
+  width: 100%;
+  height: 100%;
+}
+
+.why-copym-content {
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+.why-copym-content .why-copym-section {
+  flex: 1 0 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto; /* Allow vertical scrolling within sections */
+  overflow-x: hidden;
+  padding: 20px 0;
+}
+
+.why-copym-buttons {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.section-btn {
+  background: linear-gradient(135deg, #255f99, #15a36e);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 95, 153, 0.3);
+  pointer-events: auto;
+}
+
+.section-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 95, 153, 0.4);
+}
+
+.section-btn:active {
+  transform: translateY(0);
+}
+
+/* Ensure section content is properly contained and scrollable */
+.why-copym-section > div {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px 0;
+}
+
+/* Ensure section titles are visible and properly positioned */
+.why-copym-section h2,
+.why-copym-section .brand-section-title {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  z-index: 10;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+/* Ensure content containers have proper spacing */
+.why-copym-section .max-w-7xl {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Add padding to ensure content is fully visible */
+.why-copym-section > div > div {
+  padding-bottom: 4rem;
+}
+
+/* Hide scrollbars for cleaner appearance */
+.why-copym-wrapper,
+.why-copym-container,
+.why-copym-content,
+.why-copym-section,
+.why-copym-section > div {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.why-copym-wrapper::-webkit-scrollbar,
+.why-copym-container::-webkit-scrollbar,
+.why-copym-content::-webkit-scrollbar,
+.why-copym-section::-webkit-scrollbar,
+.why-copym-section > div::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  /* Reset all the desktop scrolltrigger styles for mobile */
+  .why-copym-wrapper {
+    height: auto;
+    position: static;
+  }
+
+  .why-copym-container {
+    height: auto;
+    overflow: visible;
+    position: static;
+  }
+
+  .why-copym-content {
+    display: block;
+    position: static;
+  }
+
+  .why-copym-content .why-copym-section {
+    flex: none;
+    min-height: auto;
+    height: auto;
+    display: block;
+    overflow: visible;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+  }
+
+  .why-copym-section > div {
+    min-height: auto;
+    height: auto;
+    padding: 0;
+  }
+
+  .why-copym-buttons {
+    display: none; /* Hide navigation buttons on mobile */
+  }
+
+  .section-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  /* Ensure proper spacing between sections on mobile */
+  .why-copym-section:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+
+  /* Add visual separation between sections */
+  .why-copym-section:not(:last-child)::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, #255f99, #15a36e);
+    margin: 3rem auto;
+    border-radius: 1px;
+  }
+}
+
+/* Additional responsive improvements */
+@media (max-width: 480px) {
+  .why-copym-section {
+    padding: 1rem 0;
+  }
+
+  .why-copym-section .max-w-7xl {
+    padding: 0 1rem;
+  }
+
+  .why-copym-section:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+
+  .why-copym-section:not(:last-child)::after {
+    width: 80px;
+    margin: 2rem auto;
+  }
+}

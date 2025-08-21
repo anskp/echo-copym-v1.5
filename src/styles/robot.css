@@ -1,0 +1,87 @@
+.robot-animation-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #064e3b 0%, #0A5641 50%, #094B37 100%);
+  }
+  
+  .robot-animation-container #webgl {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .robot-animation-container #webgl2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    z-index: 3;
+    pointer-events: none;
+  }
+  
+  .robot-animation-container #bg-box {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+  
+  .robot-animation-container #bg-box svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .robot-animation-container .svg-box {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  
+  .robot-animation-container .svg-box svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .robot-animation-container #robot {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(21, 163, 110, 0.3));
+  }
+  
+  .robot-animation-container #robot:hover {
+    filter: brightness(1.2) drop-shadow(0 0 15px rgba(21, 163, 110, 0.5));
+    transform: scale(1.02);
+  }
+
+  /* Ensure the animation elements scale properly */
+  .robot-animation-container #mid-display,
+  .robot-animation-container #btm-display {
+    transition: transform 0.1s ease-out;
+  }
+
+  /* Add some glow effects to key elements */
+  .robot-animation-container #mid-display rect,
+  .robot-animation-container #left-display-display path,
+  .robot-animation-container #right-display-display path {
+    filter: drop-shadow(0 0 5px rgba(21, 163, 110, 0.2));
+  }
+  

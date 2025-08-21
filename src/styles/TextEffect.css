@@ -1,0 +1,48 @@
+@font-face {
+  font-family: 'GT-Flexa';
+  src: url('https://assets.codepen.io/61488/GT-Flexa-VF-Trial.woff2');
+  font-display: block;
+  font-style: normal italic;
+  font-weight: 100 800;
+  font-stretch: 10% 200%;
+}
+
+:root {
+  --fw: 600; /* font weight target 100-800 */
+  --fs: 150; /* font stretch target 10-150% */
+  --fontSize: 4; /* vw units - reduced from 15 to make text smaller */
+}
+
+/* ---------- Base layout helpers (limited to heading only) ---------- */
+.hero-heading-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  visibility: hidden; /* will be revealed by GSAP */
+}
+
+.hero-heading-content {
+  text-align: center;
+}
+
+.hero-heading-txt {
+  margin: 0;
+  font-family: 'GT-Flexa', sans-serif;
+  font-size: calc(var(--fontSize) * 1vw);
+  font-weight: var(--fw); /* 100-800 */
+  font-stretch: calc(var(--fs) * 1%); /* 10-150% */
+  line-height: 0.6;
+  letter-spacing: 0.1vw; /* changed from -1vw to give proper spacing */
+  user-select: none;
+  text-shadow: 0 0.05em 0 #FFB0C0,
+               0 0.1em 0.1em rgba(70, 0, 35, 0.3),
+               0 0.4em 0.3em rgba(70, 0, 35, 0.1);
+}
+
+.hero-heading-char {
+  padding-top: 1.08vw;
+  text-align: center;
+  will-change: font-weight, font-stretch, transform;
+} 
