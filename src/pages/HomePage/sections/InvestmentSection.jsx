@@ -321,13 +321,13 @@ const RealEstateInvestmentSection = () => {
               data-segment={segment.id}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={animationTriggered ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.1, // Clockwise sequence: 0s, 0.1s, 0.2s, 0.3s
-                  type: "spring",
-                  stiffness: 200,
-                  damping: 20
-                }}
+                                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.05, // Clockwise sequence: 0s, 0.05s, 0.1s, 0.15s
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 20
+                  }}
             />
           ))}
         </g>
@@ -343,12 +343,12 @@ const RealEstateInvestmentSection = () => {
               fill="#2a5f5f"
                 initial={{ opacity: 0, r: 0 }}
                 animate={animationTriggered ? { opacity: 1, r: 4 } : { opacity: 0, r: 0 }}
-                transition={{
-                  duration: 0.4,
-                  delay: 0.4 + index * 0.1, // Clockwise sequence: 0.4s, 0.5s, 0.6s, 0.7s
-                  type: "spring",
-                  stiffness: 300
-                }}
+                                  transition={{
+                    duration: 0.4,
+                    delay: 0.2 + index * 0.05, // Clockwise sequence: 0.2s, 0.25s, 0.3s, 0.35s
+                    type: "spring",
+                    stiffness: 300
+                  }}
             />
             
             {/* Connecting line */}
@@ -362,10 +362,10 @@ const RealEstateInvestmentSection = () => {
               opacity="0.5"
                 initial={{ opacity: 0 }}
                 animate={animationTriggered ? { opacity: 0.5 } : { opacity: 0 }}
-                transition={{
-                  duration: 0.3,
-                  delay: 0.5 + index * 0.1 // Clockwise sequence: 0.5s, 0.6s, 0.7s, 0.8s
-                }}
+                                  transition={{
+                    duration: 0.3,
+                    delay: 0.25 + index * 0.05 // Clockwise sequence: 0.25s, 0.3s, 0.35s, 0.4s
+                  }}
             />
             
             {/* Label box */}
@@ -382,12 +382,12 @@ const RealEstateInvestmentSection = () => {
               className="label-box"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={animationTriggered ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.6 + index * 0.1, // Clockwise sequence: 0.6s, 0.7s, 0.8s, 0.9s
-                  type: "spring",
-                  stiffness: 200
-                }}
+                                  transition={{
+                    duration: 0.5,
+                    delay: 0.3 + index * 0.05, // Clockwise sequence: 0.3s, 0.35s, 0.4s, 0.45s
+                    type: "spring",
+                    stiffness: 200
+                  }}
             />
             
             {/* Label text */}
@@ -400,10 +400,10 @@ const RealEstateInvestmentSection = () => {
               textAnchor="middle"
                 initial={{ opacity: 0 }}
                 animate={animationTriggered ? { opacity: 1 } : { opacity: 0 }}
-                transition={{
-                  duration: 0.3,
-                  delay: 0.7 + index * 0.1 // Clockwise sequence: 0.7s, 0.8s, 0.9s, 1.0s
-                }}
+                                  transition={{
+                    duration: 0.3,
+                    delay: 0.35 + index * 0.05 // Clockwise sequence: 0.35s, 0.4s, 0.45s, 0.5s
+                  }}
             >
               {segment.label}
               </motion.text>
@@ -418,10 +418,10 @@ const RealEstateInvestmentSection = () => {
               textAnchor="middle"
                 initial={{ opacity: 0 }}
                 animate={animationTriggered ? { opacity: 1 } : { opacity: 0 }}
-                transition={{
-                  duration: 0.3,
-                  delay: 0.8 + index * 0.1 // Clockwise sequence: 0.8s, 0.9s, 1.0s, 1.1s
-                }}
+                                  transition={{
+                    duration: 0.3,
+                    delay: 0.4 + index * 0.05 // Clockwise sequence: 0.4s, 0.45s, 0.5s, 0.55s
+                  }}
             >
               ({segment.percentage})
               </motion.text>
@@ -436,8 +436,8 @@ const RealEstateInvestmentSection = () => {
     <div className="w-full h-full flex items-center justify-center">
       <div className="relative">
         {/* 3D Wallet SVG with Enhanced Depth and Perspective */}
-        <svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" 
-             className={`${isMobile ? 'w-56 h-56' : 'w-72 h-72'} visual-element drop-shadow-2xl ${isAnimating ? 'stagger-in' : ''}`}
+        <svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" 
+             className={`${isMobile ? 'w-64 h-64' : 'w-80 h-80'} visual-element drop-shadow-2xl ${isAnimating ? 'stagger-in' : ''}`}
           style={{
                filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.1))',
             maxWidth: '100%',
@@ -534,112 +534,86 @@ const RealEstateInvestmentSection = () => {
           </defs>
           
           {/* Professional 3D Wallet Structure */}
-          <g transform="translate(150,140)" filter="url(#walletShadow)">
+          <g transform="translate(200,180)" filter="url(#walletShadow)">
             {/* Main wallet body with enhanced 3D */}
-            <rect x="0" y="0" width="200" height="120" rx="18" fill="url(#walletBodyGradient)" 
+            <rect x="0" y="0" width="250" height="150" rx="22" fill="url(#walletBodyGradient)" 
                   stroke="#0f172a" strokeWidth="2.5" filter="url(#depthFilter)"/>
             
             {/* 3D bevel effect - top edge */}
-            <rect x="2" y="2" width="196" height="8" rx="16" fill="rgba(255,255,255,0.15)" opacity="0.8"/>
+            <rect x="2" y="2" width="246" height="10" rx="20" fill="rgba(255,255,255,0.15)" opacity="0.8"/>
             
             {/* Money/cards peeking out with glow */}
-            <rect x="8" y="-18" width="184" height="22" rx="10" fill="url(#moneyGradient)" 
+            <rect x="10" y="-22" width="230" height="28" rx="12" fill="url(#moneyGradient)" 
                   stroke="#065f46" strokeWidth="1.5" filter="url(#moneyGlow)"/>
-            <rect x="12" y="-15" width="176" height="16" rx="8" fill="url(#moneyGradient)" 
+            <rect x="15" y="-18" width="220" height="20" rx="10" fill="url(#moneyGradient)" 
                   stroke="#065f46" strokeWidth="1" filter="url(#moneyGlow)"/>
             
             {/* Dollar sign on money with enhanced emboss */}
-            <text x="100" y="-4" fontFamily="Arial Black, sans-serif" fontSize="14" fontWeight="bold" 
+            <text x="125" y="-5" fontFamily="Arial Black, sans-serif" fontSize="18" fontWeight="bold" 
                   textAnchor="middle" fill="url(#dollarSignGradient)" filter="url(#embossFilter)">$</text>
             
             {/* Professional stitching around wallet */}
-            <rect x="6" y="6" width="188" height="108" rx="15" fill="none" stroke="url(#stitchingGradient)" 
+            <rect x="8" y="8" width="234" height="134" rx="18" fill="none" stroke="url(#stitchingGradient)" 
                   strokeWidth="1.2" strokeDasharray="4,3" opacity="0.7"/>
             
             {/* Wallet flap/closure with 3D effect */}
-            <rect x="155" y="8" width="45" height="104" rx="10" fill="url(#walletFlapGradient)" 
+            <rect x="195" y="10" width="55" height="130" rx="12" fill="url(#walletFlapGradient)" 
                   stroke="#0f172a" strokeWidth="2" filter="url(#depthFilter)"/>
             
             {/* Flap 3D bevel */}
-            <rect x="157" y="10" width="41" height="6" rx="8" fill="rgba(255,255,255,0.1)" opacity="0.6"/>
+            <rect x="197" y="12" width="51" height="8" rx="10" fill="rgba(255,255,255,0.1)" opacity="0.6"/>
             
             {/* Professional flap stitching */}
-            <line x1="162" y1="22" x2="195" y2="22" stroke="url(#stitchingGradient)" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.8"/>
-            <line x1="162" y1="37" x2="195" y2="37" stroke="url(#stitchingGradient)" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.8"/>
-            <line x1="162" y1="52" x2="195" y2="52" stroke="url(#stitchingGradient)" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.8"/>
-            <line x1="162" y1="67" x2="195" y2="67" stroke="url(#stitchingGradient)" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.8"/>
-            <line x1="162" y1="82" x2="195" y2="82" stroke="url(#stitchingGradient)" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.8"/>
-            <line x1="162" y1="97" x2="195" y2="97" stroke="url(#stitchingGradient)" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.8"/>
+            <line x1="202" y1="28" x2="245" y2="28" stroke="url(#stitchingGradient)" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.8"/>
+            <line x1="202" y1="46" x2="245" y2="46" stroke="url(#stitchingGradient)" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.8"/>
+            <line x1="202" y1="64" x2="245" y2="64" stroke="url(#stitchingGradient)" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.8"/>
+            <line x1="202" y1="82" x2="245" y2="82" stroke="url(#stitchingGradient)" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.8"/>
+            <line x1="202" y1="100" x2="245" y2="100" stroke="url(#stitchingGradient)" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.8"/>
+            <line x1="202" y1="118" x2="245" y2="118" stroke="url(#stitchingGradient)" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.8"/>
             
-            {/* Enhanced coin with 3D effect - repositioned to avoid overlap */}
-            <circle cx="35" cy="85" r="22" fill="url(#moneyGradient)" stroke="#065f46" strokeWidth="2" filter="url(#moneyGlow)"/>
-            <circle cx="35" cy="85" r="20" fill="url(#moneyGradient)" stroke="#047857" strokeWidth="1.5"/>
-            <text x="35" y="91" fontFamily="Arial Black, sans-serif" fontSize="16" fontWeight="bold" 
+            {/* Enhanced coin with 3D effect - perfectly positioned */}
+            <circle cx="125" cy="75" r="28" fill="url(#moneyGradient)" stroke="#065f46" strokeWidth="2" filter="url(#moneyGlow)"/>
+            <circle cx="125" cy="75" r="26" fill="url(#moneyGradient)" stroke="#047857" strokeWidth="1.5"/>
+            <text x="125" y="83" fontFamily="Arial Black, sans-serif" fontSize="20" fontWeight="bold" 
                   textAnchor="middle" fill="url(#dollarSignGradient)" filter="url(#embossFilter)">$</text>
             
             {/* Enhanced 3D Lighting Effects */}
-            <ellipse cx="85" cy="35" rx="45" ry="35" fill="url(#highlightGradient)" opacity="0.4" transform="rotate(-25 85 35)"/>
-            <ellipse cx="120" cy="25" rx="25" ry="20" fill="url(#secondaryHighlight)" opacity="0.3" transform="rotate(-15 120 25)"/>
+            <ellipse cx="105" cy="45" rx="55" ry="45" fill="url(#highlightGradient)" opacity="0.4" transform="rotate(-25 105 45)"/>
+            <ellipse cx="150" cy="30" rx="30" ry="25" fill="url(#secondaryHighlight)" opacity="0.3" transform="rotate(-15 150 30)"/>
             
             {/* Professional wallet brand/logo area - enhanced contrast */}
-            <rect x="15" y="20" width="70" height="28" rx="7" fill="rgba(255,255,255,0.18)" 
-                  stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" filter="url(#embossFilter)"/>
-            <text x="50" y="38" fontFamily="Arial, sans-serif" fontSize="10" fontWeight="bold" 
-                  textAnchor="middle" fill="rgba(255,255,255,0.95)" filter="url(#embossFilter)">WALLET</text>
+            <text x="62" y="47" fontFamily="Montserrat, Arial, sans-serif" fontSize="14" fontWeight="800" 
+                  textAnchor="middle" fill="url(#dollarSignGradient)" filter="url(#embossFilter)" 
+                  letterSpacing="1.2">WALLET</text>
             
             {/* Professional vertical COPYM text - moved inside wallet flap */}
-            <text x="177" y="75" fontFamily="Arial, sans-serif" fontSize="11" fontWeight="bold" 
-                  textAnchor="middle" fill="rgba(255,255,255,0.95)" transform="rotate(90, 177, 75)" filter="url(#embossFilter)">COPYM</text>
+            <text x="222" y="95" fontFamily="Montserrat, Arial, sans-serif" fontSize="14" fontWeight="800" 
+                  textAnchor="middle" fill="url(#dollarSignGradient)" transform="rotate(90, 222, 95)" filter="url(#embossFilter)" 
+                  letterSpacing="1.2">COPYM</text>
             
             {/* Enhanced card slots with better visual hierarchy */}
-            <rect x="10" y="55" width="140" height="12" rx="4" fill="rgba(0,0,0,0.5)" 
+            <rect x="12" y="70" width="175" height="15" rx="5" fill="rgba(0,0,0,0.5)" 
                   stroke="rgba(255,255,255,0.2)" strokeWidth="1" filter="url(#depthFilter)"/>
-            <rect x="10" y="72" width="140" height="12" rx="4" fill="rgba(0,0,0,0.5)" 
+            <rect x="12" y="90" width="175" height="15" rx="5" fill="rgba(0,0,0,0.5)" 
                   stroke="rgba(255,255,255,0.2)" strokeWidth="1" filter="url(#depthFilter)"/>
-            <rect x="10" y="89" width="140" height="12" rx="4" fill="rgba(0,0,0,0.5)" 
+            <rect x="12" y="110" width="175" height="15" rx="5" fill="rgba(0,0,0,0.5)" 
                   stroke="rgba(255,255,255,0.2)" strokeWidth="1" filter="url(#depthFilter)"/>
             
-            {/* Refined coin accent - smaller and more subtle */}
-            <circle cx="30" cy="105" r="18" fill="url(#moneyGradient)" stroke="#065f46" strokeWidth="1.5" opacity="0.8"/>
-            <circle cx="30" cy="105" r="16" fill="url(#moneyGradient)" stroke="#047857" strokeWidth="1"/>
-            <text x="30" y="110" fontFamily="Arial Black, sans-serif" fontSize="14" fontWeight="bold" 
-                  textAnchor="middle" fill="url(#dollarSignGradient)" filter="url(#embossFilter)">$</text>
+
             
             {/* Professional edge highlights */}
-            <rect x="6" y="6" width="188" height="108" rx="15" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5"/>
-            <rect x="8" y="8" width="184" height="104" rx="13" fill="none" stroke="rgba(0,0,0,0.2)" strokeWidth="0.8"/>
+            <rect x="8" y="8" width="234" height="134" rx="18" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5"/>
+            <rect x="10" y="10" width="230" height="130" rx="16" fill="none" stroke="rgba(0,0,0,0.2)" strokeWidth="0.8"/>
             
             {/* Subtle inner shadow for depth */}
-            <rect x="10" y="10" width="180" height="100" rx="12" fill="rgba(0,0,0,0.1)" opacity="0.3"/>
+            <rect x="12" y="12" width="226" height="126" rx="14" fill="rgba(0,0,0,0.1)" opacity="0.3"/>
           </g>
         </svg>
 
         {/* Subtle glow effect behind coin */}
         <div className="absolute inset-0 bg-gradient-to-r from-gray-200/30 to-gray-300/30 rounded-full blur-3xl -z-10 scale-110"></div>
 
-        {/* Growth percentage bubbles - clean monochromatic styling */}
-        {[
-          { value: '+18.2%', position: { left: '-80px', top: '-50px' }, icon: TrendingUp },
-          { value: '+12.8%', position: { left: '-60px', top: '-100px' }, icon: Target },
-          { value: '+16.3%', position: { left: '-40px', top: '-150px' }, icon: Star }
-        ].map((item, i) => (
-          <div
-            key={i}
-            className={`absolute bg-gradient-to-r mt-6 from-white to-gray-50 text-gray-800 px-6 py-3 rounded-full text-sm font-bold shadow-xl visual-element backdrop-blur-sm border border-gray-200 ${isAnimating ? 'stagger-in' : 'animate-pulse'
-              }`}
-            style={{
-              ...item.position,
-              animationDelay: isAnimating ? `${0.2 + i * 0.1}s` : `${i * 0.3}s`,
-              boxShadow: '0 10px 25px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.06)'
-            }}
-          >
-            <div className="flex items-center gap-2">
-              <item.icon className="w-3 h-3 text-gray-600" />
-              <div className="w-2 h-2 bg-gray-400 rounded-full animate-pulse"></div>
-            {item.value}
-            </div>
-          </div>
-        ))}
+
 
         {/* Clean Expert Management badge */}
         {/* <div className={`absolute -bottom-20 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-gray-900 to-gray-800 text-white px-8 py-4 rounded-xl text-sm font-medium shadow-2xl visual-element backdrop-blur-sm ${isAnimating ? 'stagger-in' : ''

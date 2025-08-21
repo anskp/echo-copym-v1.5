@@ -27,7 +27,6 @@ import {
     roadmap1,
     roadmap2,
     roadmap3,
-    roadmap4,
     searchMd,
     slack,
     sliders04,
@@ -94,8 +93,8 @@ export const brainwaveServicesIcons = [
 
 export const roadmap = [{
         id: "0",
-        title: "COPYM-AI Platform Launch",
-        text: "COPYM-AI's complete integration with Securitize, Polymath, RealT, Centrifuge, Tokeny, and Redbelly platforms for unified RWA tokenization.",
+        title: "Q1 2024 - Seed Funding & MVP",
+        text: "Raise $3.5M seed funding, launch MVP, and onboard first 10 assets. Establish core tokenization infrastructure and regulatory compliance framework.",
         date: "Q1 2024",
         status: "done",
         imageUrl: roadmap1,
@@ -103,45 +102,39 @@ export const roadmap = [{
     },
     {
         id: "1",
-        title: "COPYM-AI Compliance Engine",
-        text: "COPYM-AI's advanced AI-powered regulatory compliance, KYC/AML verification, and automated security token standards compliance.",
-        date: "Q2 2024",
+        title: "Q3 2024 - Beta AI Advisor",
+        text: "Launch beta AI investment advisor, onboard 100+ tokenized assets, and reach 5,000 active users. Expand asset classes and improve AI accuracy.",
+        date: "Q3 2024",
         status: "progress",
         imageUrl: roadmap2,
     },
     {
         id: "2",
-        title: "COPYM-AI DeFi Bridge",
-        text: "COPYM-AI's AI-driven DeFi integration, collateral optimization, and cross-chain liquidity management for real-world assets.",
-        date: "Q3 2024",
+        title: "Q1 2025 - Series A & Mobile",
+        text: "Raise $12M Series A funding, launch mobile app, and add more asset classes. Scale operations and enhance AI capabilities for better predictions.",
+        date: "Q1 2025",
         status: "done",
         imageUrl: roadmap3,
-    },
-    {
-        id: "3",
-        title: "COPYM-AI Cross-Chain",
-        text: "COPYM-AI's multi-blockchain compatibility and AI-powered asset standardization across Ethereum, Algorand, and other major chains.",
-        date: "Q4 2024",
-        status: "progress",
-        imageUrl: roadmap4,
     },
 ];
 
 export const collabText =
-    "Unified RWA tokenization platform integrating the world's leading blockchain and DeFi protocols for seamless asset management.";
+    "A unified platform that fractionalizes real-world assets and bridges them with leading blockchain and DeFi protocols — delivering liquidity, compliance, and security at scale.";
 
 export const collabContent = [{
         id: "0",
         title: "Platform Integration",
-        text: collabText,
+        text: "Digitize and fractionalize assets such as real estate, commodities, and securities. Seamlessly integrate with Ethereum, Polygon, Solana, Avalanche, and more for global liquidity.",
     },
     {
         id: "1",
         title: "AI Compliance",
+        text: "Automated KYC/AML, identity verification, and transaction monitoring powered by AI — ensuring adherence to FATF, SEC, and jurisdictional regulations.",
     },
     {
         id: "2",
         title: "Cross-Chain Security",
+        text: "MPC-based custody, trustless settlement, and interoperability across chains — ensuring institutional-grade protection for asset-backed transactions.",
     },
 ];
 
@@ -243,16 +236,16 @@ export const pricing = [{
 
 export const benefits = [{
         id: "0",
-        title: "COPYM-AI Compliance",
-        text: "COPYM-AI's proprietary AI-powered regulatory compliance and KYC/AML verification, enhanced by Securitize's proven security token platform.",
+        title: "The Problem We Solve",
+        text: "Traditional RWA investment is broken: too expensive ($10,000+ minimums), illiquid (weeks/months to trade), and complex (requires deep knowledge). Great opportunities are missed by everyday investors.",
         backgroundUrl: "/src/assets/benefits/card-1.svg",
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
     },
     {
         id: "1",
-        title: "COPYM-AI Intelligence",
-        text: "COPYM-AI's advanced security token standards and multi-asset portfolio optimization, powered by Polymath's ST-20 protocol.",
+        title: "AI-Powered Tokenization",
+        text: "Our platform converts real-world assets into secure, blockchain-based tokens with AI verification. Start investing with as little as $100 in fractional ownership of high-value assets.",
         backgroundUrl: "/src/assets/benefits/card-2.svg",
         iconUrl: benefitIcon2,
         imageUrl: benefitImage2,
@@ -260,16 +253,16 @@ export const benefits = [{
     },
     {
         id: "2",
-        title: "COPYM-AI Real Estate",
-        text: "COPYM-AI's machine learning models for real estate valuation and rental income prediction with fractional ownership.",
+        title: "Integrated Marketplace",
+        text: "Buy, sell, and trade fractional ownership instantly with our integrated marketplace. No more waiting weeks or months to liquidate your investments.",
         backgroundUrl: "/src/assets/benefits/card-3.svg",
         iconUrl: benefitIcon3,
         imageUrl: benefitImage2,
     },
     {
         id: "3",
-        title: "COPYM-AI DeFi Bridge",
-        text: "COPYM-AI's AI-driven DeFi integration and collateral optimization for real-world assets, enhanced by Centrifuge's platform.",
+        title: "AI Investment Advisor",
+        text: "Our AI predicts which assets will grow in value with 23% better accuracy than traditional tools. Get personalized recommendations for your investment portfolio.",
         backgroundUrl: "/src/assets/benefits/card-4.svg",
         iconUrl: benefitIcon4,
         imageUrl: benefitImage2,
@@ -277,16 +270,16 @@ export const benefits = [{
     },
     {
         id: "4",
-        title: "COPYM-AI Cross-Chain",
-        text: "COPYM-AI's cross-chain intelligence and multi-blockchain compatibility for seamless asset tokenization across all networks.",
+        title: "Smart Asset Verification",
+        text: "AI + human experts verify every asset's value and authenticity. Bank-level security for storing your tokens with advanced compliance and KYC/AML.",
         backgroundUrl: "/src/assets/benefits/card-5.svg",
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
     },
     {
         id: "5",
-        title: "COPYM-AI Security",
-        text: "COPYM-AI's AI-enhanced consensus mechanism and fork prevention, leveraging Redbelly's DBFT technology.",
+        title: "Business Model",
+        text: "Revenue through 2.5% tokenization fees, 1% marketplace fees, premium AI insights ($29-$299/month), and 0.75% annual management fees. Projected $18M/year by Year 3.",
         backgroundUrl: "/src/assets/benefits/card-6.svg",
         iconUrl: benefitIcon2,
         imageUrl: benefitImage2,
