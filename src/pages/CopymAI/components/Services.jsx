@@ -174,7 +174,7 @@ const Services = () => {
 
         {/* Comparison Table */}
         <div className="mt-20">
-          <h3 className="h3 text-center mb-12">Platform Comparison</h3>
+          <h3 className="h3 text-center mb-12">Institutional Advantage: COPYmAI vs Traditional Platforms</h3>
           <div className="relative z-1 border border-n-1/10 rounded-3xl overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
@@ -187,7 +187,7 @@ const Services = () => {
                  </thead>
                 <tbody>
                   <tr className="border-b border-n-1/10">
-                    <td className="p-6 font-semibold">AI-Powered Guidance</td>
+                    <td className="p-6 font-semibold">AI-Driven Decisioning</td>
                                          <td className="p-6 text-center">
                        <span className="inline-flex items-center px-3 py-1 rounded-full bg-color-4/20 text-color-4 text-sm font-semibold">
                          Advanced
@@ -195,12 +195,12 @@ const Services = () => {
                      </td>
                      <td className="p-6 text-center">
                        <span className="inline-flex items-center px-3 py-1 rounded-full bg-n-6 text-n-3 text-sm">
-                         None or Basic
+                         Basic / None
                        </span>
                      </td>
                   </tr>
                   <tr className="border-b border-n-1/10">
-                    <td className="p-6 font-semibold">Min Investment</td>
+                    <td className="p-6 font-semibold">Minimum Investment</td>
                     <td className="p-6 text-center text-color-1 font-bold">$100</td>
                     <td className="p-6 text-center text-n-3">$10K+</td>
                   </tr>
@@ -208,12 +208,12 @@ const Services = () => {
                     <td className="p-6 font-semibold">Asset Verification</td>
                                          <td className="p-6 text-center">
                        <span className="inline-flex items-center px-3 py-1 rounded-full bg-color-4/20 text-color-4 text-sm font-semibold">
-                         AI + Experts
+                         AI + Expert Review
                        </span>
                      </td>
                      <td className="p-6 text-center">
                        <span className="inline-flex items-center px-3 py-1 rounded-full bg-n-6 text-n-3 text-sm">
-                         Manual / Basic
+                         Manual / Limited
                        </span>
                      </td>
                   </tr>
@@ -221,13 +221,13 @@ const Services = () => {
                     <td className="p-6 font-semibold">Liquidity</td>
                                          <td className="p-6 text-center">
                        <span className="inline-flex items-center px-3 py-1 rounded-full bg-color-4/20 text-color-4 text-sm font-semibold">
-                         Instant trades
+                         Instant Trades
                        </span>
                      </td>
-                    <td className="p-6 text-center text-n-3">Weeks/months</td>
+                    <td className="p-6 text-center text-n-3">Weeks / Months</td>
                   </tr>
                   <tr>
-                    <td className="p-6 font-semibold">Portfolio Tools</td>
+                    <td className="p-6 font-semibold">Portfolio Management</td>
                                          <td className="p-6 text-center">
                        <span className="inline-flex items-center px-3 py-1 rounded-full bg-color-4/20 text-color-4 text-sm font-semibold">
                          AI-Optimized
@@ -235,7 +235,7 @@ const Services = () => {
                      </td>
                      <td className="p-6 text-center">
                        <span className="inline-flex items-center px-3 py-1 rounded-full bg-n-6 text-n-3 text-sm">
-                         Manual or Limited
+                         Manual / Limited
                        </span>
                      </td>
                   </tr>

@@ -27,7 +27,6 @@ import {
     roadmap1,
     roadmap2,
     roadmap3,
-    roadmap4,
     searchMd,
     slack,
     sliders04,
@@ -117,31 +116,25 @@ export const roadmap = [{
         status: "done",
         imageUrl: roadmap3,
     },
-    {
-        id: "3",
-        title: "Q4 2025 - Global Expansion",
-        text: "Global expansion with enterprise partnerships, advanced portfolio tools, and target of 50,000 users with $50M in tokenized assets by end of 2024.",
-        date: "Q4 2025",
-        status: "progress",
-        imageUrl: roadmap4,
-    },
 ];
 
 export const collabText =
-    "Unified RWA tokenization platform integrating the world's leading blockchain and DeFi protocols for seamless asset management.";
+    "A unified platform that fractionalizes real-world assets and bridges them with leading blockchain and DeFi protocols — delivering liquidity, compliance, and security at scale.";
 
 export const collabContent = [{
         id: "0",
         title: "Platform Integration",
-        text: collabText,
+        text: "Digitize and fractionalize assets such as real estate, commodities, and securities. Seamlessly integrate with Ethereum, Polygon, Solana, Avalanche, and more for global liquidity.",
     },
     {
         id: "1",
         title: "AI Compliance",
+        text: "Automated KYC/AML, identity verification, and transaction monitoring powered by AI — ensuring adherence to FATF, SEC, and jurisdictional regulations.",
     },
     {
         id: "2",
         title: "Cross-Chain Security",
+        text: "MPC-based custody, trustless settlement, and interoperability across chains — ensuring institutional-grade protection for asset-backed transactions.",
     },
 ];
 
