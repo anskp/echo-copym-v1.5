@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { service1, service2, service3, check } from "../assets";
 import { brainwaveServices, brainwaveServicesIcons } from "../constants";
+import Button from "./Button";
 import Generating from "./Generating";
 import Heading from "./Heading";
 import Section from "./Section";
@@ -18,24 +19,24 @@ const Services = () => {
   return (
     <Section id="how-to-use">
       <div className="container">
-        <Heading
-          title={
-            <>
-              RWA Tokenization AI for{" "}
-              <span className="inline-block relative font-semibold">
-                Asset Managers
-                <img
-                  src={curve}
-                  className="absolute top-full left-0 w-full xl:-mt-2 pointer-events-none select-none"
-                  width={624}
-                  height={28}
-                  alt="Curve"
-                />
-              </span>
-            </>
-          }
-          text="COPYM-AI unlocks the potential of AI-powered Real World Asset tokenization across all major platforms."
-        />
+                 <Heading
+           title={
+             <>
+               Why Choose{" "}
+               <span className="inline-block relative font-semibold">
+                 COPYM AI
+                 <img
+                   src={curve}
+                   className="absolute top-full left-0 w-full xl:-mt-2 pointer-events-none select-none"
+                   width={624}
+                   height={28}
+                   alt="Curve"
+                 />
+               </span>
+             </>
+           }
+           text="Revolutionizing Real-World Asset Investment with AI and Blockchain Technology"
+         />
 
         <div className="relative">
           {/* Service 1 */}
@@ -50,11 +51,11 @@ const Services = () => {
               />
             </div>
 
-            <div className="relative z-1 max-w-[17rem] ml-auto">
-              <h4 className="h4 mb-4">RWA Tokenization AI</h4>
-                             <p className="body-2 mb-[3rem] text-n-3">
-                 COPYM-AI is the first unified platform that integrates the world's leading RWA platforms with advanced AI capabilities, creating a seamless tokenization experience.
-               </p>
+                         <div className="relative z-1 max-w-[17rem] ml-auto">
+               <h4 className="h4 mb-4">COPYM AI</h4>
+                              <p className="body-2 mb-[3rem] text-n-3">
+                  COPYM-AI is the first unified platform that integrates the world's leading RWA platforms with advanced AI capabilities, creating a seamless tokenization experience.
+                </p>
               <ul className="body-2">
                 <li className="flex items-start py-4 border-t border-n-6">
                   <img
@@ -169,6 +170,113 @@ const Services = () => {
           </div>
 
           <Gradient />
+        </div>
+
+        {/* Comparison Table */}
+        <div className="mt-20">
+          <h3 className="h3 text-center mb-12">Platform Comparison</h3>
+          <div className="relative z-1 border border-n-1/10 rounded-3xl overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                                 <thead>
+                   <tr className="border-b border-n-1/10">
+                     <th className="p-6 text-left bg-n-7/50">Feature</th>
+                     <th className="p-6 text-center bg-color-1/10 text-color-1 font-bold">COPYM AI</th>
+                     <th className="p-6 text-center bg-n-7/50">Traditional Platforms</th>
+                   </tr>
+                 </thead>
+                <tbody>
+                  <tr className="border-b border-n-1/10">
+                    <td className="p-6 font-semibold">AI-Powered Guidance</td>
+                                         <td className="p-6 text-center">
+                       <span className="inline-flex items-center px-3 py-1 rounded-full bg-color-4/20 text-color-4 text-sm font-semibold">
+                         Advanced
+                       </span>
+                     </td>
+                     <td className="p-6 text-center">
+                       <span className="inline-flex items-center px-3 py-1 rounded-full bg-n-6 text-n-3 text-sm">
+                         None or Basic
+                       </span>
+                     </td>
+                  </tr>
+                  <tr className="border-b border-n-1/10">
+                    <td className="p-6 font-semibold">Min Investment</td>
+                    <td className="p-6 text-center text-color-1 font-bold">$100</td>
+                    <td className="p-6 text-center text-n-3">$10K+</td>
+                  </tr>
+                  <tr className="border-b border-n-1/10">
+                    <td className="p-6 font-semibold">Asset Verification</td>
+                                         <td className="p-6 text-center">
+                       <span className="inline-flex items-center px-3 py-1 rounded-full bg-color-4/20 text-color-4 text-sm font-semibold">
+                         AI + Experts
+                       </span>
+                     </td>
+                     <td className="p-6 text-center">
+                       <span className="inline-flex items-center px-3 py-1 rounded-full bg-n-6 text-n-3 text-sm">
+                         Manual / Basic
+                       </span>
+                     </td>
+                  </tr>
+                  <tr className="border-b border-n-1/10">
+                    <td className="p-6 font-semibold">Liquidity</td>
+                                         <td className="p-6 text-center">
+                       <span className="inline-flex items-center px-3 py-1 rounded-full bg-color-4/20 text-color-4 text-sm font-semibold">
+                         Instant trades
+                       </span>
+                     </td>
+                    <td className="p-6 text-center text-n-3">Weeks/months</td>
+                  </tr>
+                  <tr>
+                    <td className="p-6 font-semibold">Portfolio Tools</td>
+                                         <td className="p-6 text-center">
+                       <span className="inline-flex items-center px-3 py-1 rounded-full bg-color-4/20 text-color-4 text-sm font-semibold">
+                         AI-Optimized
+                       </span>
+                     </td>
+                     <td className="p-6 text-center">
+                       <span className="inline-flex items-center px-3 py-1 rounded-full bg-n-6 text-n-3 text-sm">
+                         Manual or Limited
+                       </span>
+                     </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        {/* Funding Section */}
+        <div className="mt-20">
+          <div className="relative z-1 border border-n-1/10 rounded-3xl overflow-hidden p-8 lg:p-12">
+                         <div className="text-center mb-8">
+               <h3 className="h3 mb-4">Our Investment Ask</h3>
+              <p className="body-2 text-n-3 max-w-2xl mx-auto">
+                We're raising <span className="text-color-1 font-bold">$3.5M seed funding</span> to accelerate development, 
+                ensure full regulatory compliance, and acquire premium assets.
+              </p>
+            </div>
+            
+            <div className="grid gap-6 md:grid-cols-3 mb-8">
+              <div className="text-center p-6 bg-n-7/50 rounded-2xl">
+                <div className="text-2xl font-bold text-color-1 mb-2">50,000</div>
+                <div className="text-sm text-n-3">Target Users by 2024</div>
+              </div>
+              <div className="text-center p-6 bg-n-7/50 rounded-2xl">
+                <div className="text-2xl font-bold text-color-4 mb-2">$50M</div>
+                <div className="text-sm text-n-3">Tokenized Assets by 2024</div>
+              </div>
+              <div className="text-center p-6 bg-n-7/50 rounded-2xl">
+                <div className="text-2xl font-bold text-color-1 mb-2">$18M</div>
+                <div className="text-sm text-n-3">Projected Revenue by Year 3</div>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <Button href="#contact" white>
+                Invest Now
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </Section>

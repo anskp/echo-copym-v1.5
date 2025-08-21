@@ -42,7 +42,7 @@ const Hero = () => {
           </h1>
 
           <p className="body-1 max-w-3xl mx-auto mb-6 text-n-2 lg:mb-8">
-            Unleash the power of AI-powered Real World Asset tokenization within COPYM. 
+            Our AI has shown <span className="text-color-1 font-bold">23% better accuracy</span> in predicting asset appreciation vs top market tools. 
             Experience the future of finance with{" "}
             <span className="inline-block relative font-semibold">
               COPYM-AI
@@ -56,6 +56,22 @@ const Hero = () => {
             </span>
             , the unified RWA tokenization AI platform.
           </p>
+
+          {/* Market Potential Stats */}
+          <div className="flex flex-wrap justify-center gap-8 mb-8">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-color-1 mb-2">$16T</div>
+              <div className="text-sm text-n-3">Total RWA value by 2025</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-color-4 mb-2">43%</div>
+              <div className="text-sm text-n-3">Market CAGR</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-color-1 mb-2">$1.5B</div>
+              <div className="text-sm text-n-3">Year 1 target market</div>
+            </div>
+          </div>
 
           <Button href="#pricing" white>
             Get started
