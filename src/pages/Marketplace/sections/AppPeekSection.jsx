@@ -11,7 +11,7 @@ const mediaItems = [
     video: "/assets/videos/latest-fonview-1.mp4",
     label: "Deposit / Withdraw",
     icon: <Wallet className="w-5 h-5" />,
-    description: "Seamlessly manage your digital assets with secure deposit and withdrawal functionality"
+    description: ""
   },
   {
     id: "marketplace",
@@ -19,7 +19,7 @@ const mediaItems = [
     video: "/assets/videos/latest-fonview-2.mp4",
     label: "Explore Assets",
     icon: <LayoutGrid className="w-5 h-5" />,
-    description: "Discover and invest in a diverse range of tokenized real-world assets"
+    description: ""
   },
   {
     id: "dashboard",
@@ -27,7 +27,7 @@ const mediaItems = [
     video: "/assets/videos/latest-fonview-3.mp4",
     label: "Track Portfolio",
     icon: <LineChart className="w-5 h-5" />,
-    description: "Monitor your investments with real-time analytics and performance tracking"
+    description: ""
   },
 ];
 
@@ -36,7 +36,7 @@ export default function AppPeekSection() {
   const [isMobile, setIsMobile] = useState(false);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [videoPlayingStates, setVideoPlayingStates] = useState({});
-  const [mediaType, setMediaType] = useState('screenshot'); // 'screenshot' or 'video'
+  const [mediaType, setMediaType] = useState('video'); // Only 'video' mode
   const videoRefs = useRef({});
   const intervalRef = useRef(null);
   const total = mediaItems.length;
@@ -73,61 +73,43 @@ export default function AppPeekSection() {
     };
   }, [isAutoPlaying, total]);
 
-  // Auto-start videos when switching to video mode
+  // Auto-start videos when component mounts
   useEffect(() => {
-    if (mediaType === 'video') {
-      // Wait for video elements to be ready
-      const timer = setTimeout(() => {
-        Object.keys(videoRefs.current).forEach(id => {
-          const videoElement = videoRefs.current[id];
-          if (videoElement && videoElement.readyState >= 2) {
-            videoElement.play().catch(() => {
-              // Autoplay prevented by browser
-            });
-          }
-        });
-      }, 1000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [mediaType]);
-
-  // Preload videos during screenshot mode for smooth transitions
-  useEffect(() => {
-    if (mediaType === 'screenshot') {
-      // Preload videos in background
+    // Wait for video elements to be ready
+    const timer = setTimeout(() => {
       Object.keys(videoRefs.current).forEach(id => {
-        const video = videoRefs.current[id];
-        if (video) {
-          video.load();
-          video.currentTime = 0;
+        const videoElement = videoRefs.current[id];
+        if (videoElement && videoElement.readyState >= 2) {
+          videoElement.play().catch(() => {
+            // Autoplay prevented by browser
+          });
         }
       });
-    }
-  }, [mediaType]);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   // Keep videos perfectly synchronized
   useEffect(() => {
-    if (mediaType === 'video') {
-      const syncVideos = () => {
-        const videos = Object.values(videoRefs.current);
-        const firstVideo = videos[0];
-        if (firstVideo && firstVideo.readyState >= 2) {
-          videos.forEach(video => {
-            if (video && video !== firstVideo && video.readyState >= 2) {
-              // Keep videos in sync with small tolerance
-              if (Math.abs(video.currentTime - firstVideo.currentTime) > 0.1) {
-                video.currentTime = firstVideo.currentTime;
-              }
+    const syncVideos = () => {
+      const videos = Object.values(videoRefs.current);
+      const firstVideo = videos[0];
+      if (firstVideo && firstVideo.readyState >= 2) {
+        videos.forEach(video => {
+          if (video && video !== firstVideo && video.readyState >= 2) {
+            // Keep videos in sync with small tolerance
+            if (Math.abs(video.currentTime - firstVideo.currentTime) > 0.1) {
+              video.currentTime = firstVideo.currentTime;
             }
-          });
-        }
-      };
-      
-      const syncInterval = setInterval(syncVideos, 500); // Sync every 500ms
-      return () => clearInterval(syncInterval);
-    }
-  }, [mediaType]);
+          }
+        });
+      }
+    };
+    
+    const syncInterval = setInterval(syncVideos, 500); // Sync every 500ms
+    return () => clearInterval(syncInterval);
+  }, []);
 
   // Enhanced video start function for perfect synchronization
   const startAllVideos = () => {
@@ -147,19 +129,6 @@ export default function AppPeekSection() {
         dashboard: true
       });
     });
-  };
-
-  // Handle media type toggle
-  const toggleMediaType = () => {
-    const newMediaType = mediaType === 'screenshot' ? 'video' : 'screenshot';
-    setMediaType(newMediaType);
-    
-    if (newMediaType === 'video') {
-      // Start videos on next animation frame for perfect timing
-      requestAnimationFrame(() => {
-        setTimeout(startAllVideos, 300);
-      });
-    }
   };
 
   // Handle item click
@@ -208,7 +177,7 @@ export default function AppPeekSection() {
   const activeItem = mediaItems[activeIndex];
 
   return (
-    <section className="py-24 text-gray-800 overflow-x-hidden bg-gradient-to-b from-gray-50 to-white">
+         <section className="py-24 text-gray-800 overflow-x-hidden bg-blue-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
@@ -233,36 +202,7 @@ export default function AppPeekSection() {
             Manage your assets, monitor real-time performance, and view tokenized ownership — all through an intuitive interface built for next-gen investors.
           </motion.p>
 
-          {/* Media Type Toggle */}
-          <motion.div 
-            className="flex justify-center mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <div className="flex items-center gap-4 bg-white/70 backdrop-blur-md rounded-full p-2 shadow-lg border border-gray-200">
-              <button
-                onClick={() => setMediaType('screenshot')}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  mediaType === 'screenshot' 
-                    ? 'bg-[#255f99] text-white shadow-md' 
-                    : 'text-gray-600 hover:text-gray-800'
-                }`}
-              >
-                Screenshots
-              </button>
-              <button
-                onClick={() => setMediaType('video')}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  mediaType === 'video' 
-                    ? 'bg-[#15a36e] text-white shadow-md' 
-                    : 'text-gray-600 hover:text-gray-800'
-                }`}
-              >
-                Videos
-              </button>
-            </div>
-          </motion.div>
+
 
           {/* Active Item Label */}
           <div className="h-12 flex items-center justify-center mb-6">
@@ -314,9 +254,9 @@ export default function AppPeekSection() {
                >
                 <div className="relative">
                   <PhoneMockup 
-                    screenshot={mediaType === 'video' ? item.video : item.screenshot} 
+                    screenshot={item.video} 
                     alt={item.label}
-                    isVideo={mediaType === 'video'}
+                    isVideo={true}
                     videoRef={(el) => {
                       if (el) videoRefs.current[item.id] = el;
                     }}

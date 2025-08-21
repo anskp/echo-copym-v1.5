@@ -321,13 +321,13 @@ const RealEstateInvestmentSection = () => {
               data-segment={segment.id}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={animationTriggered ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.1, // Clockwise sequence: 0s, 0.1s, 0.2s, 0.3s
-                  type: "spring",
-                  stiffness: 200,
-                  damping: 20
-                }}
+                                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.05, // Clockwise sequence: 0s, 0.05s, 0.1s, 0.15s
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 20
+                  }}
             />
           ))}
         </g>
@@ -343,12 +343,12 @@ const RealEstateInvestmentSection = () => {
               fill="#2a5f5f"
                 initial={{ opacity: 0, r: 0 }}
                 animate={animationTriggered ? { opacity: 1, r: 4 } : { opacity: 0, r: 0 }}
-                transition={{
-                  duration: 0.4,
-                  delay: 0.4 + index * 0.1, // Clockwise sequence: 0.4s, 0.5s, 0.6s, 0.7s
-                  type: "spring",
-                  stiffness: 300
-                }}
+                                  transition={{
+                    duration: 0.4,
+                    delay: 0.2 + index * 0.05, // Clockwise sequence: 0.2s, 0.25s, 0.3s, 0.35s
+                    type: "spring",
+                    stiffness: 300
+                  }}
             />
             
             {/* Connecting line */}
@@ -362,10 +362,10 @@ const RealEstateInvestmentSection = () => {
               opacity="0.5"
                 initial={{ opacity: 0 }}
                 animate={animationTriggered ? { opacity: 0.5 } : { opacity: 0 }}
-                transition={{
-                  duration: 0.3,
-                  delay: 0.5 + index * 0.1 // Clockwise sequence: 0.5s, 0.6s, 0.7s, 0.8s
-                }}
+                                  transition={{
+                    duration: 0.3,
+                    delay: 0.25 + index * 0.05 // Clockwise sequence: 0.25s, 0.3s, 0.35s, 0.4s
+                  }}
             />
             
             {/* Label box */}
@@ -382,12 +382,12 @@ const RealEstateInvestmentSection = () => {
               className="label-box"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={animationTriggered ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.6 + index * 0.1, // Clockwise sequence: 0.6s, 0.7s, 0.8s, 0.9s
-                  type: "spring",
-                  stiffness: 200
-                }}
+                                  transition={{
+                    duration: 0.5,
+                    delay: 0.3 + index * 0.05, // Clockwise sequence: 0.3s, 0.35s, 0.4s, 0.45s
+                    type: "spring",
+                    stiffness: 200
+                  }}
             />
             
             {/* Label text */}
@@ -400,10 +400,10 @@ const RealEstateInvestmentSection = () => {
               textAnchor="middle"
                 initial={{ opacity: 0 }}
                 animate={animationTriggered ? { opacity: 1 } : { opacity: 0 }}
-                transition={{
-                  duration: 0.3,
-                  delay: 0.7 + index * 0.1 // Clockwise sequence: 0.7s, 0.8s, 0.9s, 1.0s
-                }}
+                                  transition={{
+                    duration: 0.3,
+                    delay: 0.35 + index * 0.05 // Clockwise sequence: 0.35s, 0.4s, 0.45s, 0.5s
+                  }}
             >
               {segment.label}
               </motion.text>
@@ -418,10 +418,10 @@ const RealEstateInvestmentSection = () => {
               textAnchor="middle"
                 initial={{ opacity: 0 }}
                 animate={animationTriggered ? { opacity: 1 } : { opacity: 0 }}
-                transition={{
-                  duration: 0.3,
-                  delay: 0.8 + index * 0.1 // Clockwise sequence: 0.8s, 0.9s, 1.0s, 1.1s
-                }}
+                                  transition={{
+                    duration: 0.3,
+                    delay: 0.4 + index * 0.05 // Clockwise sequence: 0.4s, 0.45s, 0.5s, 0.55s
+                  }}
             >
               ({segment.percentage})
               </motion.text>

@@ -257,15 +257,9 @@ const FocusLane = () => {
             {/* GSAP-Enhanced Card Container with defined scroll zone */}
             <div
                 ref={containerRef}
-                className="relative w-full h-[550px] mx-auto max-w-6xl cursor-grab active:cursor-grabbing border-2 border-dashed border-blue-200 rounded-xl bg-gradient-to-br from-blue-50/30 to-green-50/30"
+                className="relative w-full h-[550px] mx-auto max-w-6xl cursor-grab active:cursor-grabbing"
                 style={{ perspective: '1500px' }}
             >
-                {/* Scroll zone indicator */}
-                <div className="absolute top-2 left-1/2 transform -translate-x-1/2 z-20">
-                    <div className="px-3 py-1 bg-white/80 backdrop-blur-sm rounded-full text-xs font-medium text-slate-600 border border-blue-200">
-                        Scroll here to navigate cards
-                    </div>
-                </div>
                 <div className="absolute inset-0" style={{ transformStyle: 'preserve-3d' }}>
                     {allCardData.map((card, i) => (
                         <motion.div
