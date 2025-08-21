@@ -60,6 +60,16 @@ export default function Hero() {
     pointLight.position.set(-10, 10, 10);
     scene.add(pointLight);
 
+    // Blue light from top right for reflection effect
+    const blueLight = new THREE.PointLight(0x0066ff, 2, 80);
+    blueLight.position.set(15, 15, 10);
+    scene.add(blueLight);
+
+    // Additional blue light from top right for enhanced reflection
+    const blueLight2 = new THREE.PointLight(0x0099ff, 1.5, 60);
+    blueLight2.position.set(20, 20, 5);
+    scene.add(blueLight2);
+
     const loader = new GLTFLoader();
 
     const geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -69,10 +79,10 @@ export default function Hero() {
     scene.add(cube);
 
     loader.load(
-      '/assets/glb/copym-logo.glb',
+      '/assets/glb/abstract_ball (2).glb',
       (gltf) => {
         const model = gltf.scene;
-        model.scale.set(60, 60, 60);
+        model.scale.set(25, 25, 25);
         model.position.set(3, -1, 0);
         model.castShadow = true;
         model.receiveShadow = true;
@@ -84,7 +94,7 @@ export default function Hero() {
         // gsap.fromTo(model.rotation, { y: 0 }, { y: Math.PI * 2, duration: 20, ease: 'none', repeat: -1 });
 
         gsap.fromTo(model.scale, { x: 0, y: 0, z: 0 }, {
-          x: 60, y: 60, z: 60,
+          x: 25, y: 25, z: 25,
           duration: 1.5,
           ease: 'back.out(1.7)'
         });
