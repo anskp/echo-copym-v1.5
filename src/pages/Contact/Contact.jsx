@@ -405,7 +405,7 @@ const Contact = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-[#065f46] focus:border-transparent text-sm sm:text-base ${errors.name ? 'border-red-300' : 'border-gray-300'
+                      className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-[#065f46] focus:border-transparent text-sm sm:text-base bg-white text-gray-900 ${errors.name ? 'border-red-300' : 'border-gray-300'
                         }`}
                       placeholder="John Smith"
                       required
@@ -420,7 +420,7 @@ const Contact = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-[#065f46] focus:border-transparent text-sm sm:text-base ${errors.email ? 'border-red-300' : 'border-gray-300'
+                      className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-[#065f46] focus:border-transparent text-sm sm:text-base bg-white text-gray-900 ${errors.email ? 'border-red-300' : 'border-gray-300'
                         }`}
                       placeholder="john@institution.com"
                       required
@@ -438,7 +438,7 @@ const Contact = () => {
                       name="company"
                       value={formData.company}
                       onChange={handleInputChange}
-                      className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-[#065f46] focus:border-transparent text-sm sm:text-base ${errors.company ? 'border-red-300' : 'border-gray-300'
+                      className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-[#065f46] focus:border-transparent text-sm sm:text-base bg-white text-gray-900 ${errors.company ? 'border-red-300' : 'border-gray-300'
                         }`}
                       placeholder="ABC Capital Partners"
                       required
@@ -453,7 +453,7 @@ const Contact = () => {
                       name="role"
                       value={formData.role}
                       onChange={handleInputChange}
-                      className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-[#065f46] focus:border-transparent text-sm sm:text-base ${errors.role ? 'border-red-300' : 'border-gray-300'
+                      className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-[#065f46] focus:border-transparent text-sm sm:text-base bg-white text-gray-900 ${errors.role ? 'border-red-300' : 'border-gray-300'
                         }`}
                       placeholder="CFO, Portfolio Manager, etc."
                       required
@@ -503,7 +503,7 @@ const Contact = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-[#065f46] text-sm sm:text-base ${errors.phone ? 'border-red-300' : 'border-gray-300'
+                      className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-[#065f46] text-sm sm:text-base bg-white text-gray-900 ${errors.phone ? 'border-red-300' : 'border-gray-300'
                         }`}
                       placeholder="+1 (555) 123-4567"
                     />
@@ -519,7 +519,7 @@ const Contact = () => {
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-[#065f46] text-sm sm:text-base ${errors.subject ? 'border-red-300' : 'border-gray-300'
+                    className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-[#065f46] text-sm sm:text-base bg-white text-gray-900 ${errors.subject ? 'border-red-300' : 'border-gray-300'
                       }`}
                     placeholder="e.g., Investment in Commercial Real Estate"
                     required
@@ -584,7 +584,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={4}
-                    className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-[#065f46] resize-none text-sm sm:text-base ${errors.message ? 'border-red-300' : 'border-gray-300'
+                    className={`w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:ring-2 focus:ring-[#065f46] resize-none text-sm sm:text-base bg-white text-gray-900 ${errors.message ? 'border-red-300' : 'border-gray-300'
                       }`}
                     placeholder="Please describe your interest, use case, or integration needs..."
                     required
