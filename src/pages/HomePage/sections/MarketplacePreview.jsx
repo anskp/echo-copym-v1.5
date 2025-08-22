@@ -1,20 +1,170 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { 
   Building, Car, Watch, Palette, Home, Gem, TrendingUp, 
   DollarSign, CreditCard, Clock, ArrowUpRight, Users, 
   Star, Shield, Zap, Activity, Wallet, BarChart3
 } from "lucide-react";
 
+// Hologram Wallet Component
+const HologramWallet = () => {
+  return (
+    <div 
+      className="absolute top-1/2 -right-32 transform -translate-y-1/2"
+      style={{
+        transformStyle: 'preserve-3d',
+        animation: 'float 6s ease-in-out infinite',
+        transform: 'translateY(-50%) translateZ(50px) rotateY(-15deg)',
+      }}
+    >
+      <div 
+        className="relative bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl p-6 border border-cyan-400 shadow-lg"
+        style={{
+          transform: 'translateZ(20px)',
+        }}
+      >
+        <div className="relative z-10 text-center">
+          <div className="text-cyan-100 text-sm font-medium mb-1 uppercase tracking-wider">
+            Total Balance
+          </div>
+          <div className="text-white text-3xl font-bold mb-3">
+            ₹1,78,000
+          </div>
+          <div className="flex items-center justify-center gap-2 text-emerald-200 text-sm">
+            <div className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></div>
+            <span>Available: ₹12,000</span>
+          </div>
+          
+          <div className="absolute -top-2 -left-2 w-4 h-4 rounded-full border border-cyan-300 animate-ping"></div>
+          <div className="absolute -bottom-2 -right-2 w-4 h-4 rounded-full border border-cyan-300 animate-ping"></div>
+          
+          <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-cyan-200"></div>
+          <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-cyan-200"></div>
+          <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-cyan-200"></div>
+          <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-cyan-200"></div>
+        </div>
+        
+        <div 
+          className="absolute top-1/2 -left-4 w-4 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent"
+          style={{
+            transform: 'translateY(-50%)',
+          }}
+        ></div>
+      </div>
+    </div>
+  );
+};
+
+// Marketplace Stats Component
+const MarketplaceStats = () => {
+  return (
+    <div 
+      className="absolute top-1/2 -left-32 transform -translate-y-1/2"
+      style={{
+        transformStyle: 'preserve-3d',
+        animation: 'float-reverse 6s ease-in-out infinite',
+        transform: 'translateY(-50%) translateZ(50px) rotateY(15deg)',
+      }}
+    >
+      <div 
+        className="relative bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl p-6 border border-emerald-400 shadow-lg"
+        style={{
+          transform: 'translateZ(20px)',
+        }}
+      >
+        <div className="relative z-10 text-center">
+          <div className="text-emerald-100 text-sm font-medium mb-1 uppercase tracking-wider">
+            Portfolio Value
+          </div>
+          <div className="text-white text-3xl font-bold mb-3">
+            ₹54,210
+          </div>
+          <div className="flex items-center justify-center gap-2 text-emerald-200 text-sm">
+            <div className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></div>
+            <span>+4.5% Today</span>
+          </div>
+          
+          <div className="absolute -top-2 -left-2 w-4 h-4 rounded-full border border-emerald-300 animate-ping"></div>
+          <div className="absolute -bottom-2 -right-2 w-4 h-4 rounded-full border border-emerald-300 animate-ping"></div>
+          
+          <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-emerald-200"></div>
+          <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-emerald-200"></div>
+          <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-emerald-200"></div>
+          <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-emerald-200"></div>
+        </div>
+        
+        <div 
+          className="absolute top-1/2 -right-4 w-4 h-0.5 bg-gradient-to-l from-emerald-400 to-transparent"
+          style={{
+            transform: 'translateY(-50%)',
+          }}
+        ></div>
+      </div>
+    </div>
+  );
+};
+
+// 3D Phone Component
+const Phone3D = ({ image, rotation = "", additionalTransform = "" }) => {
+  return (
+    <div 
+      className={`relative w-[280px] h-[580px] transition-all duration-700 hover:scale-105 ${rotation}`}
+      style={{ perspective: '1000px' }}
+    >
+      {/* 3D Phone Container */}
+      <div 
+        className="relative w-full h-full bg-gradient-to-br from-blue-400 via-cyan-400 to-blue-500 rounded-[3rem] p-2 shadow-2xl"
+        style={{
+          background: 'linear-gradient(135deg, #3b82f6, #06b6d4, #3b82f6)',
+          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+          transform: `rotateX(-15deg) rotateY(-25deg) rotateZ(15deg) ${additionalTransform}`,
+          transformStyle: 'preserve-3d'
+        }}
+      >
+        {/* Phone Screen */}
+        <div className="w-full h-full bg-black rounded-[2.5rem] p-1">
+          <div className="w-full h-full bg-white rounded-[2.3rem] overflow-hidden">
+            {/* Your marketplace/wallet image goes here */}
+            <img 
+              src={image} 
+              alt="App Interface"
+              className="w-full h-full object-cover rounded-[2.3rem]"
+            />
+          </div>
+        </div>
+        
+        {/* Phone Reflection/Glow Effect */}
+        <div 
+          className="absolute -bottom-16 left-1/2 w-60 h-16 bg-gradient-to-r from-transparent via-blue-300 to-transparent opacity-40 blur-2xl rounded-full"
+          style={{
+            transform: 'translateX(-50%) rotateX(90deg) translateZ(-20px)',
+            transformOrigin: 'center top'
+          }}
+        ></div>
+        
+        {/* Additional shadow for depth */}
+        <div 
+          className="absolute top-4 left-4 w-full h-full bg-black opacity-10 rounded-[3rem] -z-10"
+          style={{
+            transform: 'translateZ(-10px)'
+          }}
+        ></div>
+      </div>
+    </div>
+  );
+};
+
 export default function MarketplacePreview() {
-  const navigate = useNavigate();
+  const handleExploreClick = () => {
+    // Replace with your navigation logic
+    console.log("Navigate to marketplace");
+  };
 
   return (
     <section className="py-24 text-gray-800 overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Heading */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-24">
           <h2 className="brand-section-title text-4xl md:text-5xl font-bold bg-clip-text mb-4">
             <span className='text-[#255f99]'>Marketplace Preview </span>
           </h2>
@@ -24,212 +174,95 @@ export default function MarketplacePreview() {
         </div>
 
         <div className="flex flex-col items-center">
-          {/* Dual Phone Mockup */}
-          <div className="flex justify-center items-center gap-8 mb-12 relative">
-            {/* Left Phone - Marketplace (Tilted Forward) */}
-            <div className="relative transform rotate-6 translate-y-4 transition-all duration-500 hover:scale-105">
-              <div className="relative w-[280px] h-[580px] bg-black rounded-[45px] p-3 shadow-2xl">
-                <div className="w-full h-full bg-white rounded-[37px] overflow-hidden">
-                  {/* Marketplace Interface */}
-                  <div className="h-full bg-gradient-to-br from-gray-50 to-gray-100 p-4">
-                    {/* Header */}
-                    <div className="flex items-center justify-between mb-6">
-                      <h3 className="text-lg font-bold text-gray-800">Marketplace</h3>
-                      <div className="w-8 h-8 bg-[#255f99] rounded-full flex items-center justify-center">
-                        <Activity className="w-4 h-4 text-white" />
-                      </div>
-                    </div>
-
-                    {/* Search Bar */}
-                    <div className="bg-white rounded-xl p-3 mb-6 shadow-sm border border-gray-200">
-                      <div className="flex items-center gap-3">
-                        <div className="w-4 h-4 bg-[#15a36e] rounded-full"></div>
-                        <span className="text-gray-500 text-sm">Search tokenized assets...</span>
-                      </div>
-                    </div>
-
-                    {/* Asset Categories */}
-                    <div className="space-y-4">
-                      {/* Luxury Apartment */}
-                      <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-200">
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                            <Building className="w-6 h-6 text-white" />
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="font-semibold text-gray-800">Luxury Apartment</h4>
-                            <p className="text-sm text-gray-500">Manhattan, NYC</p>
-                          </div>
-                          <div className="text-right">
-                            <p className="font-bold text-[#255f99]">$2.4M</p>
-                            <p className="text-xs text-green-600">+12.5%</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center justify-between text-xs text-gray-500">
-                          <span>Token: APT-001</span>
-                          <span>Available: 45%</span>
-                        </div>
-                      </div>
-
-                      {/* Real Estate Tower */}
-                      <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-200">
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
-                            <Home className="w-6 h-6 text-white" />
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="font-semibold text-gray-800">Office Tower</h4>
-                            <p className="text-sm text-gray-500">Downtown LA</p>
-                          </div>
-                          <div className="text-right">
-                            <p className="font-bold text-[#255f99]">$18.7M</p>
-                            <p className="text-xs text-green-600">+8.3%</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center justify-between text-xs text-gray-500">
-                          <span>Token: TWR-002</span>
-                          <span>Available: 23%</span>
-                        </div>
-                      </div>
-
-                      {/* Collectible Watch */}
-                      <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-200">
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-lg flex items-center justify-center">
-                            <Watch className="w-6 h-6 text-white" />
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="font-semibold text-gray-800">Rolex Daytona</h4>
-                            <p className="text-sm text-gray-500">Limited Edition</p>
-                          </div>
-                          <div className="text-right">
-                            <p className="font-bold text-[#255f99]">$85K</p>
-                            <p className="text-xs text-green-600">+15.2%</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center justify-between text-xs text-gray-500">
-                          <span>Token: WCH-003</span>
-                          <span>Available: 67%</span>
-                        </div>
-                      </div>
-
-                      {/* Luxury Vehicle */}
-                      <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-200">
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center">
-                            <Car className="w-6 h-6 text-white" />
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="font-semibold text-gray-800">Tesla Model S</h4>
-                            <p className="text-sm text-gray-500">Plaid Edition</p>
-                          </div>
-                          <div className="text-right">
-                            <p className="font-bold text-[#255f99]">$120K</p>
-                            <p className="text-xs text-green-600">+6.8%</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center justify-between text-xs text-gray-500">
-                          <span>Token: CAR-004</span>
-                          <span>Available: 89%</span>
-                        </div>
-                      </div>
-                    </div>
+          {/* Dual Device Mockup with 3D Phones - Matching original reference */}
+          <div className="flex justify-center items-center gap-6 mb-20 relative" style={{ perspective: '1000px' }}>
+            {/* Left Device - Subtle forward tilt */}
+            <div 
+              className="relative w-[240px] h-[500px] transition-all duration-700 hover:scale-105"
+              style={{ perspective: '1000px' }}
+            >
+              {/* 3D Phone Container */}
+              <div 
+                className="relative w-full h-full bg-gradient-to-br from-blue-400 via-cyan-400 to-blue-500 rounded-[3rem] p-2 shadow-2xl"
+                style={{
+                  background: 'linear-gradient(135deg, #3b82f6, #06b6d4, #3b82f6)',
+                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+                  transform: 'rotateX(8deg) rotateY(12deg) rotateZ(-8deg) translateY(50px) translateX(20px)',
+                  transformStyle: 'preserve-3d'
+                }}
+              >
+                <div className="w-full h-full bg-black rounded-[2.5rem] p-1">
+                  <div className="w-full h-full bg-white rounded-[2.3rem] overflow-hidden">
+                    <img 
+                      src="/assets/Images/devices/marketplace001.jpg" 
+                      alt="App Interface"
+                      className="w-full h-full object-cover rounded-[2.3rem]"
+                    />
                   </div>
                 </div>
+                
+                <div 
+                  className="absolute -bottom-16 left-1/2 w-60 h-16 bg-gradient-to-r from-transparent via-blue-300 to-transparent opacity-40 blur-2xl rounded-full"
+                  style={{
+                    transform: 'translateX(-50%) rotateX(90deg) translateZ(-20px)',
+                    transformOrigin: 'center top'
+                  }}
+                ></div>
+                
+                <div 
+                  className="absolute top-4 left-4 w-full h-full bg-black opacity-10 rounded-[3rem] -z-10"
+                  style={{
+                    transform: 'translateZ(-10px)'
+                  }}
+                ></div>
+                
+                {/* Marketplace Stats Hologram */}
+                <MarketplaceStats />
               </div>
             </div>
 
-            {/* Right Phone - Wallet (Tilted Backward) */}
-            <div className="relative transform -rotate-6 -translate-y-4 transition-all duration-500 hover:scale-105">
-              <div className="relative w-[280px] h-[580px] bg-black rounded-[45px] p-3 shadow-2xl">
-                <div className="w-full h-full bg-white rounded-[37px] overflow-hidden">
-                  {/* Wallet Interface */}
-                  <div className="h-full bg-gradient-to-br from-gray-900 to-gray-800 p-4">
-                    {/* Header */}
-                    <div className="flex items-center justify-between mb-6">
-                      <h3 className="text-lg font-bold text-white">Wallet</h3>
-                      <div className="w-8 h-8 bg-[#15a36e] rounded-full flex items-center justify-center">
-                        <Wallet className="w-4 h-4 text-white" />
-                      </div>
-                    </div>
-
-                    {/* Balance Section */}
-                    <div className="bg-gradient-to-br from-[#255f99] to-[#15a36e] rounded-xl p-4 mb-6">
-                      <div className="text-center">
-                        <p className="text-white/80 text-sm mb-1">Total Balance</p>
-                        <p className="text-3xl font-bold text-white mb-2">$2,912.45</p>
-                        <div className="flex items-center justify-center gap-2 text-white/90 text-sm">
-                          <TrendingUp className="w-4 h-4" />
-                          <span>+$156.78 (5.7%)</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Quick Actions */}
-                    <div className="grid grid-cols-2 gap-3 mb-6">
-                      <div className="bg-gray-700 rounded-lg p-3 text-center">
-                        <div className="w-8 h-8 bg-[#15a36e] rounded-full flex items-center justify-center mx-auto mb-2">
-                          <ArrowUpRight className="w-4 h-4 text-white" />
-                        </div>
-                        <p className="text-white text-xs">Send</p>
-                      </div>
-                      <div className="bg-gray-700 rounded-lg p-3 text-center">
-                        <div className="w-8 h-8 bg-[#255f99] rounded-full flex items-center justify-center mx-auto mb-2">
-                          <CreditCard className="w-4 h-4 text-white" />
-                        </div>
-                        <p className="text-white text-xs">Receive</p>
-                      </div>
-                    </div>
-
-                    {/* Offers Section */}
-                    <div className="bg-gray-700 rounded-xl p-4 mb-4">
-                      <div className="flex items-center justify-between mb-3">
-                        <h4 className="font-semibold text-white">Active Offers</h4>
-                        <span className="text-[#15a36e] text-sm font-medium">3 new</span>
-                      </div>
-                      <div className="space-y-2">
-                        <div className="flex items-center justify-between text-sm">
-                          <span className="text-gray-300">APT-001 Purchase</span>
-                          <span className="text-white font-medium">$45,000</span>
-                        </div>
-                        <div className="flex items-center justify-between text-sm">
-                          <span className="text-gray-300">TWR-002 Sale</span>
-                          <span className="text-white font-medium">$125,000</span>
-                        </div>
-                        <div className="flex items-center justify-between text-sm">
-                          <span className="text-gray-300">WCH-003 Bid</span>
-                          <span className="text-white font-medium">$12,500</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Transaction History */}
-                    <div className="bg-gray-700 rounded-xl p-4">
-                      <div className="flex items-center justify-between mb-3">
-                        <h4 className="font-semibold text-white">Recent Activity</h4>
-                        <span className="text-[#15a36e] text-sm">22 total</span>
-                      </div>
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-3 text-sm">
-                          <div className="w-2 h-2 bg-[#15a36e] rounded-full"></div>
-                          <div className="flex-1">
-                            <p className="text-white">Bought APT-001 tokens</p>
-                            <p className="text-gray-400 text-xs">2 hours ago</p>
-                          </div>
-                          <span className="text-white font-medium">-$45,000</span>
-                        </div>
-                        <div className="flex items-center gap-3 text-sm">
-                          <div className="w-2 h-2 bg-[#255f99] rounded-full"></div>
-                          <div className="flex-1">
-                            <p className="text-white">Received payment</p>
-                            <p className="text-gray-400 text-xs">1 day ago</p>
-                          </div>
-                          <span className="text-white font-medium">+$12,500</span>
-                        </div>
-                      </div>
-                    </div>
+            {/* Right Device - Subtle backward tilt */}
+            <div 
+              className="relative w-[240px] h-[500px] transition-all duration-700 hover:scale-105"
+              style={{ perspective: '1000px' }}
+            >
+              {/* 3D Phone Container - Subtle backward rotation */}
+              <div 
+                className="relative w-full h-full bg-gradient-to-br from-green-400 via-emerald-400 to-green-500 rounded-[3rem] p-2 shadow-2xl"
+                style={{
+                  background: 'linear-gradient(135deg, #22c55e, #10b981, #22c55e)',
+                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+                  transform: 'rotateX(-8deg) rotateY(-12deg) rotateZ(8deg) translateY(-50px) translateX(-20px)',
+                  transformStyle: 'preserve-3d'
+                }}
+              >
+                <div className="w-full h-full bg-black rounded-[2.5rem] p-1">
+                  <div className="w-full h-full bg-white rounded-[2.3rem] overflow-hidden">
+                    <img 
+                      src="/assets/Images/devices/marketplace002.jpg" 
+                      alt="Wallet Interface"
+                      className="w-full h-full object-cover rounded-[2.3rem]"
+                    />
                   </div>
                 </div>
+                
+                <div 
+                  className="absolute -bottom-16 left-1/2 w-60 h-16 bg-gradient-to-r from-transparent via-green-300 to-transparent opacity-40 blur-2xl rounded-full"
+                  style={{
+                    transform: 'translateX(-50%) rotateX(90deg) translateZ(-20px)',
+                    transformOrigin: 'center top'
+                  }}
+                ></div>
+                
+                <div 
+                  className="absolute top-4 left-4 w-full h-full bg-black opacity-10 rounded-[3rem] -z-10"
+                  style={{
+                    transform: 'translateZ(-10px)'
+                  }}
+                ></div>
+                
+                {/* Hologram Wallet Balance */}
+                <HologramWallet />
               </div>
             </div>
           </div>
@@ -237,7 +270,7 @@ export default function MarketplacePreview() {
           {/* CTA Button */}
           <div className="flex justify-center">
             <button
-              onClick={() => navigate("/marketplace")}
+              onClick={handleExploreClick}
               className="inline-flex items-center justify-center px-8 py-4 font-semibold text-white bg-gradient-to-r from-[#255f99] to-[#15a36e] rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               Explore Marketplace

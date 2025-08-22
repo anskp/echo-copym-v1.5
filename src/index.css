@@ -224,7 +224,7 @@
   gap: 16px;
   padding: 20px;
   border-radius: 16px;
-  background: rgba(0, 0, 0, 0.02);
+  background: #e0f2fe;
   border: 1px solid rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   cursor: pointer;
@@ -233,7 +233,7 @@
 }
 
 .dropdown-item:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: #b3e5fc;
   border-color: rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
 }
@@ -267,6 +267,16 @@
   line-height: 1.4;
 }
 
+.dropdown-item img {
+  background: #e0f2fe;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.dropdown-item:hover img {
+  background: #b3e5fc;
+}
+
 /* Icon backgrounds */
 .icon-tokenization { background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%); }
 .icon-marketplace { background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%); }
@@ -294,5 +304,36 @@
   
   .dropdown-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Hologram Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(-50%) translateZ(50px) rotateY(-15deg) translateY(0px);
+  }
+  50% {
+    transform: translateY(-50%) translateZ(50px) rotateY(-15deg) translateY(-10px);
+  }
+}
+
+@keyframes hologramFlicker {
+  0% {
+    opacity: 0.8;
+    filter: brightness(1) blur(0px);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1.2) blur(1px);
+  }
+}
+
+/* Reverse float animation for the left hologram */
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(-50%) translateZ(50px) rotateY(15deg) translateY(0px);
+  }
+  50% {
+    transform: translateY(-50%) translateZ(50px) rotateY(15deg) translateY(-10px);
   }
 }
