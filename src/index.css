@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -116,5 +117,182 @@
 
   .btn-gradient-secondary {
     @apply inline-flex items-center justify-center h-12 px-8 text-white font-semibold text-base rounded-full bg-gray-500 hover:bg-gray-600 transition-all duration-200;
+  }
+}
+
+/* Delta-Style Navbar Styles */
+.navbar {
+  position: relative;
+  padding: 20px 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-pills {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 8px;
+  display: flex;
+  gap: 4px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  color: #1e40af;
+  text-decoration: none;
+  border-radius: 40px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #1d4ed8;
+  background: rgba(30, 64, 175, 0.1);
+}
+
+.nav-link.active {
+  background: rgba(30, 64, 175, 0.15);
+  color: #1d4ed8;
+}
+
+.dropdown-icon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+  color: #1e40af;
+}
+
+.nav-item:hover .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 15px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #e0f2fe;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  padding: 24px;
+  min-width: 640px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.dropdown-item:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.dropdown-icon-wrapper {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.dropdown-content {
+  flex: 1;
+}
+
+.dropdown-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 6px;
+}
+
+.dropdown-description {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+/* Icon backgrounds */
+.icon-tokenization { background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%); }
+.icon-marketplace { background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%); }
+.icon-accesspass { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+.icon-copymi { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+.icon-about { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+.icon-roadmap { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+.icon-contact { background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-pills {
+    display: none;
+  }
+  
+  .dropdown {
+    min-width: 90vw;
+    left: 5vw;
+    transform: none;
+  }
+  
+  .nav-item:hover .dropdown {
+    transform: none;
+  }
+  
+  .dropdown-grid {
+    grid-template-columns: 1fr;
   }
 }

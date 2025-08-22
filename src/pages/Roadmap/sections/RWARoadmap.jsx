@@ -15,13 +15,7 @@ export default function RWARoadmap() {
       side: "left",
       color: "bg-blue-500",
       glowColor: "shadow-blue-500/50",
-      ballColor: "#3B82F6",
-      items: [
-        "Secure issuer portal access",
-        "Multi-factor authentication",
-        "User-friendly dashboard",
-        "Cross-platform compatibility"
-      ]
+      ballColor: "#3B82F6"
     },
     {
       id: 2,
@@ -30,13 +24,7 @@ export default function RWARoadmap() {
       side: "right", 
       color: "bg-green-500",
       glowColor: "shadow-green-500/50",
-      ballColor: "#10B981",
-      items: [
-        "KYC/AML compliance process",
-        "Document verification system",
-        "Real-time identity checks",
-        "Regulatory compliance"
-      ]
+      ballColor: "#10B981"
     },
     {
       id: 3,
@@ -45,13 +33,7 @@ export default function RWARoadmap() {
       side: "left",
       color: "bg-blue-500", 
       glowColor: "shadow-blue-500/50",
-      ballColor: "#3B82F6",
-      items: [
-        "Asset documentation upload",
-        "Smart contract generation",
-        "Legal compliance verification",
-        "Token creation process"
-      ]
+      ballColor: "#3B82F6"
     },
     {
       id: 4,
@@ -60,13 +42,7 @@ export default function RWARoadmap() {
       side: "right", 
       color: "bg-green-500",
       glowColor: "shadow-green-500/50",
-      ballColor: "#10B981",
-      items: [
-        "Choose blockchain (BTC, ETH, SOL)",
-        "Network fee optimization",
-        "Cross-chain compatibility",
-        "Security considerations"
-      ]
+      ballColor: "#10B981"
     },
     {
       id: 5,
@@ -75,13 +51,7 @@ export default function RWARoadmap() {
       side: "left",
       color: "bg-blue-500",
       glowColor: "shadow-blue-500/50",
-      ballColor: "#3B82F6",
-      items: [
-        "Select token type (ERC20, ERC721, ERC1155)",
-        "Tokenomics configuration",
-        "Metadata setup",
-        "Smart contract deployment"
-      ]
+      ballColor: "#3B82F6"
     },
     {
       id: 6,
@@ -90,13 +60,7 @@ export default function RWARoadmap() {
       side: "right",
       color: "bg-green-500", 
       glowColor: "shadow-green-500/50",
-      ballColor: "#10B981",
-      items: [
-        "Marketplace integration",
-        "Pricing strategy setup",
-        "Liquidity pool creation",
-        "Trading pair establishment"
-      ]
+      ballColor: "#10B981"
     }
   ];
 
@@ -301,15 +265,7 @@ export default function RWARoadmap() {
               >
                   {/* Mobile Card with Timeline Elements */}
                   <div className="bg-blue-100 rounded-2xl p-4 sm:p-6 border-2 border-gray-300 relative overflow-hidden">
-                    {/* Horizontal Connector Line */}
-                    <motion.div 
-                      className="absolute left-0 top-6 sm:top-8 w-8 sm:w-12 h-0.5 bg-gray-600 transform -translate-x-full"
-                      animate={{
-                        backgroundColor: activeSection === index ? item.ballColor : '#4B5563',
-                        boxShadow: activeSection === index ? `0 0 10px ${item.ballColor}` : '0 0 0 transparent'
-                      }}
-                      transition={{ duration: 0.3 }}
-                    />
+
 
                     {/* Step Badge */}
                     <div className={`inline-block px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-bold text-white mb-3 sm:mb-4 ${item.color}`}>
@@ -317,23 +273,7 @@ export default function RWARoadmap() {
                   </div>
 
                     {/* Title */}
-                    <h3 className="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">{item.title}</h3>
-                  
-                  {/* Items List */}
-                    <ul className="space-y-2 sm:space-y-3">
-                    {item.items.map((feature, idx) => (
-                      <motion.li 
-                        key={idx}
-                          className="text-gray-600 text-sm sm:text-base flex items-start"
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: idx * 0.1, duration: 0.3 }}
-                        >
-                          <span className="text-blue-400 mr-2 sm:mr-3 mt-1 flex-shrink-0">—</span>
-                          <span>{feature}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
+                    <h3 className="text-lg sm:text-xl font-bold text-black">{item.title}</h3>
 
                   {/* Glow Effect */}
                   <AnimatePresence>
@@ -611,17 +551,7 @@ export default function RWARoadmap() {
                     // animate={activeSection === index ? "active" : "inactive"}
                   >
                     
-                    {/* Connector Line */}
-                  <motion.div 
-                      className={`absolute top-8 w-16 h-0.5 bg-gray-600 ${
-                        item.side === 'left' ? 'right-0 translate-x-16' : 'left-0 -translate-x-16'
-                      }`}
-                      animate={{
-                        backgroundColor: activeSection === index ? item.ballColor : '#4B5563',
-                        boxShadow: activeSection === index ? `0 0 10px ${item.ballColor}` : '0 0 0 transparent'
-                      }}
-                      transition={{ duration: 0.3 }}
-                    />
+
                     
                     {/* Quarter Badge */}
                     <motion.div 
@@ -665,33 +595,9 @@ export default function RWARoadmap() {
                       )}
                     </AnimatePresence>
 
-                      <div className="relative z-10">
-                        <h3 className="text-xl font-bold brand-card-title text-black mb-4">{item.title}</h3>
-                        
-                        <ul className="space-y-2">
-                          {item.items.map((feature, idx) => (
-                            <motion.li 
-                              key={idx}
-                              className="text-gray-600 flex items-start"
-                              animate={{
-                                color: activeSection === index ? '#000' : '#000000ff',
-                                x: activeSection === index ? 5 : 0
-                              }}
-                              transition={{ delay: idx * 0.1, duration: 0.3 }}
-                            >
-                              <motion.span 
-                                className="text-blue-400 mr-3 mt-1"
-                                animate={{
-                                  color: activeSection === index ? item.ballColor : '#60A5FA'
-                                }}
-                              >
-                                —
-                              </motion.span>
-                              {feature}
-                            </motion.li>
-                          ))}
-                        </ul>
-                      </div>
+                                              <div className="relative z-10">
+                          <h3 className="text-xl font-bold brand-card-title text-black">{item.title}</h3>
+                        </div>
                     </motion.div>
                   </motion.div>
                 </div>

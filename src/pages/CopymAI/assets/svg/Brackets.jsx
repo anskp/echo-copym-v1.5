@@ -35,8 +35,8 @@ const brackets = (position) =>
           y1="0%"
           y2="100%"
         >
-          <stop offset="0%" stopColor="#9099FC" />
-          <stop offset="100%" stopColor="#D87CEE" />
+          <stop offset="0%" stopColor="#255f99" />
+          <stop offset="100%" stopColor="#15a36e" />
         </linearGradient>
       </defs>
     </svg>
