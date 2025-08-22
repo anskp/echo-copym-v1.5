@@ -55,6 +55,19 @@ export default {
                     success: '#00d4aa',
                     warning: '#ffb800',
                     error: '#ff4757'
+                },
+                icon: {
+                    pink: '#FF6B9D',
+                    orange: '#FF9F43',
+                    yellow: '#FFD93D',
+                    blue: '#4ECDC4',
+                    purple: '#A55EEA',
+                    green: '#26DE81',
+                    teal: '#2BCBBA',
+                    emerald: '#10B981',
+                    'emerald-dark': '#059669',
+                    gray: '#6B7280',
+                    white: '#FFFFFF'
                 }
             },
             letterSpacing: {
