@@ -15,13 +15,7 @@ export default function InvestorRoadmap() {
       side: "left",
       color: "bg-green-500",
       glowColor: "shadow-green-500/50",
-      ballColor: "#10B981",
-      items: [
-        "Secure wallet connection",
-        "Multi-factor authentication",
-        "User-friendly interface",
-        "Cross-platform compatibility"
-      ]
+      ballColor: "#10B981"
     },
     {
       id: 2,
@@ -30,13 +24,7 @@ export default function InvestorRoadmap() {
       side: "right", 
       color: "bg-blue-500",
       glowColor: "shadow-blue-500/50",
-      ballColor: "#3B82F6",
-      items: [
-        "KYC/AML compliance process",
-        "Document verification system",
-        "Real-time identity checks",
-        "Regulatory compliance"
-      ]
+      ballColor: "#3B82F6"
     },
     {
       id: 3,
@@ -45,13 +33,7 @@ export default function InvestorRoadmap() {
       side: "left",
       color: "bg-green-500", 
       glowColor: "shadow-green-500/50",
-      ballColor: "#10B981",
-      items: [
-        "Browse available RWA tokens",
-        "Real-time pricing information",
-        "Secure payment processing",
-        "Instant token delivery"
-      ]
+      ballColor: "#10B981"
     },
     {
       id: 4,
@@ -60,13 +42,7 @@ export default function InvestorRoadmap() {
       side: "right",
       color: "bg-blue-500",
       glowColor: "shadow-blue-500/50",
-      ballColor: "#3B82F6",
-      items: [
-        "Advanced trading interface",
-        "Order book management",
-        "Real-time market data",
-        "Trading history & analytics"
-      ]
+      ballColor: "#3B82F6"
     },
     {
       id: 5,
@@ -75,13 +51,7 @@ export default function InvestorRoadmap() {
       side: "left", 
       color: "bg-green-500",
       glowColor: "shadow-green-500/50",
-      ballColor: "#10B981",
-      items: [
-        "Direct peer-to-peer trading",
-        "Escrow protection system",
-        "Dispute resolution mechanism",
-        "Community trading features"
-      ]
+      ballColor: "#10B981"
     },
     {
       id: 6,
@@ -90,13 +60,7 @@ export default function InvestorRoadmap() {
       side: "right",
       color: "bg-blue-500", 
       glowColor: "shadow-blue-500/50",
-      ballColor: "#3B82F6",
-      items: [
-        "Advanced charting tools",
-        "Technical analysis indicators",
-        "Portfolio performance tracking",
-        "Market insights & alerts"
-      ]
+      ballColor: "#3B82F6"
     }
   ];
 
@@ -317,23 +281,7 @@ export default function InvestorRoadmap() {
                   </div>
 
                     {/* Title */}
-                    <h3 className="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">{item.title}</h3>
-                  
-                  {/* Items List */}
-                    <ul className="space-y-2 sm:space-y-3">
-                    {item.items.map((feature, idx) => (
-                      <motion.li 
-                        key={idx}
-                          className="text-gray-600 text-sm sm:text-base flex items-start"
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: idx * 0.1, duration: 0.3 }}
-                        >
-                          <span className="text-blue-400 mr-2 sm:mr-3 mt-1 flex-shrink-0">—</span>
-                          <span>{feature}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
+                    <h3 className="text-lg sm:text-xl font-bold text-black">{item.title}</h3>
 
                   {/* Glow Effect */}
                   <AnimatePresence>
@@ -666,31 +614,7 @@ export default function InvestorRoadmap() {
                     </AnimatePresence>
 
                         <div className="relative z-10">
-                          <h3 className="text-xl font-bold brand-card-title text-black mb-4">{item.title}</h3>
-                          
-                          <ul className="space-y-2">
-                            {item.items.map((feature, idx) => (
-                              <motion.li 
-                                key={idx}
-                                className="text-gray-600 flex items-start"
-                                animate={{
-                                  color: activeSection === index ? '#000' : '#000000ff',
-                                  x: activeSection === index ? 5 : 0
-                                }}
-                                transition={{ delay: idx * 0.1, duration: 0.3 }}
-                              >
-                                <motion.span 
-                                  className="text-blue-400 mr-3 mt-1"
-                                  animate={{
-                                    color: activeSection === index ? item.ballColor : '#60A5FA'
-                                  }}
-                                >
-                                  —
-                                </motion.span>
-                                {feature}
-                              </motion.li>
-                            ))}
-                          </ul>
+                          <h3 className="text-xl font-bold brand-card-title text-black">{item.title}</h3>
                         </div>
                       </motion.div>
                   </motion.div>
