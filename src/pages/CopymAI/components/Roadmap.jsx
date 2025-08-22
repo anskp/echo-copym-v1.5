@@ -22,7 +22,7 @@ const Roadmap = () => (
               }`}
               key={item.id}
             >
-              <div className="relative p-8 bg-n-8 rounded-[2.4375rem] overflow-hidden xl:p-15">
+              <div className="relative p-8 bg-[#1a2b3c] rounded-[2.4375rem] overflow-hidden xl:p-15">
                 <div className="absolute top-0 left-0 max-w-full">
                   <img
                     className="w-full pointer-events-none select-none"

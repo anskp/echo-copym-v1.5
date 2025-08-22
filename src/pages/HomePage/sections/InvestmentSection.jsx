@@ -436,8 +436,8 @@ const RealEstateInvestmentSection = () => {
     <div className="w-full h-full flex items-center justify-center">
       <div className="relative">
         {/* 3D Wallet SVG with Enhanced Depth and Perspective */}
-        <svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" 
-             className={`${isMobile ? 'w-64 h-64' : 'w-80 h-80'} visual-element drop-shadow-2xl ${isAnimating ? 'stagger-in' : ''}`}
+        <svg width="750" height="750" viewBox="0 0 750 750" xmlns="http://www.w3.org/2000/svg" 
+             className={`${isMobile ? 'w-96 h-96' : 'w-[500px] h-[500px]'} visual-element drop-shadow-2xl ${isAnimating ? 'stagger-in' : ''}`}
           style={{
                filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.1))',
             maxWidth: '100%',
@@ -534,79 +534,79 @@ const RealEstateInvestmentSection = () => {
           </defs>
           
           {/* Professional 3D Wallet Structure */}
-          <g transform="translate(200,180)" filter="url(#walletShadow)">
+          <g transform="translate(300,270)" filter="url(#walletShadow)">
             {/* Main wallet body with enhanced 3D */}
-            <rect x="0" y="0" width="250" height="150" rx="22" fill="url(#walletBodyGradient)" 
-                  stroke="#0f172a" strokeWidth="2.5" filter="url(#depthFilter)"/>
+            <rect x="0" y="0" width="375" height="225" rx="32" fill="url(#walletBodyGradient)" 
+                  stroke="#0f172a" strokeWidth="4" filter="url(#depthFilter)"/>
             
             {/* 3D bevel effect - top edge */}
-            <rect x="2" y="2" width="246" height="10" rx="20" fill="rgba(255,255,255,0.15)" opacity="0.8"/>
+            <rect x="3" y="3" width="369" height="15" rx="30" fill="rgba(255,255,255,0.15)" opacity="0.8"/>
             
             {/* Money/cards peeking out with glow */}
-            <rect x="10" y="-22" width="230" height="28" rx="12" fill="url(#moneyGradient)" 
+            <rect x="15" y="-32" width="345" height="42" rx="17" fill="url(#moneyGradient)" 
+                  stroke="#065f46" strokeWidth="2.5" filter="url(#moneyGlow)"/>
+            <rect x="22" y="-27" width="330" height="30" rx="15" fill="url(#moneyGradient)" 
                   stroke="#065f46" strokeWidth="1.5" filter="url(#moneyGlow)"/>
-            <rect x="15" y="-18" width="220" height="20" rx="10" fill="url(#moneyGradient)" 
-                  stroke="#065f46" strokeWidth="1" filter="url(#moneyGlow)"/>
             
             {/* Dollar sign on money with enhanced emboss */}
-            <text x="125" y="-5" fontFamily="Arial Black, sans-serif" fontSize="18" fontWeight="bold" 
+            <text x="187" y="-8" fontFamily="Arial Black, sans-serif" fontSize="28" fontWeight="bold" 
                   textAnchor="middle" fill="url(#dollarSignGradient)" filter="url(#embossFilter)">$</text>
             
             {/* Professional stitching around wallet */}
-            <rect x="8" y="8" width="234" height="134" rx="18" fill="none" stroke="url(#stitchingGradient)" 
-                  strokeWidth="1.2" strokeDasharray="4,3" opacity="0.7"/>
+            <rect x="12" y="12" width="351" height="201" rx="27" fill="none" stroke="url(#stitchingGradient)" 
+                  strokeWidth="1.8" strokeDasharray="6,5" opacity="0.7"/>
             
             {/* Wallet flap/closure with 3D effect */}
-            <rect x="195" y="10" width="55" height="130" rx="12" fill="url(#walletFlapGradient)" 
-                  stroke="#0f172a" strokeWidth="2" filter="url(#depthFilter)"/>
+            <rect x="292" y="15" width="83" height="195" rx="17" fill="url(#walletFlapGradient)" 
+                  stroke="#0f172a" strokeWidth="3" filter="url(#depthFilter)"/>
             
             {/* Flap 3D bevel */}
-            <rect x="197" y="12" width="51" height="8" rx="10" fill="rgba(255,255,255,0.1)" opacity="0.6"/>
+            <rect x="295" y="17" width="77" height="12" rx="15" fill="rgba(255,255,255,0.1)" opacity="0.6"/>
             
             {/* Professional flap stitching */}
-            <line x1="202" y1="28" x2="245" y2="28" stroke="url(#stitchingGradient)" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.8"/>
-            <line x1="202" y1="46" x2="245" y2="46" stroke="url(#stitchingGradient)" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.8"/>
-            <line x1="202" y1="64" x2="245" y2="64" stroke="url(#stitchingGradient)" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.8"/>
-            <line x1="202" y1="82" x2="245" y2="82" stroke="url(#stitchingGradient)" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.8"/>
-            <line x1="202" y1="100" x2="245" y2="100" stroke="url(#stitchingGradient)" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.8"/>
-            <line x1="202" y1="118" x2="245" y2="118" stroke="url(#stitchingGradient)" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.8"/>
+            <line x1="302" y1="42" x2="368" y2="42" stroke="url(#stitchingGradient)" strokeWidth="1.8" strokeDasharray="5,3" opacity="0.8"/>
+            <line x1="302" y1="68" x2="368" y2="68" stroke="url(#stitchingGradient)" strokeWidth="1.8" strokeDasharray="5,3" opacity="0.8"/>
+            <line x1="302" y1="95" x2="368" y2="95" stroke="url(#stitchingGradient)" strokeWidth="1.8" strokeDasharray="5,3" opacity="0.8"/>
+            <line x1="302" y1="122" x2="368" y2="122" stroke="url(#stitchingGradient)" strokeWidth="1.8" strokeDasharray="5,3" opacity="0.8"/>
+            <line x1="302" y1="149" x2="368" y2="149" stroke="url(#stitchingGradient)" strokeWidth="1.8" strokeDasharray="5,3" opacity="0.8"/>
+            <line x1="302" y1="176" x2="368" y2="176" stroke="url(#stitchingGradient)" strokeWidth="1.8" strokeDasharray="5,3" opacity="0.8"/>
             
             {/* Enhanced coin with 3D effect - perfectly positioned */}
-            <circle cx="125" cy="75" r="28" fill="url(#moneyGradient)" stroke="#065f46" strokeWidth="2" filter="url(#moneyGlow)"/>
-            <circle cx="125" cy="75" r="26" fill="url(#moneyGradient)" stroke="#047857" strokeWidth="1.5"/>
-            <text x="125" y="83" fontFamily="Arial Black, sans-serif" fontSize="20" fontWeight="bold" 
+            <circle cx="187" cy="112" r="42" fill="url(#moneyGradient)" stroke="#065f46" strokeWidth="3" filter="url(#moneyGlow)"/>
+            <circle cx="187" cy="112" r="39" fill="url(#moneyGradient)" stroke="#047857" strokeWidth="2.2"/>
+            <text x="187" y="125" fontFamily="Arial Black, sans-serif" fontSize="30" fontWeight="bold" 
                   textAnchor="middle" fill="url(#dollarSignGradient)" filter="url(#embossFilter)">$</text>
             
             {/* Enhanced 3D Lighting Effects */}
-            <ellipse cx="105" cy="45" rx="55" ry="45" fill="url(#highlightGradient)" opacity="0.4" transform="rotate(-25 105 45)"/>
-            <ellipse cx="150" cy="30" rx="30" ry="25" fill="url(#secondaryHighlight)" opacity="0.3" transform="rotate(-15 150 30)"/>
+            <ellipse cx="157" cy="67" rx="82" ry="67" fill="url(#highlightGradient)" opacity="0.4" transform="rotate(-25 157 67)"/>
+            <ellipse cx="225" cy="45" rx="45" ry="37" fill="url(#secondaryHighlight)" opacity="0.3" transform="rotate(-15 225 45)"/>
             
             {/* Professional wallet brand/logo area - enhanced contrast */}
-            <text x="62" y="47" fontFamily="Montserrat, Arial, sans-serif" fontSize="14" fontWeight="800" 
+            <text x="92" y="70" fontFamily="Montserrat, Arial, sans-serif" fontSize="21" fontWeight="800" 
                   textAnchor="middle" fill="url(#dollarSignGradient)" filter="url(#embossFilter)" 
-                  letterSpacing="1.2">WALLET</text>
+                  letterSpacing="1.8">WALLET</text>
             
             {/* Professional vertical COPYM text - moved inside wallet flap */}
-            <text x="222" y="95" fontFamily="Montserrat, Arial, sans-serif" fontSize="14" fontWeight="800" 
-                  textAnchor="middle" fill="url(#dollarSignGradient)" transform="rotate(90, 222, 95)" filter="url(#embossFilter)" 
-                  letterSpacing="1.2">COPYM</text>
+            <text x="334" y="142" fontFamily="Montserrat, Arial, sans-serif" fontSize="21" fontWeight="800" 
+                  textAnchor="middle" fill="url(#dollarSignGradient)" transform="rotate(90, 334, 142)" filter="url(#embossFilter)" 
+                  letterSpacing="1.8">COPYM</text>
             
             {/* Enhanced card slots with better visual hierarchy */}
-            <rect x="12" y="70" width="175" height="15" rx="5" fill="rgba(0,0,0,0.5)" 
-                  stroke="rgba(255,255,255,0.2)" strokeWidth="1" filter="url(#depthFilter)"/>
-            <rect x="12" y="90" width="175" height="15" rx="5" fill="rgba(0,0,0,0.5)" 
-                  stroke="rgba(255,255,255,0.2)" strokeWidth="1" filter="url(#depthFilter)"/>
-            <rect x="12" y="110" width="175" height="15" rx="5" fill="rgba(0,0,0,0.5)" 
-                  stroke="rgba(255,255,255,0.2)" strokeWidth="1" filter="url(#depthFilter)"/>
+            <rect x="18" y="105" width="262" height="22" rx="7" fill="rgba(0,0,0,0.5)" 
+                  stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" filter="url(#depthFilter)"/>
+            <rect x="18" y="135" width="262" height="22" rx="7" fill="rgba(0,0,0,0.5)" 
+                  stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" filter="url(#depthFilter)"/>
+            <rect x="18" y="165" width="262" height="22" rx="7" fill="rgba(0,0,0,0.5)" 
+                  stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" filter="url(#depthFilter)"/>
             
 
             
             {/* Professional edge highlights */}
-            <rect x="8" y="8" width="234" height="134" rx="18" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5"/>
-            <rect x="10" y="10" width="230" height="130" rx="16" fill="none" stroke="rgba(0,0,0,0.2)" strokeWidth="0.8"/>
+            <rect x="12" y="12" width="351" height="201" rx="27" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="2.2"/>
+            <rect x="15" y="15" width="345" height="195" rx="25" fill="none" stroke="rgba(0,0,0,0.2)" strokeWidth="1.2"/>
             
             {/* Subtle inner shadow for depth */}
-            <rect x="12" y="12" width="226" height="126" rx="14" fill="rgba(0,0,0,0.1)" opacity="0.3"/>
+            <rect x="18" y="18" width="339" height="189" rx="23" fill="rgba(0,0,0,0.1)" opacity="0.3"/>
           </g>
         </svg>
 

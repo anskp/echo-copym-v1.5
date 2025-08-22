@@ -152,7 +152,7 @@ const Services = () => {
                 </ul>
               </div>
 
-              <div className="relative h-[20rem] bg-n-8 rounded-xl overflow-hidden md:h-[25rem]">
+              <div className="relative h-[20rem] bg-[#1a2b3c] rounded-xl overflow-hidden md:h-[25rem]">
                 <img
                   src={service3}
                   className={`w-full h-full object-cover ${
