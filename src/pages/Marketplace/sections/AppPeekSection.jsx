@@ -1,81 +1,51 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Wallet, LayoutGrid, LineChart, Play, Pause } from "lucide-react";
+import { Wallet, LayoutGrid, LineChart, ArrowRight, Shield, TrendingUp, DollarSign, BarChart3, Home, Zap, Coins, Building2, Sun, Gem } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import PhoneMockup from "../../../components/PhoneMockup";
 
-const mediaItems = [
+const dioramaScenes = [
   {
     id: "wallet",
-    screenshot: "/assets/Images/Walletpreview.jpg",
-    video: "/assets/videos/latest-fonview-1.mp4",
-    label: "Deposit / Withdraw",
-    icon: <Wallet className="w-5 h-5" />,
-    description: ""
+    title: "Secure Wallet",
+    description: "Fortress of Security - Your digital assets protected by enterprise-grade security",
+    icon: <Shield className="w-5 h-5" />,
+    phoneVideo: "/assets/videos/latest-fonview-1.mp4",
+    phoneImage: "/assets/Images/Walletpreview.jpg"
   },
   {
-    id: "marketplace",
-    screenshot: "/assets/Images/MarketPreview.jpg",
-    video: "/assets/videos/latest-fonview-2.mp4",
-    label: "Explore Assets",
+    id: "marketplace", 
+    title: "Asset Marketplace",
+    description: "Galaxy of Opportunity - Explore a universe of investment possibilities",
     icon: <LayoutGrid className="w-5 h-5" />,
-    description: ""
+    phoneVideo: "/assets/videos/latest-fonview-2.mp4",
+    phoneImage: "/assets/Images/MarketPreview.jpg"
   },
   {
     id: "dashboard",
-    screenshot: "/assets/Images/MarketplaceDashboard.jpg",
-    video: "/assets/videos/latest-fonview-3.mp4",
-    label: "Track Portfolio",
-    icon: <LineChart className="w-5 h-5" />,
-    description: ""
-  },
+    title: "Portfolio Dashboard", 
+    description: "Constellation of Insight - Command your financial future with clarity",
+    icon: <BarChart3 className="w-5 h-5" />,
+    phoneVideo: "/assets/videos/latest-fonview-3.mp4",
+    phoneImage: "/assets/Images/MarketplaceDashboard.jpg"
+  }
 ];
 
 export default function AppPeekSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [videoPlayingStates, setVideoPlayingStates] = useState({});
-  const [mediaType, setMediaType] = useState('video'); // Only 'video' mode
+  const [activeScene, setActiveScene] = useState(0);
   const videoRefs = useRef({});
-  const intervalRef = useRef(null);
-  const total = mediaItems.length;
 
-  // Screen size detection
+  // Automatic scene transition
   useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
-    
-    return () => window.removeEventListener('resize', checkScreenSize);
+    const interval = setInterval(() => {
+      setActiveScene((prevScene) => (prevScene + 1) % dioramaScenes.length);
+    }, 3000); // 3000ms = 3 seconds
+
+    return () => clearInterval(interval); // Cleanup on component unmount
   }, []);
-
-  // Auto-play logic
-  useEffect(() => {
-    if (isAutoPlaying) {
-      intervalRef.current = setInterval(() => {
-        setActiveIndex((prev) => (prev + 1) % total);
-      }, 4000);
-    } else {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-        intervalRef.current = null;
-      }
-    }
-
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
-  }, [isAutoPlaying, total]);
 
   // Auto-start videos when component mounts
   useEffect(() => {
-    // Wait for video elements to be ready
     const timer = setTimeout(() => {
       Object.keys(videoRefs.current).forEach(id => {
         const videoElement = videoRefs.current[id];
@@ -90,214 +60,288 @@ export default function AppPeekSection() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Keep videos perfectly synchronized
+  // Keep videos synchronized - Improved to prevent glitching
   useEffect(() => {
     const syncVideos = () => {
-      const videos = Object.values(videoRefs.current);
-      const firstVideo = videos[0];
-      if (firstVideo && firstVideo.readyState >= 2) {
+      const videos = Object.values(videoRefs.current).filter(video => 
+        video && video.readyState >= 2 && !video.paused && !video.ended
+      );
+      
+      if (videos.length > 1) {
+        const firstVideo = videos[0];
+        const targetTime = firstVideo.currentTime;
+        
         videos.forEach(video => {
-          if (video && video !== firstVideo && video.readyState >= 2) {
-            // Keep videos in sync with small tolerance
-            if (Math.abs(video.currentTime - firstVideo.currentTime) > 0.1) {
-              video.currentTime = firstVideo.currentTime;
+          if (video && video !== firstVideo) {
+            const timeDiff = Math.abs(video.currentTime - targetTime);
+            if (timeDiff > 0.2) { // Increased threshold to prevent constant resets
+              video.currentTime = targetTime;
             }
           }
         });
       }
     };
     
-    const syncInterval = setInterval(syncVideos, 500); // Sync every 500ms
+    const syncInterval = setInterval(syncVideos, 1000); // Reduced frequency to prevent glitching
     return () => clearInterval(syncInterval);
   }, []);
 
-  // Enhanced video start function for perfect synchronization
-  const startAllVideos = () => {
-    const videos = Object.values(videoRefs.current);
-    const playPromises = videos.map(video => {
-      if (video && video.readyState >= 2) {
-        video.currentTime = 0; // Reset to start
-        return video.play();
-      }
-      return Promise.resolve();
-    });
-    
-    Promise.all(playPromises).then(() => {
-      setVideoPlayingStates({
-        wallet: true,
-        marketplace: true,
-        dashboard: true
-      });
-    });
-  };
-
-  // Handle item click
-  const handleItemClick = (index) => {
-    setActiveIndex(index);
-    setIsAutoPlaying(false);
-    
-    // Keep videos playing when switching items
-    // Don't pause videos or reset video states
-    
-    // Reset auto-play after 10 seconds of inactivity
-    setTimeout(() => setIsAutoPlaying(true), 10000);
-  };
-
-  // Enhanced animation calculations for perfect timing
-  const getAnimationProps = (i) => {
-    const ORBIT_RADIUS_X = 280;
-    const ORBIT_RADIUS_Y = 80;
-    const FRONT_Z_INDEX = 100;
-    const BASE_SCALE = 0.7;
-    
-    // Smoother angle calculation
-    const angle = (i - activeIndex) * (2 * Math.PI / total) + (Math.PI / 2);
-    const x = ORBIT_RADIUS_X * Math.cos(angle);
-    const y = ORBIT_RADIUS_Y * Math.sin(angle);
-    
-    // Enhanced depth calculation
-    const normalizedDepth = (y + ORBIT_RADIUS_Y) / (2 * ORBIT_RADIUS_Y);
-    const scale = BASE_SCALE + (1 - BASE_SCALE) * normalizedDepth;
-    const zIndex = Math.round(FRONT_Z_INDEX * normalizedDepth);
-    
-    // Smoother rotation for better visual flow
-    const rotate = isMobile ? 0 : x / 25;
-    
-    return { 
-      x, 
-      y, 
-      scale, 
-      zIndex, 
-      rotate, 
-      opacity: scale,
-      filter: i === activeIndex ? 'brightness(1)' : 'brightness(0.75)' // Better contrast
-    };
-  };
-
-  const activeItem = mediaItems[activeIndex];
-
   return (
-         <section className="py-24 text-gray-800 overflow-x-hidden bg-blue-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header Section */}
-        <div className="text-center mb-16">
+    <section className="py-16 bg-gradient-to-br from-[#0D1A2A] via-[#10243E] to-[#0D1A2A]">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-12">
           <motion.h1 
-            className="brand-section-title mb-6"
+            className="text-3xl md:text-4xl font-extrabold text-white mb-4"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
           >
-            <span className="text-[#255f99]">Peek Into Our </span>
+            <span className="text-[#60A5FA]">Peek Into Our </span>
             <span className="text-[#15a36e]">Web3 </span>
-            <span className="text-[#255f99]">Investment Hub</span>
+            <span className="text-[#60A5FA]">Investment Hub</span>
           </motion.h1>
           
           <motion.p 
-            className="brand-description max-w-3xl mx-auto text-gray-700 mb-8"
+            className="text-lg text-gray-300 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
           >
-            Manage your assets, monitor real-time performance, and view tokenized ownership — all through an intuitive interface built for next-gen investors.
+            Experience our platform's features through an immersive journey
           </motion.p>
+        </div>
 
+        {/* Two-Column Simulator & Inspector Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          {/* Left Column: Phone Simulator */}
+          <div className="relative">
+            <div className="overflow-hidden rounded-2xl">
+              <motion.div
+                className="flex"
+                animate={{ x: `-${activeScene * 100}%` }}
+                transition={{ type: "spring", stiffness: 150, damping: 20 }}
+              >
+                {dioramaScenes.map((scene, index) => (
+                  <div key={scene.id} className="w-full flex-shrink-0 relative">
+                    <div className="flex items-center justify-center p-6">
+                      <div className="scale-70 md:scale-85 relative">
+                        <PhoneMockup 
+                          screenshot={scene.phoneVideo} 
+                          alt={scene.title}
+                          isVideo={true}
+                          videoRef={(el) => {
+                            if (el) videoRefs.current[scene.id] = el;
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
 
+            {/* Carousel Navigation */}
+            <div className="flex justify-center gap-2 mt-6">
+              {dioramaScenes.map((_, index) => (
+                <div
+                  key={index}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === activeScene 
+                      ? 'bg-[#15a36e] scale-125' 
+                      : 'bg-gray-400'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
 
-          {/* Active Item Label */}
-          <div className="h-12 flex items-center justify-center mb-6">
+          {/* Right Column: Feature Inspector */}
+          <div className="relative h-full flex flex-col justify-center mt-8 lg:mt-0">
             <AnimatePresence mode="wait">
               <motion.div
-                key={activeIndex}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="px-5 py-2.5 rounded-full flex items-center gap-2 font-semibold text-md text-gray-900 bg-white/70 shadow-lg backdrop-blur-md border border-gray-200"
+                key={activeScene}
+                className="flex flex-col gap-4"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.5 }}
               >
-                {activeItem.icon}
-                <span className="font-bold">{activeItem.label}</span>
+                {/* Wallet Features */}
+                {activeScene === 0 && (
+                  <>
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ delay: 0.2 }}
+                    >
+                      <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border border-white/20">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Wallet className="w-4 h-4 text-[#15a36e]" />
+                          <div className="text-sm text-gray-600">Total Balance</div>
+                        </div>
+                        <div className="text-lg font-bold text-gray-900">$125,430.50</div>
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ delay: 0.4 }}
+                    >
+                      <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border border-white/20">
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                            <DollarSign className="w-3 h-3 text-green-600" />
+                          </div>
+                          <div className="text-sm text-gray-600">Recent Deposit</div>
+                        </div>
+                        <div className="text-lg font-bold text-gray-900">+$5,000.00</div>
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ delay: 0.6 }}
+                    >
+                      <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg p-3 shadow-2xl border border-white/20">
+                        <div className="flex items-center gap-2">
+                          <Shield className="w-6 h-6 text-white" />
+                          <div className="text-white">
+                            <div className="text-sm font-medium">Security Status</div>
+                            <div className="text-xs opacity-90">Enterprise Grade</div>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </>
+                )}
+
+                {/* Marketplace Features */}
+                {activeScene === 1 && (
+                  <>
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ delay: 0.2 }}
+                    >
+                      <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border border-white/20">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Building2 className="w-4 h-4 text-[#15a36e]" />
+                          <div className="text-sm text-gray-600">Real Estate</div>
+                        </div>
+                        <div className="text-lg font-bold text-[#15a36e]">$850,000</div>
+                        <div className="text-sm text-gray-500">+12.5% this quarter</div>
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ delay: 0.4 }}
+                    >
+                      <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border border-white/20">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Sun className="w-4 h-4 text-[#15a36e]" />
+                          <div className="text-sm text-gray-600">Solar Energy</div>
+                        </div>
+                        <div className="text-lg font-bold text-[#15a36e]">$420,000</div>
+                        <div className="text-sm text-gray-500">+8.3% this quarter</div>
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ delay: 0.6 }}
+                    >
+                      <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border border-white/20">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Gem className="w-4 h-4 text-[#15a36e]" />
+                          <div className="text-sm text-gray-600">Precious Metals</div>
+                        </div>
+                        <div className="text-lg font-bold text-[#15a36e]">$180,000</div>
+                        <div className="text-sm text-gray-500">+5.2% this quarter</div>
+                      </div>
+                    </motion.div>
+                  </>
+                )}
+
+                {/* Dashboard Features */}
+                {activeScene === 2 && (
+                  <>
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ delay: 0.2 }}
+                    >
+                      <div className="bg-gradient-to-br from-[#255f99] to-[#10243E] rounded-lg p-3 shadow-2xl border border-white/20">
+                        <div className="text-white text-center">
+                          <div className="flex items-center justify-center gap-2 mb-2">
+                            <TrendingUp className="w-4 h-4 text-[#15a36e]" />
+                            <div className="text-sm font-bold">Portfolio Growth</div>
+                          </div>
+                          <div className="text-lg font-bold text-[#15a36e]">+15.2%</div>
+                          <div className="text-xs opacity-80">This Month</div>
+                        </div>
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ delay: 0.4 }}
+                    >
+                      <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border border-white/20">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Coins className="w-4 h-4 text-[#15a36e]" />
+                          <div className="text-sm text-gray-600">Total Portfolio Value</div>
+                        </div>
+                        <div className="text-lg font-bold text-gray-900">$2.5M</div>
+                        <div className="text-sm text-gray-500">Across 12 assets</div>
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ delay: 0.6 }}
+                    >
+                      <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border border-white/20">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Zap className="w-4 h-4 text-[#15a36e]" />
+                          <div className="text-sm text-gray-600">Average Returns</div>
+                        </div>
+                        <div className="text-lg font-bold text-[#15a36e]">12.8%</div>
+                        <div className="text-sm text-gray-500">Annualized</div>
+                      </div>
+                    </motion.div>
+                  </>
+                )}
               </motion.div>
             </AnimatePresence>
           </div>
-
-          {/* Active Item Description */}
-          <motion.p
-            key={activeIndex}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-            className="text-gray-600 max-w-2xl mx-auto mb-8"
-          >
-            {activeItem.description}
-          </motion.p>
         </div>
 
-        {/* Phone Animation Container */}
-        <div className="flex flex-col items-center">
-          <div className="relative w-full h-[750px] flex items-center justify-center">
-            {mediaItems.map((item, i) => (
-                             <motion.div
-                 key={item.id}
-                 className="absolute cursor-pointer"
-                 animate={getAnimationProps(i)}
-                 transition={{ 
-                   type: "spring", 
-                   stiffness: 120, // Increased for snappier movement
-                   damping: 25,    // Reduced for less bounce
-                   mass: 0.8       // Added mass for more natural movement
-                 }}
-                 onClick={() => handleItemClick(i)}
-                 whileHover={{ scale: 1.05 }}
-                 whileTap={{ scale: 0.95 }}
-               >
-                <div className="relative">
-                  <PhoneMockup 
-                    screenshot={item.video} 
-                    alt={item.label}
-                    isVideo={true}
-                    videoRef={(el) => {
-                      if (el) videoRefs.current[item.id] = el;
-                    }}
-                  />
-                  
-                  {/* No video controls - videos play automatically */}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Navigation Dots */}
-          <div className="flex justify-center gap-2 mt-8">
-            {mediaItems.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => handleItemClick(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === activeIndex 
-                    ? 'bg-[#255f99] scale-125' 
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-              />
-            ))}
-          </div>
-
-          {/* CTA Button */}
-          <motion.div 
-            className="flex justify-center mt-12 z-10"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+        {/* CTA */}
+        <motion.div 
+          className="text-center mt-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <Link 
+            to="/marketplace" 
+            className="btn-gradient text-base px-6 py-3"
           >
-            <Link 
-              to="/marketplace" 
-              className="inline-flex items-center justify-center px-8 py-4 font-semibold text-white btn-gradient rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              Explore the Marketplace
-            </Link>
-          </motion.div>
-        </div>
+            Explore the Marketplace
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
