@@ -47,7 +47,7 @@ export default function InvestorRoadmap() {
     {
       id: 5,
       quarter: "Step 5",
-      title: "P2P Trading", 
+      title: "P 2 P Tradings", 
       side: "left", 
       color: "bg-green-500",
       glowColor: "shadow-green-500/50",
@@ -265,15 +265,7 @@ export default function InvestorRoadmap() {
               >
                   {/* Mobile Card with Timeline Elements */}
                   <div className="bg-blue-100 rounded-2xl p-4 sm:p-6 border-2 border-gray-300 relative overflow-hidden">
-                    {/* Horizontal Connector Line */}
-                    <motion.div 
-                      className="absolute left-0 top-6 sm:top-8 w-8 sm:w-12 h-0.5 bg-gray-600 transform -translate-x-full"
-                      animate={{
-                        backgroundColor: activeSection === index ? item.ballColor : '#4B5563',
-                        boxShadow: activeSection === index ? `0 0 10px ${item.ballColor}` : '0 0 0 transparent'
-                      }}
-                      transition={{ duration: 0.3 }}
-                    />
+
 
                     {/* Step Badge */}
                     <div className={`inline-block px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-bold text-white mb-3 sm:mb-4 ${item.color}`}>
@@ -559,17 +551,7 @@ export default function InvestorRoadmap() {
                       // animate={activeSection === index ? "active" : "inactive"}
                     >
                       
-                      {/* Connector Line */}
-                      <motion.div 
-                        className={`absolute top-8 w-16 h-0.5 bg-gray-600 ${
-                          item.side === 'left' ? 'right-0 translate-x-16' : 'left-0 -translate-x-16'
-                        }`}
-                        animate={{
-                          backgroundColor: activeSection === index ? item.ballColor : '#4B5563',
-                          boxShadow: activeSection === index ? `0 0 10px ${item.ballColor}` : '0 0 0 transparent'
-                        }}
-                        transition={{ duration: 0.3 }}
-                      />
+
                       
                       {/* Quarter Badge */}
                   <motion.div 
