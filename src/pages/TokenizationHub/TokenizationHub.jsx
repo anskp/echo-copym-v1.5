@@ -635,68 +635,161 @@ const SecurityProtocols = () => {
       title: 'Multi-Signature Wallets',
       description: 'Enhanced security with multi-signature wallet infrastructure.',
       icon: Lock,
-      level: 'Enterprise'
+      level: 'Enterprise',
+      color: 'from-blue-500 to-blue-600',
+      features: ['256-bit encryption', 'Hardware security', 'Audit trail']
     },
     {
       title: 'Smart Contract Audits',
       description: 'Thoroughly audited smart contracts by leading security firms.',
       icon: FileCheck,
-      level: 'Certified'
+      level: 'Certified',
+      color: 'from-green-500 to-green-600',
+      features: ['Third-party audits', 'Vulnerability testing', 'Compliance checks']
     },
     {
       title: 'Compliance Framework',
       description: 'Built-in regulatory compliance and risk management protocols.',
       icon: Shield,
-      level: 'Regulatory'
+      level: 'Regulatory',
+      color: 'from-purple-500 to-purple-600',
+      features: ['SEC compliance', 'KYC/AML', 'Regulatory reporting']
     },
     {
       title: 'Fraud Detection',
       description: 'AI-powered fraud detection and prevention systems.',
       icon: AlertCircle,
-      level: 'Advanced'
+      level: 'Advanced',
+      color: 'from-red-500 to-red-600',
+      features: ['Real-time monitoring', 'AI algorithms', 'Threat prevention']
     }
   ];
 
   return (
-    <section className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="brand-section-title mb-2 pb-1 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
-            Security Protocols
+          <div className="inline-flex items-center px-4 py-2 bg-blue-500/20 rounded-full text-sm font-medium text-blue-300 mb-6 border border-blue-400/30">
+            <Shield className="w-4 h-4 mr-2" />
+            Security First
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Enterprise-Grade
+            <span className="block bg-gradient-to-r from-blue-400 to-green-400 text-transparent bg-clip-text">
+              Security Protocols
+            </span>
           </h2>
-          <p className="brand-description max-w-3xl mx-auto text-green-700">
-            Bank-grade security measures protecting your assets and investor data.
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Bank-grade security measures protecting your assets and investor data with military-grade encryption and compliance.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Features List - Left Side */}
-          <div className="space-y-6">
-            {securityFeatures.map((feature, index) => (
-              <div key={index} className="bg-green-50 rounded-2xl p-6 shadow-sm border border-gray-200">
-                <div className="flex items-start">
-                  <div className="p-3 bg-white border border-blue-100 rounded-2xl mr-4">
-                    <feature.icon className="h-6 w-6 text-blue-500" />
-                  </div>
-                  <div>
-                    <h4 className="brand-card-title text-black mb-2">{feature.title}</h4>
-                    <span className="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium mb-2">
-                      {feature.level}
-                    </span>
-                    <p className="text-gray-600">{feature.description}</p>
-                  </div>
+        {/* Security Features Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {securityFeatures.map((feature, index) => (
+            <div key={index} className="group relative">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300 hover:bg-white/10 cursor-pointer">
+                {/* Icon with animated background */}
+                <div className={`w-16 h-16 rounded-2xl mb-4 flex items-center justify-center bg-gradient-to-r ${feature.color} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <feature.icon className="h-8 w-8 text-white" />
+                </div>
+                
+                {/* Content */}
+                <h4 className="text-lg font-bold text-white mb-2">{feature.title}</h4>
+                <p className="text-gray-300 text-sm mb-4 leading-relaxed">{feature.description}</p>
+                
+                {/* Level Badge */}
+                <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-white border border-white/20 mb-4">
+                  {feature.level}
+                </div>
+
+                {/* Feature List */}
+                <div className="space-y-2">
+                  {feature.features.map((item, idx) => (
+                    <div key={idx} className="flex items-center text-xs text-gray-400">
+                      <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-2"></div>
+                      {item}
+                    </div>
+                  ))}
                 </div>
               </div>
-            ))}
+            </div>
+          ))}
+        </div>
+
+        {/* Security Stats Section */}
+        <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 mb-16">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-white mb-2">Security Metrics</h3>
+            <p className="text-gray-300">Real-time security performance indicators</p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-blue-400 mb-2">99.9%</div>
+              <div className="text-sm text-gray-300">Uptime</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-green-400 mb-2">256-bit</div>
+              <div className="text-sm text-gray-300">Encryption</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-purple-400 mb-2">24/7</div>
+              <div className="text-sm text-gray-300">Monitoring</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-red-400 mb-2">SOC 2</div>
+              <div className="text-sm text-gray-300">Compliant</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Security Overview with Image */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Side - Security Overview */}
+          <div className="space-y-6">
+            <div className="bg-gradient-to-r from-blue-500/20 to-green-500/20 rounded-2xl p-6 border border-blue-400/30">
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Multi-Layered Defense
+              </h3>
+              <p className="text-gray-300 mb-4">
+                Our comprehensive security approach combines cutting-edge technology with industry best practices to create an impenetrable defense system.
+              </p>
+              <div className="flex items-center text-blue-300">
+                <ShieldCheck className="w-5 h-5 mr-2" />
+                <span className="text-sm">ISO 27001 Certified</span>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <div className="text-2xl font-bold text-green-400 mb-1">100%</div>
+                <div className="text-xs text-gray-400">Audit Success</div>
+              </div>
+              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <div className="text-2xl font-bold text-blue-400 mb-1">0</div>
+                <div className="text-xs text-gray-400">Security Breaches</div>
+              </div>
+            </div>
           </div>
 
-          {/* Token Issuance Compliance Image - Right Side */}
-          <div className="flex items-center justify-center bg-green-50 rounded-2xl border border-gray-200 shadow-lg p-6 min-h-[400px]">
-            <img
-              src="/assets/Images/token-issuence-removebg.png"
-              alt="Token Issuance Compliance Rules"
-              className="max-w-full h-auto rounded-xl"
-            />
+          {/* Right Side - Enhanced Image */}
+          <div className="flex items-center justify-center">
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-green-500 rounded-3xl transform rotate-3 opacity-30 group-hover:rotate-6 transition-transform duration-500"></div>
+              <div className="relative bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/20 group-hover:border-white/40 transition-all duration-500">
+                <img
+                  src="/assets/Images/token-issuence-removebg.png"
+                  alt="Token Issuance Compliance Rules"
+                  className="max-w-full h-auto rounded-2xl filter drop-shadow-2xl"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
