@@ -136,39 +136,39 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
 
   // Asset types data
   const assetTypes = [
-    { id: 1, name: 'Real Estate', desc: 'Properties & Land', icon: Building2, value: 'High Value' },
-    { id: 2, name: 'Commodities', desc: 'Gold, Silver, Oil', icon: Coins, value: 'Stable' },
-    { id: 3, name: 'Art & Collectibles', desc: 'Paintings, NFTs', icon: BookCopy, value: 'Unique' },
-    { id: 4, name: 'Private Equity', desc: 'Company Shares', icon: TrendingUp, value: 'Growth' },
-    { id: 5, name: 'Carbon Credits', desc: 'Environmental Assets', icon: Shield, value: 'ESG' }
+    { id: 1, name: 'Real Estate', desc: 'Properties & Land', icon: Building2, value: 'High Value', color: 'from-blue-500 to-blue-600' },
+    { id: 2, name: 'Commodities', desc: 'Gold, Silver, Oil', icon: Coins, value: 'Stable', color: 'from-yellow-500 to-yellow-600' },
+    { id: 3, name: 'Art & Collectibles', desc: 'Paintings, NFTs', icon: BookCopy, value: 'Unique', color: 'from-purple-500 to-purple-600' },
+    { id: 4, name: 'Private Equity', desc: 'Company Shares', icon: TrendingUp, value: 'Growth', color: 'from-green-500 to-green-600' },
+    { id: 5, name: 'Carbon Credits', desc: 'Environmental Assets', icon: Shield, value: 'ESG', color: 'from-emerald-500 to-emerald-600' }
   ];
 
   // Blockchain networks data
   const blockchains = [
-    { id: 1, name: 'Ethereum', desc: 'Smart Contracts', icon: Cpu, value: 'ERC-20' },
-    { id: 2, name: 'Polygon', desc: 'Low Cost', icon: Cpu, value: 'MATIC' },
-    { id: 3, name: 'Solana', desc: 'High Speed', icon: Cpu, value: 'SOL' },
-    { id: 4, name: 'Avalanche', desc: 'Scalable', icon: Cpu, value: 'AVAX' },
-    { id: 5, name: 'Binance Smart Chain', desc: 'Compatible', icon: Cpu, value: 'BSC' },
-    { id: 6, name: 'Optimism', desc: 'Layer 2', icon: Cpu, value: 'OP' }
+    { id: 1, name: 'Ethereum', desc: 'Smart Contracts', icon: Cpu, value: 'ERC-20', color: 'from-indigo-500 to-indigo-600' },
+    { id: 2, name: 'Polygon', desc: 'Low Cost', icon: Cpu, value: 'MATIC', color: 'from-purple-500 to-purple-600' },
+    { id: 3, name: 'Solana', desc: 'High Speed', icon: Cpu, value: 'SOL', color: 'from-pink-500 to-pink-600' },
+    { id: 4, name: 'Avalanche', desc: 'Scalable', icon: Cpu, value: 'AVAX', color: 'from-red-500 to-red-600' },
+    { id: 5, name: 'Binance Smart Chain', desc: 'Compatible', icon: Cpu, value: 'BSC', color: 'from-yellow-500 to-yellow-600' },
+    { id: 6, name: 'Optimism', desc: 'Layer 2', icon: Cpu, value: 'OP', color: 'from-blue-500 to-blue-600' }
   ];
 
   // Token standards data
   const tokenStandards = {
     ethereum: [
-      { id: 1, name: 'ERC-20', desc: 'Fungible Tokens', icon: Code, value: 'Standard' },
-      { id: 2, name: 'ERC-721', desc: 'Non-Fungible Tokens', icon: Code, value: 'NFT' },
-      { id: 3, name: 'ERC-1155', desc: 'Multi-Token Standard', icon: Code, value: 'Hybrid' },
-      { id: 4, name: 'ERC-1400', desc: 'Security Token Standard', icon: Code, value: 'Security' }
+      { id: 1, name: 'ERC-20', desc: 'Fungible Tokens', icon: Code, value: 'Standard', color: 'from-green-500 to-green-600' },
+      { id: 2, name: 'ERC-721', desc: 'Non-Fungible Tokens', icon: Code, value: 'NFT', color: 'from-blue-500 to-blue-600' },
+      { id: 3, name: 'ERC-1155', desc: 'Multi-Token Standard', icon: Code, value: 'Hybrid', color: 'from-purple-500 to-purple-600' },
+      { id: 4, name: 'ERC-1400', desc: 'Security Token Standard', icon: Code, value: 'Security', color: 'from-red-500 to-red-600' }
     ],
     polygon: [
-      { id: 1, name: 'ERC-20', desc: 'Fungible Tokens', icon: Code, value: 'Standard' },
-      { id: 2, name: 'ERC-721', desc: 'Non-Fungible Tokens', icon: Code, value: 'NFT' },
-      { id: 3, name: 'ERC-1155', desc: 'Multi-Token Standard', icon: Code, value: 'Hybrid' }
+      { id: 1, name: 'ERC-20', desc: 'Fungible Tokens', icon: Code, value: 'Standard', color: 'from-green-500 to-green-600' },
+      { id: 2, name: 'ERC-721', desc: 'Non-Fungible Tokens', icon: Code, value: 'NFT', color: 'from-blue-500 to-blue-600' },
+      { id: 3, name: 'ERC-1155', desc: 'Multi-Token Standard', icon: Code, value: 'Hybrid', color: 'from-purple-500 to-purple-600' }
     ],
     solana: [
-      { id: 1, name: 'SPL Token', desc: 'Fungible Tokens', icon: Code, value: 'Standard' },
-      { id: 2, name: 'Metaplex', desc: 'NFT Standard', icon: Code, value: 'NFT' }
+      { id: 1, name: 'SPL Token', desc: 'Fungible Tokens', icon: Code, value: 'Standard', color: 'from-green-500 to-green-600' },
+      { id: 2, name: 'Metaplex', desc: 'NFT Standard', icon: Code, value: 'NFT', color: 'from-blue-500 to-blue-600' }
     ]
   };
 
@@ -183,51 +183,23 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
   };
 
   const handleCardHover = (cardIndex, isHovering) => {
-    if (!window.gsap) return;
-    
     const card = cardsRef.current[cardIndex];
     if (!card) return;
-    
-    // Immediately kill any existing animations on this card
-    window.gsap.killTweensOf(card);
     
     if (isHovering) {
       // Set hovered state immediately
       setHoveredCard(cardIndex);
       
-      // Set initial transform origin
-      window.gsap.set(card, {
-        transformOrigin: "center center",
-        zIndex: 2000
-      });
-      
-      // Create smooth hover animation
-      window.gsap.to(card, {
-        scale: 1.15,
-        y: -40,
-        rotationY: 5,
-        rotationX: 5,
-        boxShadow: "0 30px 60px rgba(0,0,0,0.3)",
-        duration: 0.3,
-        ease: "power2.out",
-        onComplete: () => {
-          // Only set animating to false if this card is still hovered
-          if (hoveredCard === cardIndex) {
-            setIsAnimating(false);
-          }
-        }
-      });
+      // Apply hover styles directly with CSS transforms
+      card.style.transform = 'scale(1.05) translateY(-10px)';
+      card.style.boxShadow = '0 25px 50px rgba(0,0,0,0.25)';
+      card.style.zIndex = '2000';
       
       // Dim other cards
       cardsRef.current.forEach((otherCard, index) => {
         if (index !== cardIndex && otherCard) {
-          window.gsap.killTweensOf(otherCard);
-          window.gsap.to(otherCard, {
-            opacity: 0.9,
-            scale: 0.9,
-            duration: 0.3,
-            ease: "power2.out"
-          });
+          otherCard.style.transform = 'scale(0.95)';
+          otherCard.style.opacity = '0.8';
         }
       });
       
@@ -235,43 +207,18 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
       // Only reset if this card was actually the hovered one
       if (hoveredCard === cardIndex) {
         setHoveredCard(null);
-        setIsAnimating(true);
         
         // Reset this specific card
-        window.gsap.to(card, {
-          scale: 1,
-          opacity: 1,
-          rotationY: 0,
-          rotationX: 0,
-          rotationZ: 0,
-          y: 0,
-          x: 0,
-          zIndex: cardIndex + 10,
-          boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
-          duration: 0.3,
-          ease: "power2.out",
-          onComplete: () => {
-            setIsAnimating(false);
-          }
-        });
+        card.style.transform = 'scale(1) translateY(0px)';
+        card.style.boxShadow = '0 20px 40px rgba(0,0,0,0.15)';
+        card.style.zIndex = (cardIndex + 10).toString();
         
         // Reset all other cards
         cardsRef.current.forEach((otherCard, index) => {
           if (index !== cardIndex && otherCard) {
-            window.gsap.killTweensOf(otherCard);
-            window.gsap.to(otherCard, {
-              scale: 1,
-              opacity: 1,
-              rotationY: 0,
-              rotationX: 0,
-              rotationZ: 0,
-              y: 0,
-              x: 0,
-              zIndex: index + 10,
-              boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
-              duration: 0.3,
-              ease: "power2.out"
-            });
+            otherCard.style.transform = 'scale(1)';
+            otherCard.style.opacity = '1';
+            otherCard.style.zIndex = (index + 10).toString();
           }
         });
       }
@@ -284,26 +231,29 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
       icon: Briefcase,
       items: assetTypes,
       selected: selectedAsset,
-      color: "from-blue-500 to-purple-600"
+      stepNumber: 1,
+      status: currentStep >= 0 ? 'completed' : 'pending'
     },
     {
       title: "Choose Blockchain Network", 
       icon: Cpu,
       items: blockchains,
       selected: selectedBlockchain,
-      color: "from-purple-500 to-pink-600"
+      stepNumber: 2,
+      status: currentStep >= 1 ? 'completed' : 'pending'
     },
     {
       title: "Token Standards",
       icon: Code,
       items: selectedBlockchain ? (tokenStandards[selectedBlockchain.name.toLowerCase()] || tokenStandards.ethereum) : tokenStandards.ethereum,
       selected: selectedStandard,
-      color: "from-pink-500 to-red-600"
+      stepNumber: 3,
+      status: currentStep >= 2 ? 'completed' : 'pending'
     }
   ];
 
   return (
-    <section className="py-20">
+    <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
@@ -321,117 +271,38 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
           </button>
         </div>
 
-        {/* Interactive Tokenization Cards */}
-        <div className="relative mb-8">
-          <div 
-            className="flex flex-col lg:flex-row justify-center items-center gap-4 sm:gap-6 md:gap-8 perspective-1000"
-            onMouseLeave={() => {
-              if (hoveredCard !== null) {
-                setHoveredCard(null);
-                setIsAnimating(true);
-                
-                cardsRef.current.forEach((card, index) => {
-                  if (card) {
-                    window.gsap.killTweensOf(card);
-                    window.gsap.to(card, {
-                      scale: 1,
-                      opacity: 1,
-                      rotationY: 0,
-                      rotationX: 0,
-                      rotationZ: 0,
-                      y: 0,
-                      x: 0,
-                      zIndex: index + 10,
-                      boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
-                      duration: 0.3,
-                      ease: "power2.out",
-                      onComplete: () => {
-                        if (index === cardsRef.current.length - 1) {
-                          setIsAnimating(false);
-                        }
-                      }
-                    });
-                  }
-                });
-              }
-            }}
-          >
-            {stepCards.map((card, index) => (
-              <div
-                key={index}
-                className="relative"
-              >
-                <div
-                  ref={el => cardsRef.current[index] = el}
-                  className={`relative w-80 h-96 rounded-3xl p-6 cursor-pointer transform-gpu overflow-hidden ${
-                    currentStep === index ? 'z-30' : currentStep > index ? 'z-20' : 'z-10'
-                  }`}
-                  style={{
-                    background: `linear-gradient(135deg, ${card.color.includes('blue') ? '#3B82F6' : card.color.includes('purple') ? '#18be36ff' : '#4894ecff'} 0%, ${card.color.includes('blue') ? '#18be36ff' : card.color.includes('purple') ? '#0300b1ff' : '#18be36ff'} 100%)`,
-                    boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
-                    zIndex: index + 10,
-                    transformStyle: 'preserve-3d',
-                    backfaceVisibility: 'hidden'
-                  }}
-                  onMouseEnter={() => handleCardHover(index, true)}
-                  onMouseLeave={() => handleCardHover(index, false)}
-                  onMouseMove={(e) => {
-                    // Ensure hover state is maintained while mouse is inside
-                    if (hoveredCard !== index) {
-                      handleCardHover(index, true);
-                    }
-                  }}
-                >
-                  <div className="text-white h-full flex flex-col" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
-                    <div className="flex items-center mb-3 sm:mb-4 flex-shrink-0">
-                      <card.icon className="w-5 h-5 sm:w-6 sm:h-6 mr-2 drop-shadow-lg" />
-                      <h2 className="text-lg sm:text-xl font-bold drop-shadow-lg">{card.title}</h2>
-                    </div>
-
-                    {hoveredCard === index ? (
-                      <div className="flex-1 min-h-0 overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
-                        <div className="grid grid-cols-1 gap-1 sm:gap-1.5 pb-2">
-                          {card.items.map((item, itemIndex) => (
-                            <button
-                              key={item.id}
-                              onClick={() => handleCardClick(index, item)}
-                              className={`w-full p-2 sm:p-2 rounded-lg sm:rounded-xl text-left transition-all duration-300 hover:scale-105 ${
-                                card.selected?.id === item.id ? 'bg-white/30' : 'bg-white/10 hover:bg-white/20'
-                              }`}
-                              style={{ textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}
-                            >
-                              <div className="flex items-center">
-                                {item.icon && <item.icon className="w-3 h-3 sm:w-4 sm:h-4 mr-2 drop-shadow-lg flex-shrink-0" />}
-                                <div className="min-w-0 flex-1">
-                                  <div className="font-semibold text-xs sm:text-xs text-white drop-shadow-lg truncate">{item.name}</div>
-                                  {item.desc && <div className="text-xs text-white/90 drop-shadow-md truncate">{item.desc}</div>}
-                                  {item.value && <div className="text-xs text-white/80 drop-shadow-md truncate">{item.value}</div>}
-                                </div>
-                              </div>
-                            </button>
-                          ))}
-                        </div>
-                      </div>
+        {/* Progress Timeline */}
+        <div className="relative mb-16">
+          <div className="flex items-center justify-center">
+            {stepCards.map((step, index) => (
+              <div key={index} className="flex items-center">
+                {/* Step Circle */}
+                <div className="relative">
+                  <div className={`w-20 h-20 rounded-full flex items-center justify-center text-white font-bold text-xl transition-all duration-500 ${
+                    step.stepNumber === 3 
+                      ? 'bg-gradient-to-r from-[#15a36e] to-[#255f99] scale-110 shadow-xl' 
+                      : 'bg-gradient-to-r from-gray-400 to-gray-500 scale-100 shadow-lg'
+                  }`}>
+                    {step.stepNumber === 3 ? (
+                      <CheckCircle className="w-10 h-10" />
                     ) : (
-                      <div className="flex-1 flex items-center justify-center">
-                        <div className="text-center" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
-                          <div className="text-sm sm:text-base font-semibold mb-2 text-white drop-shadow-lg">
-                            {card.selected ? `Selected: ${card.selected.name || card.selected}` : 'Hover to select'}
-                          </div>
-                          <div className="text-xs text-white/90 drop-shadow-md">
-                            {card.items.length} options available
-                          </div>
-                        </div>
-                      </div>
+                      step.stepNumber
                     )}
                   </div>
                 </div>
+                
+                {/* Connector Line */}
+                {index < stepCards.length - 1 && (
+                  <div className={`w-32 h-1 mx-6 transition-all duration-500 rounded-full ${
+                    step.status === 'completed' 
+                      ? 'bg-gradient-to-r from-[#15a36e] to-[#255f99]' 
+                      : 'bg-gradient-to-r from-gray-300 to-gray-400'
+                  }`} />
+                )}
               </div>
             ))}
           </div>
         </div>
-
-
       </div>
     </section>
   );
@@ -553,7 +424,6 @@ const TokenDistribution = () => {
             src="/assets/Images/Token-Distribution-removebg.png"
             alt="The Digital Securities Distribution Network"
             className="max-w-full h-auto rounded-xl bg-green-50 shadow-lg border border-gray-100"
-            // style={{ background: 'white' }}
           />
         </div>
       </div>
@@ -758,7 +628,7 @@ const InvestorManagement = () => {
   );
 };
 
-// Security Protocols Section Component - Restructured
+// Security Protocols Section Component
 const SecurityProtocols = () => {
   const securityFeatures = [
     {
