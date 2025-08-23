@@ -72,7 +72,9 @@ export function Globe({
 
   const onResize = () => {
     if (canvasRef.current && canvasRef.current.offsetWidth > 0) {
-      width = canvasRef.current.offsetWidth
+      // Force square dimensions to prevent stretching
+      const containerSize = Math.min(canvasRef.current.offsetWidth, canvasRef.current.offsetHeight)
+      width = containerSize
     }
   }
 
@@ -101,8 +103,8 @@ export function Globe({
         
         const globe = createGlobe(canvasRef.current, {
           ...config,
-          width: width * 2,
-          height: width * 2,
+          width: width,
+          height: width,
           onRender,
         })
 
@@ -144,7 +146,7 @@ export function Globe({
     return (
       <div
         className={cn(
-          "absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[300px] md:max-w-[450px]",
+          "relative aspect-[1/1] w-full max-w-[300px] md:max-w-[450px]",
           className,
         )}
       >
@@ -167,7 +169,7 @@ export function Globe({
   return (
     <div
       className={cn(
-        "absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[300px] md:max-w-[450px]",
+        "relative aspect-square w-full max-w-[300px] md:max-w-[450px]",
         className,
       )}
     >

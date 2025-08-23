@@ -90,7 +90,7 @@ const MinimalTokenizationDashboard = () => {
             </h3>
           </div>
           <div className="space-y-6">
-            <div className="space-y-2">
+            <div className="hidden md:block space-y-2">
               {investorGroups.map((group) => (
                 <div key={group.name} className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
@@ -101,7 +101,7 @@ const MinimalTokenizationDashboard = () => {
                 </div>
               ))}
             </div>
-            <div className="relative h-48 md:h-64 flex items-center justify-center">
+            <div className="relative w-full h-48 md:h-64 lg:h-80 flex items-center justify-center">
               <ErrorBoundary>
                 <GlobeComponent className="w-full h-full" />
               </ErrorBoundary>
