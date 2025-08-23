@@ -190,20 +190,23 @@
 }
 
 .dropdown {
-  position: absolute;
-  top: calc(100% + 15px);
-  left: 50%;
-  transform: translateX(-50%);
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   background: #e0f2fe;
   backdrop-filter: blur(20px);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 24px;
   padding: 24px;
   min-width: 640px;
+  max-width: 640px;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
 .nav-item:hover .dropdown {
@@ -292,14 +295,15 @@
     display: none;
   }
   
-  .dropdown {
+  /* Only apply these styles to desktop dropdowns, not mobile */
+  .nav-pills .dropdown {
     min-width: 90vw;
-    left: 5vw;
-    transform: none;
+    left: 50%;
+    transform: translateX(-50%);
   }
   
-  .nav-item:hover .dropdown {
-    transform: none;
+  .nav-pills .nav-item:hover .dropdown {
+    transform: translateX(-50%) translateY(0);
   }
   
   .dropdown-grid {

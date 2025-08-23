@@ -47,7 +47,7 @@ const RealEstateInvestmentSection = () => {
           // Add a small delay to ensure smooth animation
           const timer = setTimeout(() => {
             setAnimationTriggered(true);
-          }, 200);
+          }, isMobile ? 100 : 200);
           
           return () => clearTimeout(timer);
         } else {
@@ -56,8 +56,8 @@ const RealEstateInvestmentSection = () => {
         }
       },
       {
-        threshold: 0.3, // Trigger when 30% of the component is visible
-        rootMargin: '0px 0px -100px 0px' // Trigger slightly before fully in view
+        threshold: isMobile ? 0.05 : 0.3, // Even lower threshold for mobile
+        rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -100px 0px' // Much smaller margin for mobile
       }
     );
 
@@ -70,7 +70,7 @@ const RealEstateInvestmentSection = () => {
         observer.unobserve(donutChartRef.current);
       }
     };
-  }, []);
+  }, [isMobile]);
 
   const sections = [
     {
@@ -150,6 +150,13 @@ const RealEstateInvestmentSection = () => {
               end: "bottom center",
               onEnter: () => {
             setActiveSection(index);
+                // Trigger animation for donut chart when first section is entered
+                if (index === 0) {
+                  setAnimationTriggered(true);
+                } else {
+                  // Reset animation when leaving first section
+                  setAnimationTriggered(false);
+                }
                 // Add smooth visual transition
                 const visualContent = visualRef.current?.querySelector('.visual-content');
                 if (visualContent) {
@@ -161,6 +168,10 @@ const RealEstateInvestmentSection = () => {
               },
               onEnterBack: () => {
                 setActiveSection(index);
+                // Trigger animation for donut chart when first section is entered
+                if (index === 0) {
+                  setAnimationTriggered(true);
+                }
                 // Add smooth visual transition
                 const visualContent = visualRef.current?.querySelector('.visual-content');
                 if (visualContent) {
@@ -322,11 +333,11 @@ const RealEstateInvestmentSection = () => {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={animationTriggered ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
                                   transition={{
-                    duration: 0.6,
-                    delay: index * 0.05, // Clockwise sequence: 0s, 0.05s, 0.1s, 0.15s
+                    duration: isMobile ? 0.4 : 0.6,
+                    delay: isMobile ? index * 0.03 : index * 0.05, // Faster sequence on mobile
                     type: "spring",
-                    stiffness: 200,
-                    damping: 20
+                    stiffness: isMobile ? 300 : 200, // Higher stiffness for mobile
+                    damping: isMobile ? 15 : 20
                   }}
             />
           ))}
@@ -344,10 +355,10 @@ const RealEstateInvestmentSection = () => {
                 initial={{ opacity: 0, r: 0 }}
                 animate={animationTriggered ? { opacity: 1, r: 4 } : { opacity: 0, r: 0 }}
                                   transition={{
-                    duration: 0.4,
-                    delay: 0.2 + index * 0.05, // Clockwise sequence: 0.2s, 0.25s, 0.3s, 0.35s
+                    duration: isMobile ? 0.3 : 0.4,
+                    delay: isMobile ? 0.1 + index * 0.03 : 0.2 + index * 0.05, // Faster sequence on mobile
                     type: "spring",
-                    stiffness: 300
+                    stiffness: isMobile ? 400 : 300
                   }}
             />
             
@@ -363,8 +374,8 @@ const RealEstateInvestmentSection = () => {
                 initial={{ opacity: 0 }}
                 animate={animationTriggered ? { opacity: 0.5 } : { opacity: 0 }}
                                   transition={{
-                    duration: 0.3,
-                    delay: 0.25 + index * 0.05 // Clockwise sequence: 0.25s, 0.3s, 0.35s, 0.4s
+                    duration: isMobile ? 0.2 : 0.3,
+                    delay: isMobile ? 0.15 + index * 0.03 : 0.25 + index * 0.05 // Faster sequence on mobile
                   }}
             />
             
@@ -383,10 +394,10 @@ const RealEstateInvestmentSection = () => {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={animationTriggered ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
                                   transition={{
-                    duration: 0.5,
-                    delay: 0.3 + index * 0.05, // Clockwise sequence: 0.3s, 0.35s, 0.4s, 0.45s
+                    duration: isMobile ? 0.4 : 0.5,
+                    delay: isMobile ? 0.2 + index * 0.03 : 0.3 + index * 0.05, // Faster sequence on mobile
                     type: "spring",
-                    stiffness: 200
+                    stiffness: isMobile ? 300 : 200
                   }}
             />
             
@@ -401,8 +412,8 @@ const RealEstateInvestmentSection = () => {
                 initial={{ opacity: 0 }}
                 animate={animationTriggered ? { opacity: 1 } : { opacity: 0 }}
                                   transition={{
-                    duration: 0.3,
-                    delay: 0.35 + index * 0.05 // Clockwise sequence: 0.35s, 0.4s, 0.45s, 0.5s
+                    duration: isMobile ? 0.2 : 0.3,
+                    delay: isMobile ? 0.25 + index * 0.03 : 0.35 + index * 0.05 // Faster sequence on mobile
                   }}
             >
               {segment.label}
@@ -419,8 +430,8 @@ const RealEstateInvestmentSection = () => {
                 initial={{ opacity: 0 }}
                 animate={animationTriggered ? { opacity: 1 } : { opacity: 0 }}
                                   transition={{
-                    duration: 0.3,
-                    delay: 0.4 + index * 0.05 // Clockwise sequence: 0.4s, 0.45s, 0.5s, 0.55s
+                    duration: isMobile ? 0.2 : 0.3,
+                    delay: isMobile ? 0.3 + index * 0.03 : 0.4 + index * 0.05 // Faster sequence on mobile
                   }}
             >
               ({segment.percentage})
@@ -434,10 +445,10 @@ const RealEstateInvestmentSection = () => {
 
   const renderPassiveEarning = (isAnimating = false) => (
     <div className="w-full h-full flex items-center justify-center">
-      <div className="relative">
+      <div className="relative" style={{ transform: 'translateX(-50px)' }}>
         {/* 3D Wallet SVG with Enhanced Depth and Perspective */}
         <svg width="750" height="750" viewBox="0 0 750 750" xmlns="http://www.w3.org/2000/svg" 
-             className={`${isMobile ? 'w-96 h-96' : 'w-[500px] h-[500px]'} visual-element drop-shadow-2xl ${isAnimating ? 'stagger-in' : ''}`}
+             className={`${isMobile ? 'w-[450px] h-[450px]' : 'w-[800px] h-[800px]'} visual-element drop-shadow-2xl ${isAnimating ? 'stagger-in' : ''}`}
           style={{
                filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.1))',
             maxWidth: '100%',
@@ -1510,8 +1521,8 @@ const RealEstateInvestmentSection = () => {
                     borderRadius: '20px',
                     transition: 'all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
                     width: '100%',
-                    maxWidth: '320px',
-                    height: '400px',
+                    maxWidth: index === 1 ? '500px' : '320px', // Bigger container for wallet section
+                    height: index === 1 ? '500px' : '400px', // Bigger height for wallet section
                   }}
                 >
                   {/* Animated background particles */}
@@ -1629,7 +1640,7 @@ const RealEstateInvestmentSection = () => {
           className="w-1/2 h-screen flex items-center justify-center p-12"
         >
           <div
-            className="visual-content relative w-96 h-[500px] flex items-center justify-center"
+            className={`visual-content relative flex items-center justify-center ${activeSection === 1 ? 'w-[600px] h-[600px]' : 'w-96 h-[500px]'}`}
             style={{
               background: 'radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, transparent 100%)',
               backdropFilter: 'blur(10px)',
