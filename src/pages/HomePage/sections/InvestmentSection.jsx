@@ -1330,18 +1330,6 @@ const RealEstateInvestmentSection = () => {
       <div className={`visual-element ${isAnimating ? 'stagger-in' : ''}`}>
         {/* Main Wallet Container */}
         <div className={`relative ${isMobile ? 'w-64 h-80' : 'w-72 h-96'} bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-2xl p-6 border border-gray-200`}>
-          {/* Currency Selection Tags */}
-          <div className="absolute -top-3 -left-2 flex space-x-1">
-            <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-lg">
-              USD
-          </div>
-            <div className="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg text-xs font-medium border border-gray-200">
-              EUR
-            </div>
-            <div className="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg text-xs font-medium border border-gray-200">
-              GBP
-            </div>
-          </div>
 
           {/* Balance Section */}
           <div className="text-center mb-6">
@@ -1562,14 +1550,7 @@ const RealEstateInvestmentSection = () => {
               {/* Content Section */}
               <div className="min-h-[60vh] flex items-center px-6 py-12 bg-white">
                 <div className="w-full max-w-md mx-auto">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <span className="text-white font-bold text-sm">AI</span>
-                    </div>
-                    <div className="text-sm font-medium text-green-600">
-                      COPYM • 0{index + 1}
-                    </div>
-                  </div>
+
 
                   <div className={`inline-block px-4 py-2 rounded-full text-sm font-medium mb-4 transition-all duration-500 border ${activeSection === index
                     ? 'bg-gradient-to-r from-green-500/20 to-green-600/20 text-green-700 border-green-500/30 shadow-lg'
@@ -1692,14 +1673,7 @@ const RealEstateInvestmentSection = () => {
               className="min-h-screen flex items-center px-12 py-20"
             >
               <div className="max-w-lg">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <span className="text-white font-bold text-sm">AI</span>
-                  </div>
-                  <div className="text-sm font-medium text-green-600">
-                    COPYM • 0{index + 1}
-                  </div>
-                </div>
+
 
                 <div className={`inline-block px-4 py-2 rounded-full text-sm font-medium mb-4 transition-all duration-500 border ${activeSection === index
                   ? 'bg-gradient-to-r from-green-500/20 to-green-600/20 text-green-700 border-green-500/30 shadow-lg'
