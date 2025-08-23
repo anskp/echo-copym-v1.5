@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Building2, Users, Globe } from 'lucide-react';
 import { Globe as GlobeComponent } from '../../../components/globe';
+import ErrorBoundary from '../../../components/ErrorBoundary';
 
 const investorGroups = [
   { name: 'Institutional', value: 45, color: '#3B82F6' },
@@ -100,8 +101,10 @@ const MinimalTokenizationDashboard = () => {
                 </div>
               ))}
             </div>
-            <div className="relative h-64 flex items-center justify-center">
-              <GlobeComponent className="w-full h-full" />
+            <div className="relative h-48 md:h-64 flex items-center justify-center">
+              <ErrorBoundary>
+                <GlobeComponent className="w-full h-full" />
+              </ErrorBoundary>
             </div>
           </div>
         </div>

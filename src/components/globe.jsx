@@ -43,6 +43,7 @@ export function Globe({
   const pointerInteracting = useRef(null)
   const pointerInteractionMovement = useRef(0)
   const [r, setR] = useState(0)
+  const [webglSupported, setWebglSupported] = useState(true)
 
   const updatePointerInteraction = (value) => {
     pointerInteracting.current = value
@@ -70,30 +71,103 @@ export function Globe({
   )
 
   const onResize = () => {
-    if (canvasRef.current) {
+    if (canvasRef.current && canvasRef.current.offsetWidth > 0) {
       width = canvasRef.current.offsetWidth
     }
   }
 
   useEffect(() => {
+    // Check if WebGL is supported
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    
+    if (!gl) {
+      console.warn('WebGL not supported, falling back to static display');
+      setWebglSupported(false);
+      return;
+    }
+
     window.addEventListener("resize", onResize)
-    onResize()
+    
+    // Add a small delay to ensure canvas is properly mounted
+    const initTimer = setTimeout(() => {
+      onResize()
+      
+      try {
+        if (!canvasRef.current) {
+          console.warn('Canvas ref not available');
+          return;
+        }
+        
+        const globe = createGlobe(canvasRef.current, {
+          ...config,
+          width: width * 2,
+          height: width * 2,
+          onRender,
+        })
 
-    const globe = createGlobe(canvasRef.current, {
-      ...config,
-      width: width * 2,
-      height: width * 2,
-      onRender,
-    })
+        setTimeout(() => {
+          if (canvasRef.current) {
+            canvasRef.current.style.opacity = "1"
+          }
+        })
+        
+        // Store globe reference for cleanup
+        const globeRef = { current: globe };
+        
+        return () => {
+          try {
+            if (globeRef.current) {
+              globeRef.current.destroy()
+            }
+          } catch (error) {
+            console.warn('Error destroying globe:', error)
+          }
+        }
+      } catch (error) {
+        console.warn('Error creating globe:', error)
+        // Fallback to static display
+        if (canvasRef.current) {
+          canvasRef.current.style.opacity = "1"
+        }
+      }
+    }, 100)
 
-    setTimeout(() => (canvasRef.current.style.opacity = "1"))
-    return () => globe.destroy()
+    return () => {
+      clearTimeout(initTimer)
+      window.removeEventListener("resize", onResize)
+    }
   }, [])
+
+  // Fallback static globe when WebGL is not supported
+  if (!webglSupported) {
+    return (
+      <div
+        className={cn(
+          "absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[300px] md:max-w-[450px]",
+          className,
+        )}
+      >
+        <div className="w-full h-full flex items-center justify-center">
+          <div className="relative w-20 h-20 md:w-28 md:h-28">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 border-2 border-blue-300"></div>
+            <div className="absolute inset-2 rounded-full bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200"></div>
+            <div className="absolute inset-4 rounded-full bg-gradient-to-br from-blue-200 to-blue-300"></div>
+            {/* Static markers */}
+            <div className="absolute top-3 left-1/2 w-1.5 h-1.5 md:w-2 md:h-2 bg-orange-400 rounded-full transform -translate-x-1/2"></div>
+            <div className="absolute top-6 right-4 w-1 h-1 md:w-1.5 md:h-1.5 bg-orange-400 rounded-full"></div>
+            <div className="absolute bottom-6 left-4 w-1 h-1 md:w-1.5 md:h-1.5 bg-orange-400 rounded-full"></div>
+            <div className="absolute bottom-3 right-1/2 w-1.5 h-1.5 md:w-2 md:h-2 bg-orange-400 rounded-full transform translate-x-1/2"></div>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div
       className={cn(
-        "absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[600px]",
+        "absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[300px] md:max-w-[450px]",
         className,
       )}
     >
