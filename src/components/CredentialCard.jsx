@@ -8,13 +8,27 @@ function getInitials(name) {
   return (first + last).toUpperCase();
 }
 
-function CredentialCard({ user, variant = 'bottleGreen', logoSrc, logoSize = 24, stacked = false, backVariant = 'darkBlue' }) {
+function CredentialCard({ user, variant = 'bottleGreen', logoSrc, logoSize = 24, stacked = false, backVariant = 'darkBlue', responsive = true }) {
   if (!user) return null;
 
   const brandName = 'copyM';
 
+  // Responsive width handling
+  const getCardWidth = () => {
+    if (!responsive) return 420;
+    
+    // Check if we're on mobile (you can adjust these breakpoints)
+    if (typeof window !== 'undefined') {
+      const isMobile = window.innerWidth < 640; // sm breakpoint
+      return isMobile ? 320 : 420;
+    }
+    return 420; // Default fallback
+  };
+
+  const cardWidth = getCardWidth();
+
   const containerStyle = {
-    width: 420,
+    width: cardWidth,
     borderRadius: 20,
     background: '#ffffff',
     boxShadow:
@@ -33,7 +47,7 @@ function CredentialCard({ user, variant = 'bottleGreen', logoSrc, logoSize = 24,
   const headerStyle = {
     background: headerBackground,
     color: 'white',
-    padding: '18px 20px',
+    padding: cardWidth <= 320 ? '14px 16px' : '18px 20px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -42,7 +56,7 @@ function CredentialCard({ user, variant = 'bottleGreen', logoSrc, logoSize = 24,
 
   const brandStyle = {
     fontFamily: 'Montserrat, Inter, Segoe UI, system-ui, -apple-system, Roboto, Helvetica, Arial, "Noto Sans", sans-serif',
-    fontSize: 24,
+    fontSize: cardWidth <= 320 ? 20 : 24,
     fontWeight: 700,
     letterSpacing: 1.0,
     textTransform: 'uppercase',
@@ -70,17 +84,17 @@ function CredentialCard({ user, variant = 'bottleGreen', logoSrc, logoSize = 24,
   };
 
   const bodyStyle = {
-    padding: 20,
+    padding: cardWidth <= 320 ? 16 : 20,
     display: 'grid',
-    gridTemplateColumns: '1fr 140px',
-    gap: 20,
+    gridTemplateColumns: cardWidth <= 320 ? '1fr 100px' : '1fr 140px',
+    gap: cardWidth <= 320 ? 16 : 20,
     alignItems: 'center',
   };
 
   const personRowStyle = { display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 };
   const avatarStyle = {
-    width: 44,
-    height: 44,
+    width: cardWidth <= 320 ? 36 : 44,
+    height: cardWidth <= 320 ? 36 : 44,
     borderRadius: '50%',
     background: variant === 'darkBlue' ? '#e2e8f0' : '#e6f4ee',
     color: variant === 'darkBlue' ? '#0f172a' : '#065f46',
@@ -91,8 +105,8 @@ function CredentialCard({ user, variant = 'bottleGreen', logoSrc, logoSize = 24,
     boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.8), 0 2px 8px rgba(0,0,0,0.08)'
   };
 
-  const labelStyle = { color: '#6b7280', fontSize: 12, fontWeight: 500, marginBottom: 4 };
-  const valueStyle = { color: '#111827', fontSize: 16, fontWeight: 600, letterSpacing: 0.2 };
+  const labelStyle = { color: '#6b7280', fontSize: cardWidth <= 320 ? 11 : 12, fontWeight: 500, marginBottom: 4 };
+  const valueStyle = { color: '#111827', fontSize: cardWidth <= 320 ? 14 : 16, fontWeight: 600, letterSpacing: 0.2 };
 
   const qrPanelStyle = {
     background: '#ffffff',
@@ -106,8 +120,8 @@ function CredentialCard({ user, variant = 'bottleGreen', logoSrc, logoSize = 24,
   const footerStyle = {
     background: '#f9fafb',
     borderTop: '1px solid #eef2f7',
-    padding: '12px 20px',
-    fontSize: 12,
+    padding: cardWidth <= 320 ? '10px 16px' : '12px 20px',
+    fontSize: cardWidth <= 320 ? 11 : 12,
     color: '#6b7280',
     display: 'flex',
     justifyContent: 'space-between',
@@ -116,12 +130,12 @@ function CredentialCard({ user, variant = 'bottleGreen', logoSrc, logoSize = 24,
   // Stacked presentation: render a back card and the main card with subtle rotation/offset
   if (stacked) {
     return (
-      <div style={{ position: 'relative', width: containerStyle.width, paddingTop: 16 }}>
+      <div style={{ position: 'relative', width: cardWidth, paddingTop: 16 }}>
         <div style={{ position: 'absolute', top: -10, left: -12, transform: 'rotate(-4deg)', filter: 'blur(0px)', zIndex: 0 }}>
-          <CredentialCard user={user} variant={backVariant} logoSrc={logoSrc} logoSize={logoSize} stacked={false} />
+          <CredentialCard user={user} variant={backVariant} logoSrc={logoSrc} logoSize={logoSize} stacked={false} responsive={responsive} />
         </div>
         <div style={{ position: 'relative', zIndex: 1 }}>
-          <CredentialCard user={user} variant={variant} logoSrc={logoSrc} logoSize={logoSize} stacked={false} />
+          <CredentialCard user={user} variant={variant} logoSrc={logoSrc} logoSize={logoSize} stacked={false} responsive={responsive} />
         </div>
       </div>
     );
@@ -184,12 +198,23 @@ function CredentialCard({ user, variant = 'bottleGreen', logoSrc, logoSize = 24,
             <img
               src={user.qrImage}
               alt="QR Code"
-              style={{ width: 120, height: 120, display: 'block', margin: '0 auto' }}
+              style={{ 
+                width: cardWidth <= 320 ? 80 : 120, 
+                height: cardWidth <= 320 ? 80 : 120, 
+                display: 'block', 
+                margin: '0 auto' 
+              }}
             />
           ) : (
-            <div style={{ width: 120, height: 120, display: 'grid', placeItems: 'center', color: '#9ca3af' }}>QR</div>
+            <div style={{ 
+              width: cardWidth <= 320 ? 80 : 120, 
+              height: cardWidth <= 320 ? 80 : 120, 
+              display: 'grid', 
+              placeItems: 'center', 
+              color: '#9ca3af' 
+            }}>QR</div>
           )}
-          <div style={{ marginTop: 8, fontSize: 11, color: '#6b7280' }}>Scan to verify</div>
+          <div style={{ marginTop: 8, fontSize: cardWidth <= 320 ? 10 : 11, color: '#6b7280' }}>Scan to verify</div>
         </div>
       </div>
 

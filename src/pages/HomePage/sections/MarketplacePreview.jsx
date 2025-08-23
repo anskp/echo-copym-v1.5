@@ -160,30 +160,30 @@ export default function MarketplacePreview() {
   };
 
   return (
-    <section className="py-24 text-gray-800 overflow-x-hidden">
+    <section className="py-16 md:py-24 text-gray-800 overflow-x-hidden overflow-y-visible">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Heading */}
-        <div className="text-center mb-24">
-          <h2 className="brand-section-title text-4xl md:text-5xl font-bold bg-clip-text mb-4">
+        <div className="text-center mb-16 md:mb-24">
+          <h2 className="brand-section-title text-4xl md:text-5xl font-bold bg-clip-text mb-6 md:mb-4">
             <span className='text-[#255f99]'>Marketplace Preview </span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto px-4">
             Experience our revolutionary platform with AI-powered trading, secure staking, and seamless P2P transactions
           </p>
         </div>
 
         <div className="flex flex-col items-center">
           {/* Dual Device Mockup with 3D Phones - Matching original reference */}
-          <div className="flex justify-center items-center gap-6 mb-20 relative" style={{ perspective: '1000px' }}>
+          <div className="flex justify-center items-center gap-3 md:gap-6 mb-16 md:mb-20 relative overflow-visible" style={{ perspective: '1000px' }}>
             {/* Left Device - Subtle forward tilt */}
             <div 
-              className="relative w-[240px] h-[500px] transition-all duration-700 hover:scale-105"
+              className="relative w-[180px] h-[380px] md:w-[240px] md:h-[500px] transition-all duration-700 hover:scale-105"
               style={{ perspective: '1000px' }}
             >
               {/* 3D Phone Container */}
               <div 
-                className="relative w-full h-full bg-gradient-to-br from-blue-400 via-cyan-400 to-blue-500 rounded-[3rem] p-2 shadow-2xl"
+                className="relative w-full h-full bg-gradient-to-br from-blue-400 via-cyan-400 to-blue-500 rounded-[2rem] md:rounded-[3rem] p-1 md:p-2 shadow-2xl"
                 style={{
                   background: 'linear-gradient(135deg, #3b82f6, #06b6d4, #3b82f6)',
                   boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1)',
@@ -191,8 +191,8 @@ export default function MarketplacePreview() {
                   transformStyle: 'preserve-3d'
                 }}
               >
-                <div className="w-full h-full bg-black rounded-[2.5rem] p-1">
-                  <div className="w-full h-full bg-white rounded-[2.3rem] overflow-hidden">
+                <div className="w-full h-full bg-black rounded-[1.5rem] md:rounded-[2.5rem] p-1">
+                  <div className="w-full h-full bg-white rounded-[1.3rem] md:rounded-[2.3rem] overflow-hidden">
                     <img 
                       src="/assets/Images/devices/marketplace001.jpg" 
                       alt="App Interface"
@@ -202,7 +202,7 @@ export default function MarketplacePreview() {
                 </div>
                 
                 <div 
-                  className="absolute -bottom-16 left-1/2 w-60 h-16 bg-gradient-to-r from-transparent via-blue-300 to-transparent opacity-40 blur-2xl rounded-full"
+                  className="absolute -bottom-8 md:-bottom-16 left-1/2 w-32 md:w-60 h-8 md:h-16 bg-gradient-to-r from-transparent via-blue-300 to-transparent opacity-40 blur-xl md:blur-2xl rounded-full"
                   style={{
                     transform: 'translateX(-50%) rotateX(90deg) translateZ(-20px)',
                     transformOrigin: 'center top'
@@ -216,19 +216,21 @@ export default function MarketplacePreview() {
                   }}
                 ></div>
                 
-                {/* Marketplace Stats Hologram */}
-                <MarketplaceStats />
+                {/* Marketplace Stats Hologram - Hidden on mobile */}
+                <div className="hidden md:block">
+                  <MarketplaceStats />
+                </div>
               </div>
             </div>
 
             {/* Right Device - Subtle backward tilt */}
             <div 
-              className="relative w-[240px] h-[500px] transition-all duration-700 hover:scale-105"
+              className="relative w-[180px] h-[380px] md:w-[240px] md:h-[500px] transition-all duration-700 hover:scale-105"
               style={{ perspective: '1000px' }}
             >
               {/* 3D Phone Container - Subtle backward rotation */}
               <div 
-                className="relative w-full h-full bg-gradient-to-br from-green-400 via-emerald-400 to-green-500 rounded-[3rem] p-2 shadow-2xl"
+                className="relative w-full h-full bg-gradient-to-br from-green-400 via-emerald-400 to-green-500 rounded-[2rem] md:rounded-[3rem] p-1 md:p-2 shadow-2xl"
                 style={{
                   background: 'linear-gradient(135deg, #22c55e, #10b981, #22c55e)',
                   boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1)',
@@ -236,8 +238,8 @@ export default function MarketplacePreview() {
                   transformStyle: 'preserve-3d'
                 }}
               >
-                <div className="w-full h-full bg-black rounded-[2.5rem] p-1">
-                  <div className="w-full h-full bg-white rounded-[2.3rem] overflow-hidden">
+                <div className="w-full h-full bg-black rounded-[1.5rem] md:rounded-[2.5rem] p-1">
+                  <div className="w-full h-full bg-white rounded-[1.3rem] md:rounded-[2.3rem] overflow-hidden">
                     <img 
                       src="/assets/Images/devices/marketplace002.jpg" 
                       alt="Wallet Interface"
@@ -247,7 +249,7 @@ export default function MarketplacePreview() {
                 </div>
                 
                 <div 
-                  className="absolute -bottom-16 left-1/2 w-60 h-16 bg-gradient-to-r from-transparent via-green-300 to-transparent opacity-40 blur-2xl rounded-full"
+                  className="absolute -bottom-8 md:-bottom-16 left-1/2 w-32 md:w-60 h-8 md:h-16 bg-gradient-to-r from-transparent via-green-300 to-transparent opacity-40 blur-xl md:blur-2xl rounded-full"
                   style={{
                     transform: 'translateX(-50%) rotateX(90deg) translateZ(-20px)',
                     transformOrigin: 'center top'
@@ -261,14 +263,16 @@ export default function MarketplacePreview() {
                   }}
                 ></div>
                 
-                {/* Hologram Wallet Balance */}
-                <HologramWallet />
+                {/* Hologram Wallet Balance - Hidden on mobile */}
+                <div className="hidden md:block">
+                  <HologramWallet />
+                </div>
               </div>
             </div>
           </div>
 
           {/* CTA Button */}
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-8 md:mt-0">
             <button
               onClick={handleExploreClick}
               className="inline-flex items-center justify-center px-8 py-4 font-semibold text-white bg-gradient-to-r from-[#255f99] to-[#15a36e] rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
