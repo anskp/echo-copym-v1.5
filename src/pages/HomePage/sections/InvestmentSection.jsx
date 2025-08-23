@@ -1039,83 +1039,157 @@ const RealEstateInvestmentSection = () => {
   );
 
   const renderFlexibleExit = (isAnimating = false) => (
-    <div className="w-full h-full flex items-center justify-center">
-      <div className="relative">
-        {/* Trading interface mockup */}
-        <div className={`${isMobile ? 'w-56 h-72' : 'w-64 h-80'} bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-2 shadow-2xl visual-element ${isAnimating ? 'stagger-in' : ''
-          }`}>
-          <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-2 h-full flex flex-col border border-gray-200">
-            {/* Header */}
-            <div className={`text-center mb-2 visual-element ${isAnimating ? 'stagger-in' : ''
-              }`} style={{ animationDelay: '0.2s' }}>
-              <div className="text-base font-bold text-gray-800 flex items-center justify-center gap-2">
-                <Activity className="w-4 h-4 text-blue-600" />
-                Secondary Market
-              </div>
-              <div className="text-xs text-gray-500 flex items-center justify-center gap-1">
-                <Zap className="w-3 h-3" />
-                Instant Liquidity
-              </div>
+    <div className="w-full h-full flex items-center justify-center p-2">
+      <div className="relative max-w-full max-h-full">
+        {/* Professional Card Container with Perfect Alignment */}
+        <div className={`${isMobile ? 'w-64 h-[500px]' : 'w-72 h-[550px]'} bg-gradient-to-br from-blue-50 via-blue-100 to-indigo-50 rounded-3xl shadow-2xl visual-element overflow-hidden ${isAnimating ? 'stagger-in' : ''
+          }`} style={{
+            boxShadow: '0 25px 50px -12px rgba(59, 130, 246, 0.25), 0 0 0 1px rgba(59, 130, 246, 0.1)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
+            maxWidth: '100%',
+            maxHeight: '100%'
+          }}>
+          
+          {/* Professional Header Section - Ultra Compact */}
+          <div className={`flex flex-col items-center justify-center pt-4 pb-3 visual-element ${isAnimating ? 'stagger-in' : ''
+            }`} style={{ animationDelay: '0.2s' }}>
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl mb-3 shadow-lg">
+              <Activity className="w-6 h-6 text-white" />
             </div>
-
-            {/* Asset tokens */}
-            <div className="flex-1 space-y-1.5 mb-2">
-              {[
-                { name: 'NYC Apt #123', price: '$2,450', change: '+5.2%', icon: Building },
-                { name: 'Gold ETF', price: '$1,890', change: '+2.1%', icon: Gem },
-                { name: 'Art Token', price: '$950', change: '+8.7%', icon: Palette }
-              ].map((asset, i) => (
-                <div key={i} className={`bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg p-2 text-xs visual-element border border-gray-200 hover:shadow-md transition-all duration-300 ${isAnimating ? 'stagger-in' : ''
-                  }`} style={{ animationDelay: isAnimating ? `${0.3 + i * 0.1}s` : '0s' }}>
-                  <div className="font-semibold text-gray-800 flex items-center gap-2">
-                    <asset.icon className="w-3 h-3 text-blue-600" />
-                    {asset.name}
-                  </div>
-                  <div className="flex justify-between items-center mt-1">
-                    <span className="text-gray-600 font-medium">{asset.price}</span>
-                    <span className="text-green-600 font-bold flex items-center gap-1">
-                      <TrendingUp className="w-3 h-3" />
-                      {asset.change}
-                    </span>
-                  </div>
-                </div>
-              ))}
+            <div className="text-lg font-bold text-gray-800 mb-1 text-center">
+              Secondary Market
             </div>
-
-            {/* Settlement indicator */}
-            <div className={`bg-gradient-to-r from-blue-500 to-blue-600 text-white px-2 py-1 rounded-lg text-xs text-center mb-2 visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
-              }`} style={{ animationDelay: isAnimating ? '0.6s' : '0s' }}>
-              <div className="flex items-center justify-center gap-1">
-                <Zap className="w-3 h-3" />
-                2-second settlement
-              </div>
-            </div>
-
-            {/* Buy and Sell buttons in single line */}
-            <div className="flex gap-1.5 mt-6 md:mt-0">
-              <button className={`flex-1 bg-gradient-to-r from-green-500 to-green-600 text-white py-1.5 rounded-lg font-semibold text-xs visual-element hover:shadow-lg transition-all duration-300 transform hover:scale-105 ${isAnimating ? 'stagger-in' : 'animate-pulse'
-                }`} style={{ animationDelay: isAnimating ? '0.7s' : '0s' }}>
-                <div className="flex items-center justify-center gap-1">
-                  <Plus className="w-3 h-3" />
-                  Buy Instantly
-                </div>
-              </button>
-              <button className={`flex-1 bg-gradient-to-r from-red-500 to-red-600 text-white py-1.5 rounded-lg font-semibold text-xs visual-element hover:shadow-lg transition-all duration-300 transform hover:scale-105 ${isAnimating ? 'stagger-in' : 'animate-pulse'
-                }`} style={{ animationDelay: isAnimating ? '0.8s' : '0s' }}>
-                <div className="flex items-center justify-center gap-1">
-                  <ArrowDown className="w-3 h-3" />
-              Sell Instantly
-                </div>
-            </button>
+            <div className="text-sm text-gray-600 flex items-center justify-center gap-2">
+              <Zap className="w-4 h-4 text-blue-500" />
+              <span>Instant Liquidity</span>
             </div>
           </div>
+
+          {/* Asset Cards - Ultra Compact Spacing */}
+          <div className="px-4 space-y-2 mb-2">
+            {[
+              { name: 'NYC Apt #123', price: '$2,450', change: '+5.2%', icon: Building, color: 'from-blue-500 to-blue-600'},
+              { name: 'Gold ETF', price: '$1,890', change: '+2.1%', icon: Gem, color: 'from-yellow-500 to-orange-500'},
+            ].map((asset, i) => (
+                              <motion.div 
+                  key={i} 
+                  className={`bg-white/90 backdrop-blur-sm rounded-xl p-3 visual-element border border-white/60 hover:shadow-xl transition-all duration-300 ${isAnimating ? 'stagger-in' : ''
+                    }`} 
+                style={{ 
+                  animationDelay: isAnimating ? `${0.3 + i * 0.1}s` : '0s',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+                }}
+                whileHover={{ 
+                  scale: 1.02, 
+                  boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
+                }}
+              >
+                                  {/* Asset Header - Compact Alignment */}
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-3">
+                      <div className={`w-10 h-10 bg-gradient-to-br ${asset.color} rounded-lg flex items-center justify-center shadow-md`}>
+                        <asset.icon className="w-5 h-5 text-white" />
+                      </div>
+                      <div className="flex flex-col">
+                        <div className="font-bold text-gray-800 text-sm">{asset.name}</div>
+                        <div className="text-xs text-gray-500 font-medium">Tokenized Asset</div>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-lg font-bold text-gray-800">{asset.price}</div>
+                      <div className="text-green-600 font-semibold text-xs flex items-center justify-center gap-1">
+                        <TrendingUp className="w-3 h-3" />
+                        {asset.change}
+                      </div>
+                    </div>
+                  </div>
+                
+                                  {/* Progress Section - Compact Layout */}
+                  <div className="mb-2">
+                    <div className="flex justify-between items-center mb-1">
+                      <span className="text-xs font-medium text-gray-600">Market Activity</span>
+                      <span className="text-xs font-medium text-gray-600">75%</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-1.5">
+                      <motion.div 
+                        className="bg-gradient-to-r from-green-400 to-green-500 h-1.5 rounded-full"
+                        initial={{ width: 0 }}
+                        animate={{ width: `${60 + Math.random() * 30}%` }}
+                        transition={{ duration: 1, delay: 0.5 + i * 0.1 }}
+                      />
+                    </div>
+                  </div>
+                
+                {/* Asset Stats - Perfect Grid Alignment */}
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Settlement Status Card - Ultra Compact Design */}
+          <div className={`mx-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-3 rounded-xl mb-3 visual-element ${isAnimating ? 'stagger-in' : 'animate-pulse'
+            }`} style={{ 
+            animationDelay: isAnimating ? '0.6s' : '0s',
+            boxShadow: '0 10px 15px -3px rgba(59, 130, 246, 0.3), 0 4px 6px -2px rgba(59, 130, 246, 0.2)'
+          }}>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                  <Zap className="w-4 h-4 text-white" />
+                </div>
+                <div className="flex flex-col">
+                  <div className="font-bold text-sm">2-Second Settlement</div>
+                  <div className="text-xs text-blue-100 font-medium">Blockchain Powered</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Action Buttons - Ultra Compact Spacing */}
+          <div className="px-4 flex gap-2 py- mb-3 -mt-0">
+            <motion.button 
+              className={`flex-1 bg-gradient-to-r from-green-500 to-emerald-600 text-white py-0 rounded-xl font-bold text-sm visual-element hover:shadow-lg transition-all duration-300 ${isAnimating ? 'stagger-in' : 'animate-pulse'
+                }`} 
+              style={{ 
+                animationDelay: isAnimating ? '0.7s' : '0s',
+                boxShadow: '0 4px 6px -1px rgba(16, 185, 129, 0.3), 0 2px 4px -1px rgba(16, 185, 129, 0.2)'
+              }}
+              whileHover={{ 
+                scale: 1.05, 
+                boxShadow: '0 20px 25px -5px rgba(16, 185, 129, 0.4), 0 10px 10px -5px rgba(16, 185, 129, 0.3)'
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className="flex items-center justify-center gap-3">
+                <Plus className="w-4 h-4" />
+                <span>Buy Instantly</span>
+              </div>
+            </motion.button>
+            
+            <motion.button 
+              className={`flex-1 bg-gradient-to-r from-red-500 to-rose-600 text-white py-3 rounded-xl font-bold text-sm visual-element hover:shadow-lg transition-all duration-300 ${isAnimating ? 'stagger-in' : 'animate-pulse'
+                }`} 
+              style={{ 
+                animationDelay: isAnimating ? '0.8s' : '0s',
+                boxShadow: '0 4px 6px -1px rgba(239, 68, 68, 0.3), 0 2px 4px -1px rgba(239, 68, 68, 0.2)'
+              }}
+              whileHover={{ 
+                scale: 1.05, 
+                boxShadow: '0 20px 25px -5px rgba(239, 68, 68, 0.4), 0 10px 10px -5px rgba(239, 68, 68, 0.3)'
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className="flex items-center justify-center gap-3">
+                <ArrowDown className="w-4 h-4" />
+                <span>Sell Instantly</span>
+              </div>
+            </motion.button>
+          </div>
+
+          {/* Market Stats Footer - Ultra Compact Grid */}
         </div>
 
-        {/* Blockchain indicators */}
-      
 
-        {/* Subtle decorative elements */}
-       
       </div>
     </div>
   );
