@@ -27,11 +27,11 @@ const HologramWallet = () => {
             Total Balance
           </div>
           <div className="text-white text-3xl font-bold mb-3">
-            ₹1,78,000
+            $1,78,000
           </div>
           <div className="flex items-center justify-center gap-2 text-emerald-200 text-sm">
             <div className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></div>
-            <span>Available: ₹12,000</span>
+            <span>Available: $12,000</span>
           </div>
           
           <div className="absolute -top-2 -left-2 w-4 h-4 rounded-full border border-cyan-300 animate-ping"></div>
@@ -76,7 +76,7 @@ const MarketplaceStats = () => {
             Portfolio Value
           </div>
           <div className="text-white text-3xl font-bold mb-3">
-            ₹54,210
+            $54,210
           </div>
           <div className="flex items-center justify-center gap-2 text-emerald-200 text-sm">
             <div className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></div>
@@ -194,7 +194,7 @@ export default function MarketplacePreview() {
                 <div className="w-full h-full bg-black rounded-[1.5rem] md:rounded-[2.5rem] p-1">
                   <div className="w-full h-full bg-white rounded-[1.3rem] md:rounded-[2.3rem] overflow-hidden">
                     <img 
-                      src="/assets/Images/devices/marketplace001.jpg" 
+                      src="/assets/Images/devices/marketplace01.jpg" 
                       alt="App Interface"
                       className="w-full h-full object-cover rounded-[2.3rem]"
                     />
@@ -241,7 +241,7 @@ export default function MarketplacePreview() {
                 <div className="w-full h-full bg-black rounded-[1.5rem] md:rounded-[2.5rem] p-1">
                   <div className="w-full h-full bg-white rounded-[1.3rem] md:rounded-[2.3rem] overflow-hidden">
                     <img 
-                      src="/assets/Images/devices/marketplace002.jpg" 
+                      src="/assets/Images/devices/marketplace02.jpg" 
                       alt="Wallet Interface"
                       className="w-full h-full object-cover rounded-[2.3rem]"
                     />
