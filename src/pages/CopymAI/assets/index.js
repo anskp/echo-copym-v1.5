@@ -32,7 +32,7 @@ import background from "./background.jpg";
 
 import curve from "./hero/curve.png";
 import robot from "./hero/robot.png";
-import heroBackground from "./hero/hero-background.jpg";
+
 
 import curve1 from "./collaboration/curve-1.svg";
 import curve2 from "./collaboration/curve-2.svg";
@@ -117,7 +117,6 @@ export {
     background,
     curve,
     robot,
-    heroBackground,
     curve1,
     curve2,
     discord,

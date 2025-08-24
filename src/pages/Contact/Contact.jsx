@@ -14,7 +14,6 @@ import {
   Users,
   Shield,
   Zap,
-  Upload,
   FileText,
   Globe,
   Linkedin,
@@ -53,7 +52,6 @@ const Contact = () => {
   const [submitStatus, setSubmitStatus] = useState(null);
   const [errors, setErrors] = useState({});
   const [showLiveChat, setShowLiveChat] = useState(false);
-  const [selectedFile, setSelectedFile] = useState(null);
 
   // RWA-specific contact types
   const contactTypes = [
@@ -191,14 +189,7 @@ const Contact = () => {
     }
   };
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file && file.size <= 10 * 1024 * 1024) {
-      setSelectedFile(file);
-    } else {
-      alert('File must be under 10MB');
-    }
-  };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -226,7 +217,6 @@ const Contact = () => {
         preferredContact: 'email',
         compliance: false
       });
-      setSelectedFile(null);
     } catch (error) {
       setSubmitStatus('error');
     } finally {
@@ -592,24 +582,7 @@ const Contact = () => {
                   {errors.message && <p className="mt-1 text-xs sm:text-sm text-red-600">{errors.message}</p>}
                 </div>
 
-                {/* File Upload - Optimized layout */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Attach Document (Optional)</label>
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
-                    <input type="file" onChange={handleFileChange} className="hidden" id="file-upload" accept=".pdf,.doc,.docx,.txt" />
-                    <label
-                      htmlFor="file-upload"
-                      className="flex items-center space-x-2 px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg cursor-pointer hover:border-[#065f46] transition-colors"
-                    >
-                      <Upload className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500" />
-                      <span className="text-gray-700 text-sm sm:text-base">Upload File</span>
-                    </label>
-                    {selectedFile && (
-                      <span className="text-xs sm:text-sm text-gray-600 break-all">{selectedFile.name}</span>
-                    )}
-                  </div>
-                  <p className="mt-1 text-xs text-gray-500">Max 10MB: PDF, DOC, DOCX</p>
-                </div>
+
 
                 {/* Compliance Checkbox - Optimized layout */}
                 <div className="flex items-start space-x-3">
