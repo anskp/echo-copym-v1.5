@@ -658,13 +658,13 @@ export default function AccessPage() {
             <div className="w-24 h-1 bg-gradient-to-r from-[#15a36e] to-[#255f99] mx-auto rounded-full"></div>
           </div>
 
-          <div className="comparison-table bg-transparent backdrop-blur-sm rounded-3xl border border-white/20 overflow-hidden shadow-2xl overflow-x-auto">
-            <div className="grid grid-cols-3 text-xs sm:text-sm font-bold text-gray-600 border-b border-gray-200/30 min-w-[600px]">
-              <div className="p-3 sm:p-6 bg-transparent backdrop-blur-sm">FEATURE</div>
-              <div className="p-3 sm:p-6 bg-transparent text-[#15a36e] backdrop-blur-sm">
+          <div className="comparison-table backdrop-blur-sm rounded-3xl border border-white/30 overflow-hidden shadow-2xl overflow-x-auto">
+            <div className="grid grid-cols-3 text-sm font-bold text-gray-700 border-b border-gray-200/50 min-w-[700px]">
+              <div className="px-6 py-4">FEATURE</div>
+              <div className="px-6 py-4 text-[#15a36e] text-center">
                 TOKENIZATION
               </div>
-              <div className="p-3 sm:p-6 bg-transparent backdrop-blur-sm">
+              <div className="px-6 py-4 text-center">
                 TRADITIONAL
               </div>
             </div>
@@ -703,18 +703,18 @@ export default function AccessPage() {
             ].map((row, index) => (
               <div
                 key={index}
-                className="comparison-row grid grid-cols-3 text-xs sm:text-sm border-b border-gray-100/20 last:border-b-0 hover:bg-white/10 transition-colors min-w-[600px]"
+                className="grid grid-cols-3 text-sm border-b border-gray-100/30 last:border-b-0 hover:bg-gray-50/50 transition-colors min-w-[700px]"
               >
-                <div className="p-3 sm:p-6 font-semibold text-gray-900 flex items-center gap-2 sm:gap-3">
-                  <row.icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#255f99] flex-shrink-0" />
-                  <span className="truncate">{row.feature}</span>
+                <div className="px-6 py-5 font-semibold text-gray-900 flex items-center gap-3">
+                  <row.icon className="w-5 h-5 text-[#255f99] flex-shrink-0" />
+                  <span>{row.feature}</span>
                 </div>
-                <div className="p-3 sm:p-6 text-[#15a36e] font-bold flex items-center gap-1 sm:gap-2">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-                  <span className="truncate">{row.tokenization}</span>
+                <div className="px-6 py-5 text-[#15a36e] font-bold flex items-center justify-center gap-3">
+                  <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                  <span>{row.tokenization}</span>
                 </div>
-                <div className="p-3 sm:p-6 text-gray-600">
-                  <span className="truncate">{row.traditional}</span>
+                <div className="px-6 py-5 text-gray-600 text-center flex items-center justify-center">
+                  <span>{row.traditional}</span>
                 </div>
               </div>
             ))}

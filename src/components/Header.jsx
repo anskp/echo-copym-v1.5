@@ -169,7 +169,7 @@ export default function Header() {
           
           {/* Menu Container */}
           <motion.div 
-              className="absolute top-20 left-4 right-4 bg-[rgba(16,5,39,0.95)] backdrop-blur-md rounded-2xl border border-[rgba(255,255,255,0.1)] overflow-hidden max-h-[80vh] flex flex-col"
+              className="absolute top-20 left-4 right-4 bg-[#e0f2fe] backdrop-blur-md rounded-2xl border border-[rgba(0,0,0,0.1)] overflow-hidden max-h-[80vh] flex flex-col"
             initial={{ opacity: 0, y: -20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
@@ -185,7 +185,7 @@ export default function Header() {
                   transition={{ delay: index * 0.1, duration: 0.3 }}
                     className="mb-6 last:mb-0"
                   >
-                    <h3 className="text-white font-semibold text-lg mb-4">{navItem}</h3>
+                    <h3 className="text-[#1e40af] font-semibold text-lg mb-4">{navItem}</h3>
                     <div className="space-y-3">
                           {navigationData[navItem].map((item, itemIndex) => (
                             <Link
@@ -210,10 +210,10 @@ export default function Header() {
                               />
                                   </div>
                                   <div className="flex-1 min-w-0">
-                              <h4 className="font-semibold text-white text-sm leading-tight mb-1">
+                              <h4 className="font-semibold text-[#1e40af] text-sm leading-tight mb-1">
                                       {item.title}
                                     </h4>
-                              <p className="text-xs text-[rgba(255,255,255,0.6)] leading-relaxed line-clamp-2">
+                              <p className="text-xs text-[#6b7280] leading-relaxed line-clamp-2">
                                       {item.description}
                                     </p>
                                 </div>
@@ -227,16 +227,10 @@ export default function Header() {
             
               {/* Mobile Menu Footer */}
               <div className="border-t border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] px-4 py-4 flex-shrink-0">
-              <div className="flex items-center justify-between">
-                  <div className="text-sm text-[rgba(255,255,255,0.6)]">
+              <div className="flex items-center justify-center">
+                  <div className="text-sm text-[#6b7280]">
                   © 2024 Copym
                 </div>
-                <button
-                  onClick={() => setIsMenuOpen(false)}
-                    className="text-white hover:text-gray-300 font-medium text-sm"
-                >
-                  Close
-                </button>
               </div>
             </div>
           </motion.div>

@@ -148,10 +148,10 @@ const AboutUs = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
                             <div className="bg-green-50 rounded-xl p-2  text-center">
                                 <div className="h-24 w-24 rounded-full bg-white border border-blue-200 mb-4 flex items-center justify-center mx-auto">
-                                    <span className="text-2xl font-bold text-indigo-600">JD</span>
+                                    <img src={"/assets/Images/team/Raayif-aarif.png"} className="text-2xl font-bold rounded-full text-indigo-600" />
                                 </div>
-                                <h4 className="text-lg font-semibold text-gray-900">Jane Doe</h4>
-                                <p className="text-indigo-600 font-medium">CEO & Co-Founder</p>
+                                <h4 className="text-lg font-semibold text-gray-900">Raayif Aarif</h4>
+                                <p className="text-indigo-600 font-medium">CTO</p>
                                 <p className="text-gray-600 text-base leading-relaxed mt-2">
                                     Former blockchain architect at a leading fintech with 15+ years in asset management.
                                 </p>
@@ -159,10 +159,10 @@ const AboutUs = () => {
 
                             <div className="bg-green-50 rounded-xl p-2 text-center">
                                 <div className="h-24 w-24 rounded-full bg-white border border-blue-200 mb-4 flex items-center justify-center mx-auto">
-                                    <span className="text-2xl font-bold text-indigo-600">AS</span>
+                                    <img src={"/assets/Images/team/Kuldeep.png"} className="text-2xl font-bold rounded-full text-indigo-600" />
                                 </div>
-                                <h4 className="text-lg font-semibold text-gray-900">Alex Smith</h4>
-                                <p className="text-indigo-600 font-medium">CTO & Co-Founder</p>
+                                <h4 className="text-lg font-semibold text-gray-900">Kuldeep</h4>
+                                <p className="text-indigo-600 font-medium">CEO</p>
                                 <p className="text-gray-600 text-base leading-relaxed mt-2">
                                     Expert in distributed systems and cryptography with multiple patents in blockchain security.
                                 </p>
@@ -170,10 +170,10 @@ const AboutUs = () => {
 
                             <div className="bg-green-50 rounded-xl p-2 text-center">
                                 <div className="h-24 w-24 rounded-full bg-white border border-blue-200 mb-4 flex items-center justify-center mx-auto">
-                                    <span className="text-2xl font-bold text-indigo-600">MJ</span>
+                                    <img src={"/assets/Images/team/Azwaan.png"} className="text-2xl font-bold rounded-full text-indigo-600" />
                                 </div>
-                                <h4 className="text-lg font-semibold text-gray-900">Maria Johnson</h4>
-                                <p className="text-indigo-600 font-medium">Head of Compliance</p>
+                                <h4 className="text-lg font-semibold text-gray-900">Azwaan</h4>
+                                <p className="text-indigo-600 font-medium">HR</p>
                                 <p className="text-gray-600 text-base leading-relaxed mt-2">
                                     Former regulator with deep expertise in global financial compliance frameworks.
                                 </p>

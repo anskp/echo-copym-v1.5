@@ -774,34 +774,7 @@ const Contact = () => {
           </div>
         </motion.div>
 
-        {/* FAQ Section - 2 columns on all devices */}
-        <motion.div className="mt-12 sm:mt-16" variants={itemVariants}>
-          <div className="text-center mb-6 sm:mb-8">
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#1e40af] mb-3 sm:mb-4">Frequently Asked Questions</h2>
-            <p className="text-gray-600 text-sm sm:text-base">Answers for institutional partners and investors</p>
-          </div>
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
-            {[
-              { q: "Is your platform SEC-compliant?", a: "Yes, all offerings are compliant with Regulation D, S, and A+ where applicable." },
-              { q: "Who can invest?", a: "Accredited and institutional investors globally, subject to local regulations." },
-              { q: "How are assets tokenized?", a: "Assets are legally structured via SPVs and tokenized on-chain with full ownership records." },
-              { q: "What blockchains do you use?", a: "Ethereum and Polygon for scalability and interoperability." },
-              { q: "Can I co-invest with others?", a: "Yes, syndication and fund structures are supported." },
-              { q: "Do you support secondary trading?", a: "Yes, through licensed secondary market partners." }
-            ].map((faq, i) => (
-              <motion.div
-                key={i}
-                className="bg-white/90 backdrop-blur-sm rounded-lg shadow-md border border-gray-100 p-3 sm:p-4 lg:p-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <h3 className="font-semibold text-[#1e40af] mb-2 text-xs sm:text-sm lg:text-base leading-tight">{faq.q}</h3>
-                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{faq.a}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+
       </motion.div>
     </div>
   );

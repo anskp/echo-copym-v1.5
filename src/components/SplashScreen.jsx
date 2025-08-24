@@ -46,7 +46,20 @@ const SplashScreen = () => {
   const tagline = "Welcome to the future of tokenization.";
 
   return (
-    <Box className="relative h-screen w-full flex items-center justify-center overflow-hidden text-white bg-white font-orbitron">
+    <Box 
+      className="relative h-screen w-full flex items-center justify-center overflow-hidden text-white bg-black font-orbitron"
+      style={{
+        margin: 0,
+        padding: 0,
+        border: 'none',
+        outline: 'none',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0
+      }}
+    >
       {/* Video Background */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <video 

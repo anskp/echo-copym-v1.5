@@ -1,252 +1,116 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
-import { gsap } from 'gsap';
-import { 
-  TrendingUp, 
-  Shield, 
-  Users, 
-  BarChart3, 
-  Settings, 
-  Zap, 
-  PieChart as PieChartIcon, 
-  DollarSign,
-  Building2,
-  Layers3,
-  Banknote,
-  Repeat2,
-  ShieldCheck,
-  BookCopy,
-  Target,
-  UserCheck,
-  Database,
-  Activity,
-  Globe,
-  Coins,
-  CheckCircle,
-  AlertCircle,
-  ChevronDown,
-  ChevronUp,
-  Clock
-} from 'lucide-react';
+"use client"
+import React, { useState, useRef, useEffect } from 'react';
+import { Building2, Users, Globe } from 'lucide-react';
+import { Globe as GlobeComponent } from '../../../components/globe';
+import ErrorBoundary from '../../../components/ErrorBoundary';
 
-const TokenizationDashboard = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const portfolioRef = useRef(null);
+const investorGroups = [
+  { name: 'Institutional', value: 45, color: '#3B82F6' },
+  { name: 'Retail', value: 30, color: '#10B981' },
+  { name: 'Accredited', value: 25, color: '#F59E0B' }
+];
 
-  // Portfolio data
-  const portfolioData = [
-    { name: 'Real Estate', value: 35, color: '#3B82F6' },
-    { name: 'Commodities', value: 25, color: '#10B981' },
-    { name: 'Art & Collectibles', value: 20, color: '#F59E0B' },
-    { name: 'Private Equity', value: 15, color: '#8B5CF6' },
-    { name: 'Carbon Credits', value: 5, color: '#06B6D4' }
-  ];
-
-  // Live performance data
-  const livePerformanceData = [
-    { time: '00:00', value: 100 },
-    { time: '04:00', value: 105 },
-    { time: '08:00', value: 98 },
-    { time: '12:00', value: 112 },
-    { time: '16:00', value: 108 },
-    { time: '20:00', value: 115 },
-    { time: '24:00', value: 120 }
-  ];
-
-  // Asset distribution data
-  const assetDistributionData = [
-    { name: 'Ethereum', value: 40, color: '#627EEA' },
-    { name: 'Polygon', value: 25, color: '#8247E5' },
-    { name: 'Solana', value: 20, color: '#14F195' },
-    { name: 'Avalanche', value: 10, color: '#E84142' },
-    { name: 'Others', value: 5, color: '#6B7280' }
-  ];
+const MinimalTokenizationDashboard = () => {
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true);
-    
-    // GSAP animations for portfolio chart
-    if (portfolioRef.current) {
-      gsap.fromTo(portfolioRef.current, 
-        { opacity: 0, scale: 0.8 },
-        { opacity: 1, scale: 1, duration: 1, delay: 0.5, ease: "back.out(1.7)" }
-      );
-    }
+    setLoaded(true);
   }, []);
 
   return (
-    <div className="min-h-screen p-4 sm:p-6 md:p-8 lg:p-12 mt-20 perspective-1000">
-      <div className="max-w-7xl mx-auto">
-       
-        {/* Header */}
-        <div className={`mb-4 sm:mb-6 md:mb-8 transform transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'}`}>
-          <h1 className="brand-section-title bg-clip-text text-transparent mb-2 justify-center flex items-center text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-            <span className='text-[#255f99]'>Real World Asset</span>
-            <span className='text-[#15a36e]'> Tokenization</span>
-            
-          </h1>
-          <p className="brand-description text-center text-gray-700 max-w-3xl mx-auto mb-8 sm:mb-10 md:mb-14 text-sm sm:text-base">Transform physical assets into digital tokens on blockchain</p>
+    <div className="min-h-screen bg-blue-100 flex flex-col items-center px-4 py-16">
+      <div className="mb-10 mt-6 text-center">
+        <h1 className="text-3xl font-semibold tracking-tight text-gray-800">
+          Asset Tokenization
+        </h1>
+        <p className="text-gray-500 text-sm mt-1">Digitizing real assets on blockchain</p>
+      </div>
+
+      {/* Three Horizontal Cards */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full max-w-6xl">
+        {/* Card 1: We can tokenize any asset */}
+        <div className={`bg-blue-100 rounded-xl shadow-lg p-6 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <div className="mb-4">
+            <h3 className="text-xl font-semibold text-gray-800 flex items-center">
+              <Building2 className="mr-2 text-blue-600" size={24} />
+              We can tokenize any asset
+            </h3>
+          </div>
+          <div className="space-y-6">
+            <div className="p-4 bg-blue-50 rounded-lg">
+              <p className="text-sm text-blue-800">
+                Transform any real-world asset into digital tokens with our secure blockchain platform.
+              </p>
+            </div>
+            <div className="flex justify-center">
+              <img 
+                src="https://republic.com/_next/static/media/graphic-tokenize-any-asset.ad38f5ce.png" 
+                alt="Tokenize any asset"
+                className="w-full h-auto max-h-64 object-contain"
+              />
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 md:gap-8 mt-6 pt-6">
-          
-          {/* Portfolio Overview with GSAP Rotation + Zoom */}
-          <div className={`lg:col-span-4 bg-gradient-to-r from-[#d3f8e3] to-[#C7DBF0] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 transform transition-all duration-1000 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} hover:shadow-xl`}>
-            <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6">Portfolio Distribution</h3>
-            <div ref={portfolioRef} className="h-64 sm:h-72 md:h-80">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={portfolioData}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={60}
-                    outerRadius={120}
-                    dataKey="value"
-                    animationBegin={1000}
-                    animationDuration={2000}
-                  >
-                    {portfolioData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                </PieChart>
-              </ResponsiveContainer>
+        {/* Card 2: One simple token management interface */}
+        <div className={`bg-blue-100 rounded-xl shadow-lg p-6 transition-all duration-700 delay-100 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <div className="mb-4">
+            <h3 className="text-xl font-semibold text-gray-800 flex items-center">
+              <Users className="mr-2 text-green-600" size={24} />
+              One simple token management interface
+            </h3>
+          </div>
+          <div className="space-y-6">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                <span className="text-sm font-medium text-gray-700">Payment Amount</span>
+                <span className="text-lg font-bold text-green-600">123 USDC</span>
+              </div>
+              <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                <span className="text-sm font-medium text-gray-700">Transfers</span>
+                <span className="text-lg font-bold text-blue-600">28</span>
+              </div>
             </div>
-            <div className="space-y-1 sm:space-y-2">
-              {portfolioData.map((item, index) => (
-                <div key={index} className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full mr-2" style={{ backgroundColor: item.color }}></div>
-                    <span className="text-xs sm:text-sm text-gray-600">{item.name}</span>
+            <div className="flex justify-center">
+              <img 
+                src="https://republic.com/_next/static/media/graphic-token-management.934dc1cd.png" 
+                alt="Token management interface"
+                className="w-full h-auto max-h-64 object-contain"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Card 3: Investor Groups with Globe */}
+        <div className={`bg-blue-100 rounded-xl shadow-lg p-6 transition-all duration-700 delay-200 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <div className="mb-4">
+            <h3 className="text-xl font-semibold text-gray-800 flex items-center">
+              <Globe className="mr-2 text-purple-600" size={24} />
+              Global Distribution
+            </h3>
+          </div>
+          <div className="space-y-6">
+            <div className="hidden md:block space-y-2">
+              {investorGroups.map((group) => (
+                <div key={group.name} className="flex items-center justify-between">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: group.color }}></div>
+                    <span className="text-sm text-gray-700">{group.name}</span>
                   </div>
-                  <span className="text-xs sm:text-sm font-semibold text-gray-600">{item.value}%</span>
+                  <span className="text-sm font-medium text-gray-800">{group.value}%</span>
                 </div>
               ))}
-              </div>
+            </div>
+            <div className="relative w-full h-48 md:h-64 lg:h-80 flex items-center justify-center">
+              <ErrorBoundary>
+                <GlobeComponent className="w-full h-full" />
+              </ErrorBoundary>
+            </div>
           </div>
-
-                     {/* Performance Chart */}
-           <div className={`lg:col-span-4 bg-gradient-to-r from-[#d3f8e3] to-[#C7DBF0] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 transform transition-all duration-1000 delay-400 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} hover:shadow-xl`}>
-             <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6 flex items-center">
-               <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-green-600" />
-               Performance
-               <div className="ml-auto flex items-center">
-                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse mr-2"></div>
-                 <span className="text-xs text-green-600 font-medium">LIVE</span>
-               </div>
-             </h3>
-                         <div className="h-36 sm:h-40 md:h-48">
-               <ResponsiveContainer width="100%" height="100%">
-                 <AreaChart data={livePerformanceData}>
-                   <defs>
-                     <linearGradient id="performanceGradient" x1="0" y1="0" x2="0" y2="1">
-                       <stop offset="5%" stopColor="#10B981" stopOpacity={0.3}/>
-                       <stop offset="95%" stopColor="#10B981" stopOpacity={0.1}/>
-                     </linearGradient>
-                   </defs>
-                   <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
-                   <XAxis 
-                     dataKey="time" 
-                     stroke="#6B7280" 
-                     fontSize={12}
-                     tickLine={false}
-                     axisLine={false}
-                   />
-                   <YAxis 
-                     stroke="#6B7280" 
-                     fontSize={12}
-                     tickLine={false}
-                     axisLine={false}
-                     tickFormatter={(value) => `$${value}`}
-                   />
-                   <Tooltip 
-                     contentStyle={{ 
-                       backgroundColor: 'white', 
-                       border: 'none', 
-                       borderRadius: '8px',
-                       boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-                     }}
-                     formatter={(value) => [`$${value}`, 'Value']}
-                   />
-                   <Area 
-                     type="monotone" 
-                     dataKey="value" 
-                     stroke="#10B981" 
-                     strokeWidth={2}
-                     fill="url(#performanceGradient)"
-                     animationDuration={2000}
-                   />
-                 </AreaChart>
-               </ResponsiveContainer>
-             </div>
-             <div className="mt-4 flex justify-between items-center">
-               <div className="text-center">
-                 <div className="text-2xl font-bold text-green-600">+20%</div>
-                 <div className="text-xs text-gray-600">Today's Gain</div>
-               </div>
-               <div className="text-center">
-                 <div className="text-2xl font-bold text-gray-800">$2.4M</div>
-                 <div className="text-xs text-gray-600">Total Value</div>
-               </div>
-               <div className="text-center">
-                 <div className="text-2xl font-bold text-blue-600">156</div>
-                 <div className="text-xs text-gray-600">Active Tokens</div>
-               </div>
-             </div>
-           </div>
-
-           {/* Asset Distribution */}
-           <div className={`lg:col-span-4 bg-gradient-to-r from-[#d3f8e3] to-[#C7DBF0] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 transform transition-all duration-1000 delay-600 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} hover:shadow-xl`}>
-             <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6 flex items-center">
-               <Globe className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-blue-600" />
-               Blockchain Distribution
-             </h3>
-             <div className="h-36 sm:h-40 md:h-48">
-               <ResponsiveContainer width="100%" height="100%">
-                 <PieChart>
-                   <Pie
-                     data={assetDistributionData}
-                     cx="50%"
-                     cy="50%"
-                     innerRadius={40}
-                     outerRadius={80}
-                     dataKey="value"
-                     animationBegin={1500}
-                     animationDuration={2000}
-                   >
-                     {assetDistributionData.map((entry, index) => (
-                       <Cell key={`cell-${index}`} fill={entry.color} />
-                     ))}
-                   </Pie>
-                 </PieChart>
-               </ResponsiveContainer>
-             </div>
-             <div className="space-y-1 sm:space-y-2">
-               {assetDistributionData.map((item, index) => (
-                 <div key={index} className="flex items-center justify-between">
-                   <div className="flex items-center">
-                     <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full mr-2" style={{ backgroundColor: item.color }}></div>
-                     <span className="text-xs sm:text-sm text-gray-600">{item.name}</span>
-                   </div>
-                   <span className="text-xs sm:text-sm font-semibold text-gray-600">{item.value}%</span>
-                 </div>
-               ))}
-             </div>
-           </div>
         </div>
-        </div>
-     
-      <style jsx>{`
-        .perspective-1000 {
-          perspective: 1000px;
-        }
-        .transform-gpu {
-          transform-style: preserve-3d;
-        }
-      `}</style>
+      </div>
     </div>
   );
 };
 
-export default TokenizationDashboard;
+export default MinimalTokenizationDashboard;

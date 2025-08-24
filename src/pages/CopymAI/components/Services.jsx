@@ -245,39 +245,7 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Funding Section */}
-        <div className="mt-20">
-          <div className="relative z-1 border border-n-1/10 rounded-3xl overflow-hidden p-8 lg:p-12">
-                         <div className="text-center mb-8">
-               <h3 className="h3 mb-4">Our Investment Ask</h3>
-              <p className="body-2 text-n-3 max-w-2xl mx-auto">
-                We're raising <span className="text-color-1 font-bold">$3.5M seed funding</span> to accelerate development, 
-                ensure full regulatory compliance, and acquire premium assets.
-              </p>
-            </div>
-            
-            <div className="grid gap-6 md:grid-cols-3 mb-8">
-              <div className="text-center p-6 bg-n-7/50 rounded-2xl">
-                <div className="text-2xl font-bold text-color-1 mb-2">50,000</div>
-                <div className="text-sm text-n-3">Target Users by 2024</div>
-              </div>
-              <div className="text-center p-6 bg-n-7/50 rounded-2xl">
-                <div className="text-2xl font-bold text-color-4 mb-2">$50M</div>
-                <div className="text-sm text-n-3">Tokenized Assets by 2024</div>
-              </div>
-              <div className="text-center p-6 bg-n-7/50 rounded-2xl">
-                <div className="text-2xl font-bold text-color-1 mb-2">$18M</div>
-                <div className="text-sm text-n-3">Projected Revenue by Year 3</div>
-              </div>
-            </div>
 
-            <div className="text-center">
-              <Button href="#contact" white>
-                Invest Now
-              </Button>
-            </div>
-          </div>
-        </div>
       </div>
     </Section>
   );

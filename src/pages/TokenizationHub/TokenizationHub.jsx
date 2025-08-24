@@ -136,39 +136,39 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
 
   // Asset types data
   const assetTypes = [
-    { id: 1, name: 'Real Estate', desc: 'Properties & Land', icon: Building2, value: 'High Value' },
-    { id: 2, name: 'Commodities', desc: 'Gold, Silver, Oil', icon: Coins, value: 'Stable' },
-    { id: 3, name: 'Art & Collectibles', desc: 'Paintings, NFTs', icon: BookCopy, value: 'Unique' },
-    { id: 4, name: 'Private Equity', desc: 'Company Shares', icon: TrendingUp, value: 'Growth' },
-    { id: 5, name: 'Carbon Credits', desc: 'Environmental Assets', icon: Shield, value: 'ESG' }
+    { id: 1, name: 'Real Estate', desc: 'Properties & Land', icon: Building2, value: 'High Value', color: 'from-blue-500 to-blue-600' },
+    { id: 2, name: 'Commodities', desc: 'Gold, Silver, Oil', icon: Coins, value: 'Stable', color: 'from-yellow-500 to-yellow-600' },
+    { id: 3, name: 'Art & Collectibles', desc: 'Paintings, NFTs', icon: BookCopy, value: 'Unique', color: 'from-purple-500 to-purple-600' },
+    { id: 4, name: 'Private Equity', desc: 'Company Shares', icon: TrendingUp, value: 'Growth', color: 'from-green-500 to-green-600' },
+    { id: 5, name: 'Carbon Credits', desc: 'Environmental Assets', icon: Shield, value: 'ESG', color: 'from-emerald-500 to-emerald-600' }
   ];
 
   // Blockchain networks data
   const blockchains = [
-    { id: 1, name: 'Ethereum', desc: 'Smart Contracts', icon: Cpu, value: 'ERC-20' },
-    { id: 2, name: 'Polygon', desc: 'Low Cost', icon: Cpu, value: 'MATIC' },
-    { id: 3, name: 'Solana', desc: 'High Speed', icon: Cpu, value: 'SOL' },
-    { id: 4, name: 'Avalanche', desc: 'Scalable', icon: Cpu, value: 'AVAX' },
-    { id: 5, name: 'Binance Smart Chain', desc: 'Compatible', icon: Cpu, value: 'BSC' },
-    { id: 6, name: 'Optimism', desc: 'Layer 2', icon: Cpu, value: 'OP' }
+    { id: 1, name: 'Ethereum', desc: 'Smart Contracts', icon: Cpu, value: 'ERC-20', color: 'from-indigo-500 to-indigo-600' },
+    { id: 2, name: 'Polygon', desc: 'Low Cost', icon: Cpu, value: 'MATIC', color: 'from-purple-500 to-purple-600' },
+    { id: 3, name: 'Solana', desc: 'High Speed', icon: Cpu, value: 'SOL', color: 'from-pink-500 to-pink-600' },
+    { id: 4, name: 'Avalanche', desc: 'Scalable', icon: Cpu, value: 'AVAX', color: 'from-red-500 to-red-600' },
+    { id: 5, name: 'Binance Smart Chain', desc: 'Compatible', icon: Cpu, value: 'BSC', color: 'from-yellow-500 to-yellow-600' },
+    { id: 6, name: 'Optimism', desc: 'Layer 2', icon: Cpu, value: 'OP', color: 'from-blue-500 to-blue-600' }
   ];
 
   // Token standards data
   const tokenStandards = {
     ethereum: [
-      { id: 1, name: 'ERC-20', desc: 'Fungible Tokens', icon: Code, value: 'Standard' },
-      { id: 2, name: 'ERC-721', desc: 'Non-Fungible Tokens', icon: Code, value: 'NFT' },
-      { id: 3, name: 'ERC-1155', desc: 'Multi-Token Standard', icon: Code, value: 'Hybrid' },
-      { id: 4, name: 'ERC-1400', desc: 'Security Token Standard', icon: Code, value: 'Security' }
+      { id: 1, name: 'ERC-20', desc: 'Fungible Tokens', icon: Code, value: 'Standard', color: 'from-green-500 to-green-600' },
+      { id: 2, name: 'ERC-721', desc: 'Non-Fungible Tokens', icon: Code, value: 'NFT', color: 'from-blue-500 to-blue-600' },
+      { id: 3, name: 'ERC-1155', desc: 'Multi-Token Standard', icon: Code, value: 'Hybrid', color: 'from-purple-500 to-purple-600' },
+      { id: 4, name: 'ERC-1400', desc: 'Security Token Standard', icon: Code, value: 'Security', color: 'from-red-500 to-red-600' }
     ],
     polygon: [
-      { id: 1, name: 'ERC-20', desc: 'Fungible Tokens', icon: Code, value: 'Standard' },
-      { id: 2, name: 'ERC-721', desc: 'Non-Fungible Tokens', icon: Code, value: 'NFT' },
-      { id: 3, name: 'ERC-1155', desc: 'Multi-Token Standard', icon: Code, value: 'Hybrid' }
+      { id: 1, name: 'ERC-20', desc: 'Fungible Tokens', icon: Code, value: 'Standard', color: 'from-green-500 to-green-600' },
+      { id: 2, name: 'ERC-721', desc: 'Non-Fungible Tokens', icon: Code, value: 'NFT', color: 'from-blue-500 to-blue-600' },
+      { id: 3, name: 'ERC-1155', desc: 'Multi-Token Standard', icon: Code, value: 'Hybrid', color: 'from-purple-500 to-purple-600' }
     ],
     solana: [
-      { id: 1, name: 'SPL Token', desc: 'Fungible Tokens', icon: Code, value: 'Standard' },
-      { id: 2, name: 'Metaplex', desc: 'NFT Standard', icon: Code, value: 'NFT' }
+      { id: 1, name: 'SPL Token', desc: 'Fungible Tokens', icon: Code, value: 'Standard', color: 'from-green-500 to-green-600' },
+      { id: 2, name: 'Metaplex', desc: 'NFT Standard', icon: Code, value: 'NFT', color: 'from-blue-500 to-blue-600' }
     ]
   };
 
@@ -183,51 +183,23 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
   };
 
   const handleCardHover = (cardIndex, isHovering) => {
-    if (!window.gsap) return;
-    
     const card = cardsRef.current[cardIndex];
     if (!card) return;
-    
-    // Immediately kill any existing animations on this card
-    window.gsap.killTweensOf(card);
     
     if (isHovering) {
       // Set hovered state immediately
       setHoveredCard(cardIndex);
       
-      // Set initial transform origin
-      window.gsap.set(card, {
-        transformOrigin: "center center",
-        zIndex: 2000
-      });
-      
-      // Create smooth hover animation
-      window.gsap.to(card, {
-        scale: 1.15,
-        y: -40,
-        rotationY: 5,
-        rotationX: 5,
-        boxShadow: "0 30px 60px rgba(0,0,0,0.3)",
-        duration: 0.3,
-        ease: "power2.out",
-        onComplete: () => {
-          // Only set animating to false if this card is still hovered
-          if (hoveredCard === cardIndex) {
-            setIsAnimating(false);
-          }
-        }
-      });
+      // Apply hover styles directly with CSS transforms
+      card.style.transform = 'scale(1.05) translateY(-10px)';
+      card.style.boxShadow = '0 25px 50px rgba(0,0,0,0.25)';
+      card.style.zIndex = '2000';
       
       // Dim other cards
       cardsRef.current.forEach((otherCard, index) => {
         if (index !== cardIndex && otherCard) {
-          window.gsap.killTweensOf(otherCard);
-          window.gsap.to(otherCard, {
-            opacity: 0.9,
-            scale: 0.9,
-            duration: 0.3,
-            ease: "power2.out"
-          });
+          otherCard.style.transform = 'scale(0.95)';
+          otherCard.style.opacity = '0.8';
         }
       });
       
@@ -235,43 +207,18 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
       // Only reset if this card was actually the hovered one
       if (hoveredCard === cardIndex) {
         setHoveredCard(null);
-        setIsAnimating(true);
         
         // Reset this specific card
-        window.gsap.to(card, {
-          scale: 1,
-          opacity: 1,
-          rotationY: 0,
-          rotationX: 0,
-          rotationZ: 0,
-          y: 0,
-          x: 0,
-          zIndex: cardIndex + 10,
-          boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
-          duration: 0.3,
-          ease: "power2.out",
-          onComplete: () => {
-            setIsAnimating(false);
-          }
-        });
+        card.style.transform = 'scale(1) translateY(0px)';
+        card.style.boxShadow = '0 20px 40px rgba(0,0,0,0.15)';
+        card.style.zIndex = (cardIndex + 10).toString();
         
         // Reset all other cards
         cardsRef.current.forEach((otherCard, index) => {
           if (index !== cardIndex && otherCard) {
-            window.gsap.killTweensOf(otherCard);
-            window.gsap.to(otherCard, {
-              scale: 1,
-              opacity: 1,
-              rotationY: 0,
-              rotationX: 0,
-              rotationZ: 0,
-              y: 0,
-              x: 0,
-              zIndex: index + 10,
-              boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
-              duration: 0.3,
-              ease: "power2.out"
-            });
+            otherCard.style.transform = 'scale(1)';
+            otherCard.style.opacity = '1';
+            otherCard.style.zIndex = (index + 10).toString();
           }
         });
       }
@@ -284,26 +231,29 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
       icon: Briefcase,
       items: assetTypes,
       selected: selectedAsset,
-      color: "from-blue-500 to-purple-600"
+      stepNumber: 1,
+      status: currentStep >= 0 ? 'completed' : 'pending'
     },
     {
       title: "Choose Blockchain Network", 
       icon: Cpu,
       items: blockchains,
       selected: selectedBlockchain,
-      color: "from-purple-500 to-pink-600"
+      stepNumber: 2,
+      status: currentStep >= 1 ? 'completed' : 'pending'
     },
     {
       title: "Token Standards",
       icon: Code,
       items: selectedBlockchain ? (tokenStandards[selectedBlockchain.name.toLowerCase()] || tokenStandards.ethereum) : tokenStandards.ethereum,
       selected: selectedStandard,
-      color: "from-pink-500 to-red-600"
+      stepNumber: 3,
+      status: currentStep >= 2 ? 'completed' : 'pending'
     }
   ];
 
   return (
-    <section className="py-20">
+    <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="brand-section-title mb-4 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
@@ -321,117 +271,38 @@ const TokenizationProcess = ({ onLaunchCreator }) => {
           </button>
         </div>
 
-        {/* Interactive Tokenization Cards */}
-        <div className="relative mb-8">
-          <div 
-            className="flex flex-col lg:flex-row justify-center items-center gap-4 sm:gap-6 md:gap-8 perspective-1000"
-            onMouseLeave={() => {
-              if (hoveredCard !== null) {
-                setHoveredCard(null);
-                setIsAnimating(true);
-                
-                cardsRef.current.forEach((card, index) => {
-                  if (card) {
-                    window.gsap.killTweensOf(card);
-                    window.gsap.to(card, {
-                      scale: 1,
-                      opacity: 1,
-                      rotationY: 0,
-                      rotationX: 0,
-                      rotationZ: 0,
-                      y: 0,
-                      x: 0,
-                      zIndex: index + 10,
-                      boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
-                      duration: 0.3,
-                      ease: "power2.out",
-                      onComplete: () => {
-                        if (index === cardsRef.current.length - 1) {
-                          setIsAnimating(false);
-                        }
-                      }
-                    });
-                  }
-                });
-              }
-            }}
-          >
-            {stepCards.map((card, index) => (
-              <div
-                key={index}
-                className="relative"
-              >
-                <div
-                  ref={el => cardsRef.current[index] = el}
-                  className={`relative w-80 h-96 rounded-3xl p-6 cursor-pointer transform-gpu overflow-hidden ${
-                    currentStep === index ? 'z-30' : currentStep > index ? 'z-20' : 'z-10'
-                  }`}
-                  style={{
-                    background: `linear-gradient(135deg, ${card.color.includes('blue') ? '#3B82F6' : card.color.includes('purple') ? '#18be36ff' : '#4894ecff'} 0%, ${card.color.includes('blue') ? '#18be36ff' : card.color.includes('purple') ? '#0300b1ff' : '#18be36ff'} 100%)`,
-                    boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
-                    zIndex: index + 10,
-                    transformStyle: 'preserve-3d',
-                    backfaceVisibility: 'hidden'
-                  }}
-                  onMouseEnter={() => handleCardHover(index, true)}
-                  onMouseLeave={() => handleCardHover(index, false)}
-                  onMouseMove={(e) => {
-                    // Ensure hover state is maintained while mouse is inside
-                    if (hoveredCard !== index) {
-                      handleCardHover(index, true);
-                    }
-                  }}
-                >
-                  <div className="text-white h-full flex flex-col" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
-                    <div className="flex items-center mb-3 sm:mb-4 flex-shrink-0">
-                      <card.icon className="w-5 h-5 sm:w-6 sm:h-6 mr-2 drop-shadow-lg" />
-                      <h2 className="text-lg sm:text-xl font-bold drop-shadow-lg">{card.title}</h2>
-                    </div>
-
-                    {hoveredCard === index ? (
-                      <div className="flex-1 min-h-0 overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
-                        <div className="grid grid-cols-1 gap-1 sm:gap-1.5 pb-2">
-                          {card.items.map((item, itemIndex) => (
-                            <button
-                              key={item.id}
-                              onClick={() => handleCardClick(index, item)}
-                              className={`w-full p-2 sm:p-2 rounded-lg sm:rounded-xl text-left transition-all duration-300 hover:scale-105 ${
-                                card.selected?.id === item.id ? 'bg-white/30' : 'bg-white/10 hover:bg-white/20'
-                              }`}
-                              style={{ textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}
-                            >
-                              <div className="flex items-center">
-                                {item.icon && <item.icon className="w-3 h-3 sm:w-4 sm:h-4 mr-2 drop-shadow-lg flex-shrink-0" />}
-                                <div className="min-w-0 flex-1">
-                                  <div className="font-semibold text-xs sm:text-xs text-white drop-shadow-lg truncate">{item.name}</div>
-                                  {item.desc && <div className="text-xs text-white/90 drop-shadow-md truncate">{item.desc}</div>}
-                                  {item.value && <div className="text-xs text-white/80 drop-shadow-md truncate">{item.value}</div>}
-                                </div>
-                              </div>
-                            </button>
-                          ))}
-                        </div>
-                      </div>
+        {/* Progress Timeline */}
+        <div className="relative mb-16">
+          <div className="flex items-center justify-center">
+            {stepCards.map((step, index) => (
+              <div key={index} className="flex items-center">
+                {/* Step Circle */}
+                <div className="relative">
+                  <div className={`w-20 h-20 rounded-full flex items-center justify-center text-white font-bold text-xl transition-all duration-500 ${
+                    step.stepNumber === 3 
+                      ? 'bg-gradient-to-r from-[#15a36e] to-[#255f99] scale-110 shadow-xl' 
+                      : 'bg-gradient-to-r from-gray-400 to-gray-500 scale-100 shadow-lg'
+                  }`}>
+                    {step.stepNumber === 3 ? (
+                      <CheckCircle className="w-10 h-10" />
                     ) : (
-                      <div className="flex-1 flex items-center justify-center">
-                        <div className="text-center" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
-                          <div className="text-sm sm:text-base font-semibold mb-2 text-white drop-shadow-lg">
-                            {card.selected ? `Selected: ${card.selected.name || card.selected}` : 'Hover to select'}
-                          </div>
-                          <div className="text-xs text-white/90 drop-shadow-md">
-                            {card.items.length} options available
-                          </div>
-                        </div>
-                      </div>
+                      step.stepNumber
                     )}
                   </div>
                 </div>
+                
+                {/* Connector Line */}
+                {index < stepCards.length - 1 && (
+                  <div className={`w-32 h-1 mx-6 transition-all duration-500 rounded-full ${
+                    step.status === 'completed' 
+                      ? 'bg-gradient-to-r from-[#15a36e] to-[#255f99]' 
+                      : 'bg-gradient-to-r from-gray-300 to-gray-400'
+                  }`} />
+                )}
               </div>
             ))}
           </div>
         </div>
-
-
       </div>
     </section>
   );
@@ -553,7 +424,6 @@ const TokenDistribution = () => {
             src="/assets/Images/Token-Distribution-removebg.png"
             alt="The Digital Securities Distribution Network"
             className="max-w-full h-auto rounded-xl bg-green-50 shadow-lg border border-gray-100"
-            // style={{ background: 'white' }}
           />
         </div>
       </div>
@@ -758,75 +628,168 @@ const InvestorManagement = () => {
   );
 };
 
-// Security Protocols Section Component - Restructured
+// Security Protocols Section Component
 const SecurityProtocols = () => {
   const securityFeatures = [
     {
       title: 'Multi-Signature Wallets',
       description: 'Enhanced security with multi-signature wallet infrastructure.',
       icon: Lock,
-      level: 'Enterprise'
+      level: 'Enterprise',
+      color: 'from-blue-500 to-blue-600',
+      features: ['256-bit encryption', 'Hardware security', 'Audit trail']
     },
     {
       title: 'Smart Contract Audits',
       description: 'Thoroughly audited smart contracts by leading security firms.',
       icon: FileCheck,
-      level: 'Certified'
+      level: 'Certified',
+      color: 'from-green-500 to-green-600',
+      features: ['Third-party audits', 'Vulnerability testing', 'Compliance checks']
     },
     {
       title: 'Compliance Framework',
       description: 'Built-in regulatory compliance and risk management protocols.',
       icon: Shield,
-      level: 'Regulatory'
+      level: 'Regulatory',
+      color: 'from-purple-500 to-purple-600',
+      features: ['SEC compliance', 'KYC/AML', 'Regulatory reporting']
     },
     {
       title: 'Fraud Detection',
       description: 'AI-powered fraud detection and prevention systems.',
       icon: AlertCircle,
-      level: 'Advanced'
+      level: 'Advanced',
+      color: 'from-red-500 to-red-600',
+      features: ['Real-time monitoring', 'AI algorithms', 'Threat prevention']
     }
   ];
 
   return (
-    <section className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="brand-section-title mb-2 pb-1 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
-            Security Protocols
+          <div className="inline-flex items-center px-4 py-2 bg-blue-500/20 rounded-full text-sm font-medium text-blue-300 mb-6 border border-blue-400/30">
+            <Shield className="w-4 h-4 mr-2" />
+            Security First
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Enterprise-Grade
+            <span className="block bg-gradient-to-r from-blue-400 to-green-400 text-transparent bg-clip-text">
+              Security Protocols
+            </span>
           </h2>
-          <p className="brand-description max-w-3xl mx-auto text-green-700">
-            Bank-grade security measures protecting your assets and investor data.
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Bank-grade security measures protecting your assets and investor data with military-grade encryption and compliance.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Features List - Left Side */}
-          <div className="space-y-6">
-            {securityFeatures.map((feature, index) => (
-              <div key={index} className="bg-green-50 rounded-2xl p-6 shadow-sm border border-gray-200">
-                <div className="flex items-start">
-                  <div className="p-3 bg-white border border-blue-100 rounded-2xl mr-4">
-                    <feature.icon className="h-6 w-6 text-blue-500" />
-                  </div>
-                  <div>
-                    <h4 className="brand-card-title text-black mb-2">{feature.title}</h4>
-                    <span className="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium mb-2">
-                      {feature.level}
-                    </span>
-                    <p className="text-gray-600">{feature.description}</p>
-                  </div>
+        {/* Security Features Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {securityFeatures.map((feature, index) => (
+            <div key={index} className="group relative">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300 hover:bg-white/10 cursor-pointer">
+                {/* Icon with animated background */}
+                <div className={`w-16 h-16 rounded-2xl mb-4 flex items-center justify-center bg-gradient-to-r ${feature.color} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <feature.icon className="h-8 w-8 text-white" />
+                </div>
+                
+                {/* Content */}
+                <h4 className="text-lg font-bold text-white mb-2">{feature.title}</h4>
+                <p className="text-gray-300 text-sm mb-4 leading-relaxed">{feature.description}</p>
+                
+                {/* Level Badge */}
+                <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-white border border-white/20 mb-4">
+                  {feature.level}
+                </div>
+
+                {/* Feature List */}
+                <div className="space-y-2">
+                  {feature.features.map((item, idx) => (
+                    <div key={idx} className="flex items-center text-xs text-gray-400">
+                      <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-2"></div>
+                      {item}
+                    </div>
+                  ))}
                 </div>
               </div>
-            ))}
+            </div>
+          ))}
+        </div>
+
+        {/* Security Stats Section */}
+        <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 mb-16">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-white mb-2">Security Metrics</h3>
+            <p className="text-gray-300">Real-time security performance indicators</p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-blue-400 mb-2">99.9%</div>
+              <div className="text-sm text-gray-300">Uptime</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-green-400 mb-2">256-bit</div>
+              <div className="text-sm text-gray-300">Encryption</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-purple-400 mb-2">24/7</div>
+              <div className="text-sm text-gray-300">Monitoring</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-red-400 mb-2">SOC 2</div>
+              <div className="text-sm text-gray-300">Compliant</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Security Overview with Image */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Side - Security Overview */}
+          <div className="space-y-6">
+            <div className="bg-gradient-to-r from-blue-500/20 to-green-500/20 rounded-2xl p-6 border border-blue-400/30">
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Multi-Layered Defense
+              </h3>
+              <p className="text-gray-300 mb-4">
+                Our comprehensive security approach combines cutting-edge technology with industry best practices to create an impenetrable defense system.
+              </p>
+              <div className="flex items-center text-blue-300">
+                <ShieldCheck className="w-5 h-5 mr-2" />
+                <span className="text-sm">ISO 27001 Certified</span>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <div className="text-2xl font-bold text-green-400 mb-1">100%</div>
+                <div className="text-xs text-gray-400">Audit Success</div>
+              </div>
+              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <div className="text-2xl font-bold text-blue-400 mb-1">0</div>
+                <div className="text-xs text-gray-400">Security Breaches</div>
+              </div>
+            </div>
           </div>
 
-          {/* Token Issuance Compliance Image - Right Side */}
-          <div className="flex items-center justify-center bg-green-50 rounded-2xl border border-gray-200 shadow-lg p-6 min-h-[400px]">
-            <img
-              src="/assets/Images/token-issuence-removebg.png"
-              alt="Token Issuance Compliance Rules"
-              className="max-w-full h-auto rounded-xl"
-            />
+          {/* Right Side - Enhanced Image */}
+          <div className="flex items-center justify-center">
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-green-500 rounded-3xl transform rotate-3 opacity-30 group-hover:rotate-6 transition-transform duration-500"></div>
+              <div className="relative bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/20 group-hover:border-white/40 transition-all duration-500">
+                <img
+                  src="/assets/Images/token-issuence-removebg.png"
+                  alt="Token Issuance Compliance Rules"
+                  className="max-w-full h-auto rounded-2xl filter drop-shadow-2xl"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

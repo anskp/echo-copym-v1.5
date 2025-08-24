@@ -90,10 +90,9 @@ const Hero = () => {
                   width={1024}
                   height={490}
                   alt="AI"
-                  style={{
-                    filter: 'hue-rotate(180deg) saturate(1.5) brightness(0.8) contrast(1.2)',
-                    WebkitFilter: 'hue-rotate(180deg) saturate(1.5) brightness(0.8) contrast(1.2)'
-                  }}
+                  // style={{
+                  //   WebkitFilter: 'hue-rotate(180deg) saturate(1.5) brightness(0.8) contrast(1.2)'
+                  // }}
                 />
 
                 <Generating className="absolute left-4 right-4 bottom-5 md:left-1/2 md:right-auto md:bottom-8 md:w-[31rem] md:-translate-x-1/2" />
