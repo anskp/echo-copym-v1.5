@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { ScrollParallax } from "react-just-parallax";
 import Typewriter from "typewriter-effect";
 
-import { curve, heroBackground, robot } from "../assets";
+import { curve, robot } from "../assets";
 import { heroIcons } from "../constants";
 import Button from "./Button";
 import CompanyLogos from "./CompanyLogos";
@@ -119,15 +119,7 @@ const Hero = () => {
             <Gradient />
           </div>
 
-          <div className="absolute -top-[54%] left-1/2 w-[234%] -translate-x-1/2 md:-top-[46%] md:w-[138%] lg:-top-[104%]">
-            <img
-              src={heroBackground}
-              className="w-full pointer-events-none select-none"
-              width={1440}
-              height={1800}
-              alt="Hero"
-            />
-          </div>
+
 
           <BackgroundCircles />
         </div>

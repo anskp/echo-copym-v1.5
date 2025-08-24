@@ -1,8 +1,20 @@
 import React from 'react';
 
-export default function PhoneMockup({ screenshot, alt, isVideo = false, videoRef }) {
+export default function PhoneMockup({ screenshot, alt, isVideo = false, videoRef, scale = 1, className = "" }) {
+  const baseWidth = 256; // 64 * 4 = 256px
+  const baseHeight = 520;
+  
+  const scaledWidth = baseWidth * scale;
+  const scaledHeight = baseHeight * scale;
+  
   return (
-    <div className="w-64 h-[520px] bg-black rounded-[3rem] p-2 shadow-2xl">
+    <div 
+      className={`bg-black rounded-[3rem] p-2 shadow-2xl ${className}`}
+      style={{
+        width: `${scaledWidth}px`,
+        height: `${scaledHeight}px`
+      }}
+    >
       <div className="w-full h-full bg-black rounded-[2.5rem] overflow-hidden relative">
         {isVideo ? (
           <video
@@ -13,7 +25,7 @@ export default function PhoneMockup({ screenshot, alt, isVideo = false, videoRef
             muted
             loop
             playsInline
-            autoplay
+            autoPlay
             preload="auto"
           />
         ) : (

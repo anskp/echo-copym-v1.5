@@ -6,6 +6,7 @@ import WhyCopym from "./sections/WhyCopym";
 import InvestmentSection from "./sections/InvestmentSection";
 import Testimonials from "./sections/Testimonials";
 import SupportedAssets from "./sections/SupportedAssets";
+import FAQ from "./sections/FAQ";
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-blue-100">
@@ -17,6 +18,7 @@ export default function HomePage() {
       <IssuerSection />
       <WhyCopym />
       <Testimonials />
+      <FAQ />
     </div>
   );
 }
