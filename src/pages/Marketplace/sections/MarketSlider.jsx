@@ -18,14 +18,87 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import AppPeekSection from "./AppPeekSection";
-// --- Asset data (unchanged) ----
+import CardSwap, { Card } from "../../../components/CardSwap";
+// --- Asset data for CardSwap ----
 const mockAssets = [
-  { id: "real-estate-1", title: "Premium Office Building", category: "Real Estate", location: "New York, USA", expectedRoi: "8.5%", price: 250000, image: "/assets/Images/premium-office-building-1.png", },
-  { id: "art-1", title: "Digital Art Collection", category: "Art", location: "Digital", expectedRoi: "Variable", price: 15000, image: "/assets/Images/digital-art-collection-1.png", },
-  { id: "commodities-1", title: "Gold Reserve", category: "Commodities", location: "Secure Vault, Switzerland", expectedRoi: "5.2%", price: 50000, image: "/assets/Images/gold-reserve.png", },
-  { id: "infrastructure-1", title: "Solar Farm Project", category: "Infrastructure", location: "Arizona, USA", expectedRoi: "7.3%", price: 120000, image: "/assets/Images/solar-farm-project-2.png", },
-  { id: "startups-1", title: "Tech Startup Equity", category: "Startups", location: "San Francisco, USA", expectedRoi: "High Risk/Reward", price: 75000, image: "/assets/Images/tech-2.png", },
-  { id: "real-estate-2", title: "Luxury Apartment Complex", category: "Real Estate", location: "Miami, USA", expectedRoi: "6.8%", price: 350000, image: "/assets/Images/apartment-complex.png" },
+  { 
+    id: "real-estate-1", 
+    title: "Premium Office Building", 
+    subtitle: "Real Estate Investment", 
+    location: "New York, USA", 
+    roi: "8.5% ROI", 
+    image: "/assets/Images/premium-office-building-1.png",
+    url: "/market/real-estate/",
+    description: "A Class A office building in Manhattan's financial district, offering stable rental income and long-term appreciation potential.",
+    marketCap: "$25M",
+    riskLevel: "Low-Medium",
+    minInvestment: "$10,000"
+  },
+  { 
+    id: "art-1", 
+    title: "Digital Art Collection", 
+    subtitle: "Art Investment", 
+    location: "Digital", 
+    roi: "Variable ROI", 
+    image: "/assets/Images/digital-art-collection-1.png",
+    url: "/market/art/",
+    description: "Curated collection of digital artworks from emerging and established artists, leveraging blockchain technology for provenance.",
+    marketCap: "$5M",
+    riskLevel: "Medium-High",
+    minInvestment: "$1,000"
+  },
+  { 
+    id: "commodities-1", 
+    title: "Gold Reserve", 
+    subtitle: "Commodities Investment", 
+    location: "Switzerland", 
+    roi: "5.2% ROI", 
+    image: "/assets/Images/gold-reserve.png",
+    url: "/market/gold/",
+    description: "Physical gold reserves stored in Swiss vaults, providing a hedge against inflation and economic uncertainty.",
+    marketCap: "$50M",
+    riskLevel: "Low",
+    minInvestment: "$5,000"
+  },
+  { 
+    id: "infrastructure-1", 
+    title: "Solar Farm Project", 
+    subtitle: "Infrastructure Investment", 
+    location: "Arizona, USA", 
+    roi: "7.3% ROI", 
+    image: "/assets/Images/solar-farm-project-2.png",
+    url: "/market/carbon-credits/",
+    description: "Large-scale solar energy project generating clean electricity and carbon credits, with government incentives.",
+    marketCap: "$15M",
+    riskLevel: "Medium",
+    minInvestment: "$25,000"
+  },
+  { 
+    id: "startups-1", 
+    title: "Tech Startup Equity", 
+    subtitle: "Startup Investment", 
+    location: "San Francisco, USA", 
+    roi: "High Risk/Reward", 
+    image: "/assets/Images/tech-2.png",
+    url: "/market/private-equity/",
+    description: "Early-stage technology startup with innovative AI solutions, offering high growth potential in emerging markets.",
+    marketCap: "$2M",
+    riskLevel: "High",
+    minInvestment: "$50,000"
+  },
+  { 
+    id: "real-estate-2", 
+    title: "Luxury Apartment Complex", 
+    subtitle: "Real Estate Investment", 
+    location: "Miami, USA", 
+    roi: "6.8% ROI", 
+    image: "/assets/Images/apartment-complex.png",
+    url: "/market/real-estate/",
+    description: "Premium residential complex in Miami Beach, featuring luxury amenities and high-end rental units.",
+    marketCap: "$30M",
+    riskLevel: "Medium",
+    minInvestment: "$15,000"
+  }
 ];
 
 // --- Theme and Routing (unchanged) ---
@@ -34,14 +107,8 @@ const theme = {
   blueButton: '#255f99',
   whiteText: '#ffffff',
 };
-const categoryToPath = {
-    "Real Estate": "/market/real-estate/",
-    Art: "/market/art/",
-    Commodities: "/market/gold/",
-    Infrastructure: "/market/carbon-credits/",
-    Startups: "/market/private-equity/",
-};
-const allCardData = mockAssets.map((asset) => ({ ...asset, link: categoryToPath[asset.category] || "/marketplace" }));
+// Assets are formatted for CardSwap
+const allCardData = mockAssets;
 
 // ====================================================================
 // --- THE FULLY RESPONSIVE ASSET CARD COMPONENT (UNCHANGED) ---
@@ -97,9 +164,9 @@ const AssetCard = ({ card, layoutId, isPopup = false }) => {
 // --- NEW MARKETPLACE GLIMPSE COMPONENT ---
 // ====================================================================
 const MarketplaceGlimpse = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedCard, setSelectedCard] = useState(null);
   const [kenBurnsOffset, setKenBurnsOffset] = useState(0);
+  const [selectedAsset, setSelectedAsset] = useState(null);
 
   // Ken Burns effect for the header background
   useEffect(() => {
@@ -109,11 +176,8 @@ const MarketplaceGlimpse = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const categories = ["All", "Real Estate", "Art", "Commodities", "Infrastructure", "Startups"];
-  
-  const filteredAssets = selectedCategory === "All" 
-    ? allCardData 
-    : allCardData.filter(asset => asset.category === selectedCategory);
+    // For now, we'll show all assets since ChromaGrid handles the display differently
+  const filteredAssets = allCardData;
 
   return (
     <div className="w-full">
@@ -156,144 +220,131 @@ const MarketplaceGlimpse = () => {
          <AppPeekSection />
        </section>
 
-      {/* Act III: The Alternating Feature Panels */}
-      <section className="bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <motion.div 
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-[#255f99]">Explore Our </span>
-              <span className="text-[#15a36e]">Curated Assets</span>
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
-              Discover a diverse portfolio of tokenized real-world assets, each carefully selected for their potential returns and market stability.
-            </p>
-            
-            {/* Category Filters */}
-            <div className="flex flex-wrap justify-center gap-3">
-              {categories.map((category) => (
-                <motion.button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-6 py-3 rounded-full font-semibold transition-all duration-200 ${
-                    selectedCategory === category
-                      ? 'text-white shadow-lg'
-                      : 'text-gray-600 bg-white hover:bg-gray-100'
-                  }`}
-                  style={{
-                    backgroundColor: selectedCategory === category ? theme.greenIcon : undefined
-                  }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {category}
-                </motion.button>
-              ))}
-            </div>
-          </motion.div>
+       {/* Section Header - moved outside as introduction */}
+       <motion.div 
+         className="text-center py-16 bg-white"
+         initial={{ opacity: 0, y: 30 }}
+         whileInView={{ opacity: 1, y: 0 }}
+         transition={{ duration: 0.6 }}
+         viewport={{ once: true }}
+       >
+         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+           <h2 className="text-3xl md:text-4xl font-bold mb-4">
+             <span className="text-[#255f99]">Explore Our </span>
+             <span className="text-[#15a36e]">Curated Assets</span>
+           </h2>
+           <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+             Discover a diverse portfolio of tokenized real-world assets, each carefully selected for their potential returns and market stability.
+           </p>
+         </div>
+       </motion.div>
 
-          {/* Alternating Asset Panels */}
-          <div className="space-y-20">
-            {filteredAssets.map((asset, index) => (
-              <motion.div
-                key={asset.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="w-full"
-              >
-                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 0 ? '' : 'lg:grid-flow-col-dense'
-                }`}>
-                  
-                  {/* Visual Column */}
-                  <motion.div
-                    className={`${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="w-full max-w-md mx-auto">
-                      <AssetCard card={asset} layoutId={`panel-${asset.id}`} />
-                    </div>
-                  </motion.div>
+       {/* Act III: The Immersive CardSwap Experience */}
+       <section className="bg-gradient-to-br from-[#0D1A2A] via-[#10243E] to-black min-h-screen flex items-center justify-center">
+         {/* Glassmorphism Container - The Stage */}
+         <div className="max-w-7xl mx-auto bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-8 lg:p-12 relative overflow-hidden">
+           {/* Compact Two-Column Grid */}
+           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+             {/* Inspector Panel - Left Side (2 columns) */}
+             <div className="lg:col-span-2 flex flex-col justify-center">
+               <div className="mb-8">
+                 <p className="text-gray-300 text-lg">Click on any card to view details</p>
+               </div>
+               
+               {selectedAsset ? (
+                 <div className="space-y-6">
+                   {/* Asset Title */}
+                   <div className="mb-6">
+                     <h2 className="text-3xl font-bold text-white mb-2">{selectedAsset.title}</h2>
+                     <p className="text-xl text-gray-300">{selectedAsset.subtitle}</p>
+                   </div>
 
-                  {/* Content Column */}
-                  <motion.div
-                    className={`flex flex-col justify-center ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}
-                    initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="space-y-6">
-                      {/* Header */}
-                      <div>
-                        <div className="inline-block px-4 py-2 rounded-full text-sm font-semibold text-white mb-4" style={{ backgroundColor: theme.greenIcon }}>
-                          {asset.category}
-                        </div>
-                        <h3 className="text-3xl md:text-4xl font-bold text-[#255f99] mb-4">
-                          {asset.title}
-                        </h3>
-                      </div>
+                   {/* Spec Sheet */}
+                   <div className="space-y-4">
+                     <div className="bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
+                       <div className="flex items-center gap-4">
+                         <MapPin className="w-8 h-8 text-blue-400" />
+                         <div>
+                           <p className="text-gray-300 text-sm uppercase tracking-wider">Location</p>
+                           <p className="text-white text-lg font-medium">{selectedAsset.location}</p>
+                         </div>
+                       </div>
+                     </div>
+                     
+                     <div className="bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
+                       <div className="flex items-center gap-4">
+                         <TrendingUp className="w-8 h-8 text-green-400" />
+                         <div>
+                           <p className="text-gray-300 text-sm uppercase tracking-wider">ROI</p>
+                           <p className="text-white text-lg font-medium">{selectedAsset.roi}</p>
+                         </div>
+                       </div>
+                     </div>
+                     
+                     {selectedAsset.marketCap && (
+                       <div className="bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
+                         <div className="flex items-center gap-4">
+                           <DollarSign className="w-8 h-8 text-blue-400" />
+                           <div>
+                             <p className="text-gray-300 text-sm uppercase tracking-wider">Market Cap</p>
+                             <p className="text-white text-lg font-medium">{selectedAsset.marketCap}</p>
+                           </div>
+                         </div>
+                       </div>
+                     )}
+                     
+                     {selectedAsset.riskLevel && (
+                       <div className="bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
+                         <div className="flex items-center gap-4">
+                           <Shield className="w-8 h-8 text-green-400" />
+                           <div>
+                             <p className="text-gray-300 text-sm uppercase tracking-wider">Risk Level</p>
+                             <p className="text-white text-lg font-medium">{selectedAsset.riskLevel}</p>
+                           </div>
+                         </div>
+                       </div>
+                     )}
+                     
+                     {selectedAsset.minInvestment && (
+                       <div className="bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
+                         <div className="flex items-center gap-4">
+                           <Coins className="w-8 h-8 text-blue-400" />
+                           <div>
+                             <p className="text-gray-300 text-sm uppercase tracking-wider">Min Investment</p>
+                             <p className="text-white text-lg font-medium">{selectedAsset.minInvestment}</p>
+                           </div>
+                         </div>
+                       </div>
+                     )}
+                   </div>
+                 </div>
+               ) : (
+                 <div className="text-center text-gray-400 mt-24">
+                   <Building2 className="w-24 h-24 mx-auto mb-6 text-gray-500" />
+                   <p className="text-xl">Click any card to view details</p>
+                 </div>
+               )}
+             </div>
 
-                      {/* Description */}
-                      <p className="text-lg text-gray-600 leading-relaxed">
-                        {asset.category === "Real Estate" && "A premium investment opportunity offering stable returns and significant appreciation potential in prime locations."}
-                        {asset.category === "Art" && "Exclusive access to curated digital art collections, combining traditional artistic value with blockchain innovation."}
-                        {asset.category === "Commodities" && "Secure, physically-backed commodity investments providing portfolio diversification and inflation protection."}
-                        {asset.category === "Infrastructure" && "Forward-thinking infrastructure projects delivering sustainable returns while supporting essential services."}
-                        {asset.category === "Startups" && "High-growth startup equity opportunities with the potential for exceptional returns in emerging markets."}
-                      </p>
-
-                      {/* Key Data Points - Spec Sheet */}
-                      <div className="grid grid-cols-2 gap-4 mt-6">
-                        <div className="bg-white rounded-xl p-4 shadow-sm">
-                          <p className="text-sm text-gray-500 mb-1">Location</p>
-                          <p className="font-semibold text-gray-900">{asset.location}</p>
-                        </div>
-                        
-                        <div className="bg-white rounded-xl p-4 shadow-sm">
-                          <p className="text-sm text-gray-500 mb-1">Expected ROI</p>
-                          <p className="font-semibold text-gray-900">{asset.expectedRoi}</p>
-                        </div>
-                        
-                        <div className="bg-white rounded-xl p-4 shadow-sm">
-                          <p className="text-sm text-gray-500 mb-1">Token Price</p>
-                          <p className="font-semibold text-gray-900">${asset.price.toLocaleString()}</p>
-                        </div>
-                        
-                        <div className="bg-white rounded-xl p-4 shadow-sm">
-                          <p className="text-sm text-gray-500 mb-1">Asset Class</p>
-                          <p className="font-semibold text-gray-900">{asset.category}</p>
-                        </div>
-                      </div>
-
-                      {/* Call to Action */}
-                      <motion.button
-                        className="mt-8 px-8 py-3 border-2 border-[#255f99] text-[#255f99] rounded-lg font-semibold transition-all duration-200 hover:bg-[#255f99] hover:text-white"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        onClick={() => setSelectedCard(asset)}
-                      >
-                        View Details
-                      </motion.button>
-                    </div>
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+             {/* CardSwap Canvas - Right Side (3 columns) */}
+             <div className="lg:col-span-3 mt-8 lg:mt-0">
+               <div className="w-full h-[500px] relative">
+                 <CardSwap
+                   cardDistance={60}
+                   verticalDistance={70}
+                   delay={5000}
+                   pauseOnHover={false}
+                   assets={filteredAssets}
+                   onCardClick={(asset) => {
+                     setSelectedAsset(asset);
+                     console.log('Asset selected:', asset.title);
+                   }}
+                 />
+               </div>
+             </div>
+           </div>
+         </div>
+       </section>
 
       {/* Act IV: The "Why Invest With Us?" Panel */}
       <section className="py-16 bg-white">
