@@ -298,21 +298,7 @@ export default function InvestorRoadmap() {
                   </AnimatePresence>
                 </div>
 
-                  {/* Timeline Dot */}
-                  <motion.div 
-                    className={`absolute left-4 sm:left-6 w-4 h-4 sm:w-6 sm:h-6 ${item.color} rounded-full transform -translate-x-1/2 z-20`}
-                    style={{ top: '2rem' }}
-                    animate={{
-                      scale: activeSection === index ? [1, 1.4, 1.2] : 1,
-                      boxShadow: activeSection === index ? 
-                        `0 0 25px ${item.ballColor}, 0 0 50px ${item.ballColor}60` : 
-                        `0 0 10px ${item.ballColor}40`
-                    }}
-                    transition={{ 
-                      duration: 0.4,
-                      ease: "easeOut"
-                    }}
-                  />
+                  {/* Timeline Dot - Removed for mobile view */}
               </motion.div>
             ))}
             </div>
