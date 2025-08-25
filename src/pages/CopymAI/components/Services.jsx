@@ -50,11 +50,13 @@ const Services = () => {
               />
             </div>
 
-                         <div className="relative z-1 max-w-[17rem] ml-auto">
+            <div className="relative z-1 max-w-[18rem] ml-auto bg-blue-100 opacity-70 rounded-2xl p-4">
+              <div className="bg-blue-100 opacity-70 rounded-2xl mb-6">
                <h4 className="h4 mb-4 text-black">COPYM AI</h4>
                               <p className="body-2 mb-[3rem] text-black">
                   COPYM-AI is the first unified platform that integrates the world's leading RWA platforms with advanced AI capabilities, creating a seamless tokenization experience.
                 </p>
+                </div>
               <ul className="body-2">
                 <li className="flex items-start py-4 border-t border-gray-300">
                   <img
