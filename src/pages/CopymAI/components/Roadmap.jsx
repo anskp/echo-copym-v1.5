@@ -46,7 +46,7 @@ const Roadmap = () => (
                         height={16}
                         alt={status}
                       />
-                      <div className="tagline text-black">{status}</div>
+                      <div className="tagline text-white">{status}</div>
                       {item.status === "done" && (
                         <div className="ml-2 w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                       )}

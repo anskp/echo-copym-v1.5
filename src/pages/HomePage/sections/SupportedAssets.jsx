@@ -60,7 +60,7 @@ export default function AssetTypesSection() {
           <span className="text-[#15a36e]">Real Assets,</span>
            <span className="text-[#255f99]">Curated for You</span>{' '}
         </h2>
-        <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="mt-4 text-lg text-black max-w-2xl mx-auto">
           Access institutional-grade opportunities in real estate, gold, private equity, commodities, and fine art—all through a single, intuitive platform.
         </p>
       </div>

@@ -180,7 +180,7 @@ export default function AppPeekSection() {
                       <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border border-white/20">
                         <div className="flex items-center gap-2 mb-2">
                           <Wallet className="w-4 h-4 text-[#15a36e]" />
-                          <div className="text-sm text-gray-600">Total Balance</div>
+                          <div className="text-sm text-black">Total Balance</div>
                         </div>
                         <div className="text-lg font-bold text-gray-900">$125,430.50</div>
                       </div>
@@ -196,7 +196,7 @@ export default function AppPeekSection() {
                           <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
                             <DollarSign className="w-3 h-3 text-green-600" />
                           </div>
-                          <div className="text-sm text-gray-600">Recent Deposit</div>
+                          <div className="text-sm text-black">Recent Deposit</div>
                         </div>
                         <div className="text-lg font-bold text-gray-900">+$5,000.00</div>
                       </div>
@@ -231,7 +231,7 @@ export default function AppPeekSection() {
                       <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border border-white/20">
                         <div className="flex items-center gap-2 mb-2">
                           <Building2 className="w-4 h-4 text-[#15a36e]" />
-                          <div className="text-sm text-gray-600">Real Estate</div>
+                          <div className="text-sm text-black">Real Estate</div>
                         </div>
                         <div className="text-lg font-bold text-[#15a36e]">$850,000</div>
                         <div className="text-sm text-gray-500">+12.5% this quarter</div>
@@ -246,7 +246,7 @@ export default function AppPeekSection() {
                       <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border border-white/20">
                         <div className="flex items-center gap-2 mb-2">
                           <Sun className="w-4 h-4 text-[#15a36e]" />
-                          <div className="text-sm text-gray-600">Solar Energy</div>
+                          <div className="text-sm text-black">Solar Energy</div>
                         </div>
                         <div className="text-lg font-bold text-[#15a36e]">$420,000</div>
                         <div className="text-sm text-gray-500">+8.3% this quarter</div>
@@ -261,7 +261,7 @@ export default function AppPeekSection() {
                       <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border border-white/20">
                         <div className="flex items-center gap-2 mb-2">
                           <Gem className="w-4 h-4 text-[#15a36e]" />
-                          <div className="text-sm text-gray-600">Precious Metals</div>
+                          <div className="text-sm text-black">Precious Metals</div>
                         </div>
                         <div className="text-lg font-bold text-[#15a36e]">$180,000</div>
                         <div className="text-sm text-gray-500">+5.2% this quarter</div>
@@ -298,7 +298,7 @@ export default function AppPeekSection() {
                       <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border border-white/20">
                         <div className="flex items-center gap-2 mb-2">
                           <Coins className="w-4 h-4 text-[#15a36e]" />
-                          <div className="text-sm text-gray-600">Total Portfolio Value</div>
+                          <div className="text-sm text-black">Total Portfolio Value</div>
                         </div>
                         <div className="text-lg font-bold text-gray-900">$2.5M</div>
                         <div className="text-sm text-gray-500">Across 12 assets</div>
@@ -313,7 +313,7 @@ export default function AppPeekSection() {
                       <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-2xl border border-white/20">
                         <div className="flex items-center gap-2 mb-2">
                           <Zap className="w-4 h-4 text-[#15a36e]" />
-                          <div className="text-sm text-gray-600">Average Returns</div>
+                          <div className="text-sm text-black">Average Returns</div>
                         </div>
                         <div className="text-lg font-bold text-[#15a36e]">12.8%</div>
                         <div className="text-sm text-gray-500">Annualized</div>

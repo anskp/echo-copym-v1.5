@@ -187,7 +187,7 @@ export default function Hero() {
                   Confidence
                 </span>
               </h1>
-              <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-6 sm:mb-8 mt-3 sm:mt-4 max-w-lg mx-auto lg:mx-0">
+              <p className="text-lg sm:text-xl text-black leading-relaxed mb-6 sm:mb-8 mt-3 sm:mt-4 max-w-lg mx-auto lg:mx-0">
                 Seamless on-chain investment in real estate, commodities, carbon credits, and luxury assets. No gas fees, no native token required.
               </p>
 

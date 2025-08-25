@@ -46,7 +46,7 @@ export default function Hero() {
               <span className="text-[#15a36e]">Assets</span>
             </h1>
 
-            <p className="text-lg brand-description text-gray-600 leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0">
+            <p className="text-lg brand-description text-black leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0">
               Secure, AI-enhanced marketplace powered by Crossmint and Fireblocks.
             </p>
 

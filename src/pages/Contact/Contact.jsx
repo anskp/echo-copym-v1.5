@@ -299,7 +299,7 @@ const Contact = () => {
             <div className="p-3 sm:p-4 border-b flex justify-between items-center">
               <div>
                 <h3 className="font-semibold text-[#1e40af] text-sm sm:text-base">Live Chat</h3>
-                <p className="text-xs sm:text-sm text-gray-600">We're online and ready to help!</p>
+                <p className="text-xs sm:text-sm text-black">We're online and ready to help!</p>
               </div>
               <button
                 onClick={() => setShowLiveChat(false)}
@@ -309,7 +309,7 @@ const Contact = () => {
               </button>
             </div>
             <div className="p-3 sm:p-4">
-              <p className="text-xs sm:text-sm text-gray-600 mb-3">Start a conversation with our support team.</p>
+              <p className="text-xs sm:text-sm text-black mb-3">Start a conversation with our support team.</p>
               <button className="w-full bg-[#065f46] text-white py-2 px-4 rounded-lg text-xs sm:text-sm font-medium hover:bg-[#064e3b] transition-colors">
                 Start Chat
               </button>
@@ -350,7 +350,7 @@ const Contact = () => {
                   <type.icon className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
                 </div>
                 <h3 className="font-semibold text-[#1e40af] mb-1 sm:mb-2 text-xs sm:text-sm lg:text-base leading-tight">{type.label}</h3>
-                <p className="text-xs text-gray-600 leading-tight">Secure email for qualified parties</p>
+                <p className="text-xs text-black leading-tight">Secure email for qualified parties</p>
               </div>
             </motion.div>
           ))}
@@ -643,7 +643,7 @@ const Contact = () => {
                     <div className="flex-1 min-w-0">
                       <h4 className="font-medium text-[#1e40af] text-sm">{info.title}</h4>
                       {info.details.map((d, i) => (
-                        <p key={i} className="text-gray-600 text-xs mb-1 break-words">{d}</p>
+                        <p key={i} className="text-black text-xs mb-1 break-words">{d}</p>
                       ))}
                       <p className="text-gray-500 text-xs mt-1">{info.description}</p>
                       {info.action && (
@@ -680,7 +680,7 @@ const Contact = () => {
                       className={`w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center transition-colors ${social.color} touch-manipulation`}
                       aria-label={`Follow us on ${social.name}`}
                     >
-                      <social.icon className="w-4 h-4 text-gray-600" />
+                      <social.icon className="w-4 h-4 text-black" />
                     </a>
                   ))}
                 </div>
@@ -728,7 +728,7 @@ const Contact = () => {
         <motion.div className="mt-12 sm:mt-16" variants={itemVariants}>
           <div className="text-center mb-6 sm:mb-8">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#1e40af] mb-3 sm:mb-4">Find Us</h2>
-            <p className="text-gray-600 text-sm sm:text-base">Visit our office or get in touch</p>
+            <p className="text-black text-sm sm:text-base">Visit our office or get in touch</p>
           </div>
           
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-100 overflow-hidden">

@@ -168,7 +168,7 @@ export default function MarketplacePreview() {
           <h2 className="brand-section-title text-4xl md:text-5xl font-bold bg-clip-text mb-6 md:mb-4">
             <span className='text-[#255f99]'>Marketplace Preview </span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto px-4">
+          <p className="text-lg text-black max-w-2xl mx-auto px-4">
             Experience our revolutionary platform with AI-powered trading, secure staking, and seamless P2P transactions
           </p>
         </div>

@@ -29,8 +29,8 @@ const Pricing = () => {
         </div>
 
         <Heading
-          tag="Get started with Brainwave"
-          title="Pay once, use forever"
+          tag="Get started with COPYM-AI"
+          title="Flexible RWA Tokenization Plans"
         />
 
         <div className="relative">

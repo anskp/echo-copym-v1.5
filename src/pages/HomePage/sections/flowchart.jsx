@@ -35,7 +35,7 @@ export default function HowItWorks() {
               <h1 className="text-5xl lg:text-6xl font-light text-gray-900 leading-tight">
                 How it works
               </h1>
-              <p className="text-lg text-gray-600 max-w-md leading-relaxed">
+              <p className="text-lg text-black max-w-md leading-relaxed">
                 A few simple steps can transform your portfolio.
                 <br />
                 RWA helps you invest, track, and grow with confidence.
@@ -59,7 +59,7 @@ export default function HowItWorks() {
                       className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-300 ${
                         activeStep === step.id 
                           ? 'bg-black text-white' 
-                          : 'bg-white text-gray-600 border-2 border-gray-300'
+                          : 'bg-white text-black border-2 border-gray-300'
                       }`}
                       animate={{ 
                         scale: activeStep === step.id ? 1.1 : 1,
@@ -74,7 +74,7 @@ export default function HowItWorks() {
                         {step.title}
                       </h3>
                       <motion.p 
-                        className="text-gray-600 max-w-md leading-relaxed overflow-hidden"
+                        className="text-black max-w-md leading-relaxed overflow-hidden"
                         animate={{ 
                           height: activeStep === step.id ? 'auto' : 0,
                           opacity: activeStep === step.id ? 1 : 0
@@ -414,7 +414,7 @@ export default function HowItWorks() {
                             </motion.div>
                             <div>
                               <div className="font-medium text-sm text-gray-900">{option.title}</div>
-                              <div className="text-xs text-gray-600">{option.desc}</div>
+                              <div className="text-xs text-black">{option.desc}</div>
                             </div>
                           </div>
                           <motion.div 

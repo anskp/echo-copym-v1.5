@@ -404,10 +404,10 @@ const TokenDistribution = () => {
                 </div>
               </div>
               <div className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedDistribution.has(index) ? 'max-h-96 opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
-                <p className="text-gray-600 mb-4">{method.description}</p>
+                <p className="text-black mb-4">{method.description}</p>
                 <ul className="space-y-2">
                   {method.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-sm text-gray-600">
+                    <li key={idx} className="flex items-center text-sm text-black">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
                       {feature}
                     </li>
@@ -497,7 +497,7 @@ const IssuerDashboard = () => {
                   </div>
                   <div>
                     <h4 className="brand-card-title text-black mb-2">{feature.title}</h4>
-                    <p className="text-gray-600">{feature.description}</p>
+                    <p className="text-black">{feature.description}</p>
                   </div>
                 </div>
               </div>
@@ -614,7 +614,7 @@ const InvestorManagement = () => {
                   </div>
                 </div>
                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedManagement.has(index) ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <p className="text-gray-600 mb-4">{tool.description}</p>
+                  <p className="text-black mb-4">{tool.description}</p>
                   <div className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
                     {tool.stats}
                   </div>

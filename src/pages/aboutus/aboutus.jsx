@@ -152,7 +152,7 @@ const AboutUs = () => {
                                 </div>
                                 <h4 className="text-lg font-semibold text-gray-900">Raayif Aarif</h4>
                                 <p className="text-indigo-600 font-medium">CTO</p>
-                                <p className="text-gray-600 text-base leading-relaxed mt-2">
+                                <p className="text-black text-base leading-relaxed mt-2">
                                     Former blockchain architect at a leading fintech with 15+ years in asset management.
                                 </p>
                             </div>
@@ -163,7 +163,7 @@ const AboutUs = () => {
                                 </div>
                                 <h4 className="text-lg font-semibold text-gray-900">Kuldeep</h4>
                                 <p className="text-indigo-600 font-medium">CEO</p>
-                                <p className="text-gray-600 text-base leading-relaxed mt-2">
+                                <p className="text-black text-base leading-relaxed mt-2">
                                     Expert in distributed systems and cryptography with multiple patents in blockchain security.
                                 </p>
                             </div>
@@ -174,7 +174,7 @@ const AboutUs = () => {
                                 </div>
                                 <h4 className="text-lg font-semibold text-gray-900">Azwaan</h4>
                                 <p className="text-indigo-600 font-medium">HR</p>
-                                <p className="text-gray-600 text-base leading-relaxed mt-2">
+                                <p className="text-black text-base leading-relaxed mt-2">
                                     Former regulator with deep expertise in global financial compliance frameworks.
                                 </p>
                             </div>

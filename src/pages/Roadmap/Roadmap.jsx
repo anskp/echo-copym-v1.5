@@ -24,7 +24,7 @@ export default function Roadmap() {
             <h1 className="brand-section-title text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6 bg-gradient-to-r from-[#15a36e] to-[#255f99] text-transparent bg-clip-text">
               Discover the RWA Ecosystem
             </h1>
-            <p className="brand-description text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="brand-description text-xl text-black max-w-4xl mx-auto leading-relaxed">
               Discover the complete journey for both issuers and investors in the RWA tokenization ecosystem. 
               Choose your path and explore the future of decentralized finance.
             </p>
@@ -48,7 +48,7 @@ export default function Roadmap() {
                     Issuer Journey
                   </h2>
                 </div>
-                <p className="brand-description text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="brand-description text-lg text-black max-w-2xl mx-auto">
                   Asset tokenization process for issuers looking to tokenize real-world assets
                 </p>
               </div>
@@ -71,7 +71,7 @@ export default function Roadmap() {
                     Investor Journey
                   </h2>
                 </div>
-                <p className="brand-description text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="brand-description text-lg text-black max-w-2xl mx-auto">
                   Investment and trading process for investors looking to access RWA tokens
                 </p>
               </div>

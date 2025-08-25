@@ -417,7 +417,7 @@ export default function AccessPage() {
                   Why Get the COPYM Access Pass?
                 </h2>
                 <div className="w-24 h-1 bg-gradient-to-r from-[#15a36e] to-[#255f99] rounded-full"></div>
-                <p className="text-gray-600 mt-6 text-lg leading-relaxed">
+                <p className="text-black mt-6 text-lg leading-relaxed">
                   Unlock exclusive benefits and early access to the most promising real-world asset opportunities in the Web3 ecosystem.
                 </p>
               </div>
@@ -444,7 +444,7 @@ export default function AccessPage() {
                       <h3 className="font-bold text-lg mb-3 text-gray-900 group-hover:text-[#255f99] transition-colors">
                         {benefit.title}
                       </h3>
-                      <p className="text-gray-600 leading-relaxed text-sm">
+                      <p className="text-black leading-relaxed text-sm">
                         {benefit.description}
                       </p>
                     </div>
@@ -505,7 +505,7 @@ export default function AccessPage() {
                 <h3 className="text-lg font-bold text-center text-[#255f99] mb-2">
                   Your Access Credential
                 </h3>
-                <p className="text-gray-600 text-center text-xs mb-6 max-w-xs mx-auto">
+                <p className="text-black text-center text-xs mb-6 max-w-xs mx-auto">
                   Your digital identity that unlocks exclusive access to the COPYM ecosystem.
                 </p>
                 <div className="flex justify-end w-[380px] mt-12 ">
@@ -572,7 +572,7 @@ export default function AccessPage() {
                  <h3 className="text-xl font-bold text-center text-[#255f99] mb-2">
                    Your Access Credential
                  </h3>
-                 <p className="text-gray-600 m-auto text-center text-sm mb-8 max-w-xs">
+                 <p className="text-black m-auto text-center text-sm mb-8 max-w-xs">
                    Your digital identity that unlocks exclusive access to the COPYM ecosystem.
                  </p>
                  <CredentialCard
@@ -640,7 +640,7 @@ export default function AccessPage() {
                   <h3 className="font-bold text-xl mb-3 text-gray-900 group-hover:text-[#255f99] transition-colors">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-black leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
@@ -713,7 +713,7 @@ export default function AccessPage() {
                   <CheckCircle className="w-5 h-5 flex-shrink-0" />
                   <span>{row.tokenization}</span>
                 </div>
-                <div className="px-6 py-5 text-gray-600 text-center flex items-center justify-center">
+                <div className="px-6 py-5 text-black text-center flex items-center justify-center">
                   <span>{row.traditional}</span>
                 </div>
               </div>

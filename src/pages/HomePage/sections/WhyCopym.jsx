@@ -33,7 +33,7 @@ const WhyCopymSection = () => {
             Why Copym?
             <span className="block w-24 h-1 bg-green-600 mt-4 mx-auto rounded-full"></span>
           </h2>
-          <p className="text-gray-700 max-w-3xl mx-auto text-sm sm:text-base">
+          <p className="text-black max-w-3xl mx-auto text-sm sm:text-base">
             Discover the comprehensive ecosystem that powers the future of tokenization
           </p>
         </div>
@@ -66,7 +66,7 @@ const WhyCopymSection = () => {
                 {section.title}
               </h3>
               
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="text-sm text-black leading-relaxed">
                 {section.subtitle}
               </p>
             </motion.div>
@@ -82,7 +82,7 @@ const WhyCopymSection = () => {
         >
           <div className="inline-flex items-center space-x-4">
             <div className="w-8 h-1 bg-gradient-to-r from-[#255f99] to-[#15a36e] rounded-full"></div>
-            <span className="text-gray-600 font-medium">Ready to get started?</span>
+            <span className="text-black font-medium">Ready to get started?</span>
             <div className="w-8 h-1 bg-gradient-to-r from-[#15a36e] to-[#255f99] rounded-full"></div>
           </div>
         </motion.div>

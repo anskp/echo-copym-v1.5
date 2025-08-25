@@ -93,8 +93,8 @@ export const brainwaveServicesIcons = [
 
 export const roadmap = [{
         id: "0",
-        title: "Q1 2024 - Seed Funding & MVP",
-        text: "Raise $3.5M seed funding, launch MVP, and onboard first 10 assets. Establish core tokenization infrastructure and regulatory compliance framework.",
+        title: "Q1 2024 - Platform Foundation",
+        text: "Established core tokenization infrastructure with regulatory compliance framework. Successfully onboarded initial real-world assets and implemented AI-driven verification systems.",
         date: "Q1 2024",
         status: "done",
         imageUrl: roadmap1,
@@ -102,16 +102,16 @@ export const roadmap = [{
     },
     {
         id: "1",
-        title: "Q3 2024 - Beta AI Advisor",
-        text: "Launch beta AI investment advisor, onboard 100+ tokenized assets, and reach 5,000 active users. Expand asset classes and improve AI accuracy.",
+        title: "Q3 2024 - AI Integration & Asset Expansion",
+        text: "Deployed advanced AI investment advisor with predictive analytics. Expanded asset portfolio to 100+ tokenized properties and achieved 5,000+ verified users with enhanced compliance protocols.",
         date: "Q3 2024",
         status: "progress",
         imageUrl: roadmap2,
     },
     {
         id: "2",
-        title: "Q1 2025 - Series A & Mobile",
-        text: "Raise $12M Series A funding, launch mobile app, and add more asset classes. Scale operations and enhance AI capabilities for better predictions.",
+        title: "Q1 2025 - Global Expansion & Mobile Platform",
+        text: "Secured institutional partnerships and launched cross-platform mobile application. Integrated multiple asset classes including commodities, securities, and infrastructure projects with enhanced liquidity features.",
         date: "Q1 2025",
         status: "done",
         imageUrl: roadmap3,

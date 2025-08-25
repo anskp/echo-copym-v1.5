@@ -234,7 +234,7 @@ const MarketplaceGlimpse = () => {
           </motion.h1>
           
           <motion.p 
-            className="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-black mb-12 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -250,7 +250,7 @@ const MarketplaceGlimpse = () => {
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <ChevronDown className="w-8 h-8 text-gray-600" />
+          <ChevronDown className="w-8 h-8 text-black" />
         </motion.div>
       </section>
 
@@ -271,7 +271,7 @@ const MarketplaceGlimpse = () => {
             <span className="text-[#255f99]">Explore Our </span>
             <span className="text-[#15a36e]">Curated Assets</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+          <p className="text-lg text-black max-w-3xl mx-auto mb-8">
             Discover a diverse portfolio of tokenized real-world assets, each carefully selected for their potential returns and market stability.
           </p>
         </div>
@@ -333,7 +333,7 @@ const MarketplaceGlimpse = () => {
               <span className="text-[#255f99]">Why Invest </span>
               <span className="text-[#15a36e]">With Us?</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-black max-w-3xl mx-auto">
               We combine cutting-edge blockchain technology with traditional investment wisdom to create a secure, transparent, and accessible investment platform.
             </p>
           </motion.div>
@@ -350,7 +350,7 @@ const MarketplaceGlimpse = () => {
                 <Shield className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Bank-Grade Security</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-black leading-relaxed">
                 Your investments are protected with multi-layer security protocols and institutional-grade custody solutions.
               </p>
             </motion.div>
@@ -366,7 +366,7 @@ const MarketplaceGlimpse = () => {
                 <Eye className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Radical Transparency</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-black leading-relaxed">
                 Every transaction is recorded on an immutable blockchain ledger, providing auditable proof of ownership.
               </p>
             </motion.div>
@@ -382,7 +382,7 @@ const MarketplaceGlimpse = () => {
                 <Zap className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Enhanced Liquidity</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-black leading-relaxed">
                 Trade your tokenized assets on our secondary market, turning illiquid investments into flexible opportunities.
               </p>
             </motion.div>
@@ -403,7 +403,7 @@ const MarketplaceGlimpse = () => {
               <span className="text-[#255f99]">Ready to Build Your </span>
               <span className="text-[#15a36e]">Future Portfolio?</span>
             </h2>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-black mb-8 max-w-2xl mx-auto">
               Join thousands of investors accessing exclusive real-world assets. The full marketplace awaits.
             </p>
             <Link 

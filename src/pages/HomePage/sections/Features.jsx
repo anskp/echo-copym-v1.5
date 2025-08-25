@@ -69,7 +69,7 @@ export default function Features() {
                 <h3 className="brand-card-title text-white mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-black leading-relaxed">
                   {feature.description}
                 </p>
               </div>

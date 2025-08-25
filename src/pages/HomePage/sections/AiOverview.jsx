@@ -252,7 +252,7 @@ const AiOverview = () => {
                   </Typography>
 
                   {/* <Typography
-                    className="text-gray-600 text-center"
+                    className="text-black text-center"
                     sx={{ fontSize: { xs: '0.65rem', sm: '0.7rem', md: '0.8rem' }, lineHeight: 1.3 }}
                   >
                     {currentFeature.description}

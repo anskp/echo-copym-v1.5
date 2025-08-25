@@ -57,7 +57,7 @@ export default function HowItWorks() {
                 <span className="text-[#255f99]">How It </span>
                 <span className="text-[#255f99]">Works!</span>
               </h1>
-              <p className="text-lg text-gray-600 max-w-md leading-relaxed">
+              <p className="text-lg text-black max-w-md leading-relaxed">
                 Revolutionary RWA tokenization platform connecting real-world assets with DeFi liquidity through blockchain technology.
               </p>
             </div>
@@ -77,7 +77,7 @@ export default function HowItWorks() {
                   className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${
                     activeTab === tab.id
                       ? 'bg-white text-gray-900 shadow-sm'
-                      : 'text-gray-600 hover:text-gray-900'
+                      : 'text-black hover:text-gray-900'
                   }`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -102,7 +102,7 @@ export default function HowItWorks() {
                     <motion.div
                       className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-300 ${activeStep === step.id
                           ? 'bg-black text-white'
-                          : 'bg-white text-gray-600 border-2 border-gray-300'
+                          : 'bg-white text-black border-2 border-gray-300'
                         }`}
                       animate={{
                         scale: activeStep === step.id ? 1.1 : 1,
@@ -117,7 +117,7 @@ export default function HowItWorks() {
                         {step.title}
                       </h3>
                       <motion.p
-                        className="text-gray-600 max-w-md leading-relaxed overflow-hidden"
+                        className="text-black max-w-md leading-relaxed overflow-hidden"
                         animate={{
                           height: activeStep === step.id ? 'auto' : 0,
                           opacity: activeStep === step.id ? 1 : 0
@@ -563,7 +563,7 @@ export default function HowItWorks() {
                       <>
                         <div className="mb-4">
                           <h2 className="text-lg font-bold text-gray-900 mb-1">Tokenize Asset</h2>
-                          <p className="text-gray-600 text-xs">Upload and verify your real-world asset</p>
+                          <p className="text-black text-xs">Upload and verify your real-world asset</p>
                         </div>
 
                         {/* Asset Upload Section */}
@@ -575,11 +575,11 @@ export default function HowItWorks() {
                               </div>
                               <div>
                                 <div className="text-gray-900 font-bold text-xs">Manhattan Penthouse</div>
-                                <div className="text-gray-600 text-xs">Real Estate • Verified</div>
+                                <div className="text-black text-xs">Real Estate • Verified</div>
                               </div>
                             </div>
                             <div className="flex justify-between items-center mb-1">
-                              <span className="text-gray-600 text-xs">Asset Value</span>
+                              <span className="text-black text-xs">Asset Value</span>
                               <span className="text-green-600 font-bold text-xs">$2.5M</span>
                             </div>
                             <div className="w-full bg-gray-200 rounded-full h-1 mb-1">
@@ -589,22 +589,22 @@ export default function HowItWorks() {
                                 transition={{ duration: 2, delay: 0.5 }}
                               />
                             </div>
-                            <div className="text-xs text-gray-600">Verification: 75% Complete</div>
+                            <div className="text-xs text-black">Verification: 75% Complete</div>
                           </div>
 
                           <div className="bg-gray-50 rounded-xl p-3 border border-gray-200">
                             <div className="text-gray-900 font-bold text-xs mb-2">Tokenization Settings</div>
                             <div className="space-y-1">
                               <div className="flex justify-between">
-                                <span className="text-gray-600 text-xs">Total Tokens</span>
+                                <span className="text-black text-xs">Total Tokens</span>
                                 <span className="text-gray-900 text-xs font-bold">25,000</span>
                               </div>
                               <div className="flex justify-between">
-                                <span className="text-gray-600 text-xs">Price per Token</span>
+                                <span className="text-black text-xs">Price per Token</span>
                                 <span className="text-gray-900 text-xs font-bold">$100</span>
                               </div>
                               <div className="flex justify-between">
-                                <span className="text-gray-600 text-xs">Your Ownership</span>
+                                <span className="text-black text-xs">Your Ownership</span>
                                 <span className="text-green-600 text-xs font-bold">100%</span>
                               </div>
                             </div>
@@ -634,7 +634,7 @@ export default function HowItWorks() {
                       <>
                         <div className="mb-4">
                           <h2 className="text-lg font-bold text-gray-900 mb-1">Login & Search Assets</h2>
-                          <p className="text-gray-600 text-xs">Access your account and discover tokenized assets</p>
+                          <p className="text-black text-xs">Access your account and discover tokenized assets</p>
                         </div>
 
                         {/* Login Section */}
@@ -646,11 +646,11 @@ export default function HowItWorks() {
                               </div>
                               <div>
                                 <div className="text-gray-900 font-bold text-xs">Welcome back, Investor</div>
-                                <div className="text-gray-600 text-xs">Account: investor@copym.com</div>
+                                <div className="text-black text-xs">Account: investor@copym.com</div>
                               </div>
                             </div>
                             <div className="flex justify-between items-center mb-1">
-                              <span className="text-gray-600 text-xs">Portfolio Value</span>
+                              <span className="text-black text-xs">Portfolio Value</span>
                               <span className="text-blue-600 font-bold text-xs">$47.8K</span>
                             </div>
                             <div className="w-full bg-gray-200 rounded-full h-1 mb-1">
@@ -660,7 +660,7 @@ export default function HowItWorks() {
                                 transition={{ duration: 2, delay: 0.5 }}
                               />
                             </div>
-                            <div className="text-xs text-gray-600">Account Status: Active</div>
+                            <div className="text-xs text-black">Account Status: Active</div>
                           </div>
 
                           <div className="bg-gray-50 rounded-xl p-3 border border-gray-200">
@@ -731,7 +731,7 @@ export default function HowItWorks() {
                               <div key={index} className="flex justify-between items-center">
                                 <div>
                                   <div className="text-gray-900 text-xs font-medium">{item.search}</div>
-                                  <div className="text-gray-600 text-xs">{item.time}</div>
+                                  <div className="text-black text-xs">{item.time}</div>
                                 </div>
                                 <div className="text-blue-600 text-xs">→</div>
                               </div>

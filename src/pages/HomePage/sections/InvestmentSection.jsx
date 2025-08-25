@@ -1060,7 +1060,7 @@ const RealEstateInvestmentSection = () => {
             <div className="text-lg font-bold text-gray-800 mb-1 text-center">
               Secondary Market
             </div>
-            <div className="text-sm text-gray-600 flex items-center justify-center gap-2">
+            <div className="text-sm text-black flex items-center justify-center gap-2">
               <Zap className="w-4 h-4 text-blue-500" />
               <span>Instant Liquidity</span>
             </div>
@@ -1108,8 +1108,8 @@ const RealEstateInvestmentSection = () => {
                                   {/* Progress Section - Compact Layout */}
                   <div className="mb-2">
                     <div className="flex justify-between items-center mb-1">
-                      <span className="text-xs font-medium text-gray-600">Market Activity</span>
-                      <span className="text-xs font-medium text-gray-600">75%</span>
+                      <span className="text-xs font-medium text-black">Market Activity</span>
+                      <span className="text-xs font-medium text-black">75%</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-1.5">
                       <motion.div 
@@ -1628,7 +1628,7 @@ const RealEstateInvestmentSection = () => {
 
                   <div className={`inline-block px-4 py-2 rounded-full text-sm font-medium mb-4 transition-all duration-500 border ${activeSection === index
                     ? 'bg-gradient-to-r from-green-500/20 to-green-600/20 text-green-700 border-green-500/30 shadow-lg'
-                    : 'bg-gray-200/50 text-gray-600 border-gray-300/30'
+                    : 'bg-gray-200/50 text-black border-gray-300/30'
                     }`}>
                     <div className="flex items-center gap-2">
                       {index === 0 && <Building className="w-4 h-4" />}
@@ -1650,7 +1650,7 @@ const RealEstateInvestmentSection = () => {
 
                   <h3 className={`text-xl font-semibold mb-6 transition-all duration-500 ${activeSection === index
                       ? 'text-blue-600'
-                      : 'text-gray-600'
+                      : 'text-black'
                     }`}>
                     {section.subtitle}
                   </h3>
@@ -1665,7 +1665,7 @@ const RealEstateInvestmentSection = () => {
                   {activeSection === index && (
                     <div className="mt-8 space-y-4">
                       <div className="w-24 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full"></div>
-                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 text-sm text-gray-600">
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 text-sm text-black">
                         <div className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                           <div className="flex items-center gap-1">
@@ -1751,7 +1751,7 @@ const RealEstateInvestmentSection = () => {
 
                 <div className={`inline-block px-4 py-2 rounded-full text-sm font-medium mb-4 transition-all duration-500 border ${activeSection === index
                   ? 'bg-gradient-to-r from-green-500/20 to-green-600/20 text-green-700 border-green-500/30 shadow-lg'
-                  : 'bg-gray-200/50 text-gray-600 border-gray-300/30'
+                  : 'bg-gray-200/50 text-black border-gray-300/30'
                   }`}>
                   <div className="flex items-center gap-2">
                     {index === 0 && <Building className="w-4 h-4" />}
@@ -1773,7 +1773,7 @@ const RealEstateInvestmentSection = () => {
 
                 <h3 className={`text-2xl font-semibold mb-6 transition-all duration-500 ${activeSection === index
                     ? 'text-blue-600'
-                    : 'text-gray-600'
+                    : 'text-black'
                   }`}>
                   {section.subtitle}
                 </h3>
@@ -1788,7 +1788,7 @@ const RealEstateInvestmentSection = () => {
                 {activeSection === index && (
                   <div className="mt-8 space-y-4">
                     <div className="w-24 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full"></div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <div className="flex items-center gap-2 text-sm text-black">
                       <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                       <div className="flex items-center gap-1">
                         <Cpu className="w-3 h-3" />
