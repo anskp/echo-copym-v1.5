@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import Typeform from './Typeform';
 import {
   Mail,
   Phone,
@@ -52,6 +53,7 @@ const Contact = () => {
   const [submitStatus, setSubmitStatus] = useState(null);
   const [errors, setErrors] = useState({});
   const [showLiveChat, setShowLiveChat] = useState(false);
+  const [showTypeform, setShowTypeform] = useState(false);
 
   // RWA-specific contact types
   const contactTypes = [
@@ -356,12 +358,43 @@ const Contact = () => {
           ))}
         </motion.div> */}
 
+        {/* Form Type Toggle */}
+        <motion.div className="flex justify-center mb-6 sm:mb-8" variants={itemVariants}>
+          <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-100 p-2">
+            <div className="flex">
+              <button
+                onClick={() => setShowTypeform(false)}
+                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+                  !showTypeform 
+                    ? 'bg-gradient-to-r from-[#1e40af] to-[#065f46] text-white shadow-md' 
+                    : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50'
+                }`}
+              >
+                Standard Form
+              </button>
+              <button
+                onClick={() => setShowTypeform(true)}
+                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+                  showTypeform 
+                    ? 'bg-gradient-to-r from-[#1e40af] to-[#065f46] text-white shadow-md' 
+                    : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50'
+                }`}
+              >
+                Interactive Typeform
+              </button>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Main Content Grid - Fixed Responsive Layout */}
         <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
           {/* Contact Form - Optimized for all screens */}
           <motion.div className="lg:col-span-2" variants={itemVariants}>
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-100 p-4 sm:p-6 lg:p-8">
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#1e40af] mb-4 sm:mb-6">Submit Your Inquiry</h2>
+            {showTypeform ? (
+              <Typeform />
+            ) : (
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-100 p-4 sm:p-6 lg:p-8">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#1e40af] mb-4 sm:mb-6">Submit Your Inquiry</h2>
 
               {submitStatus === 'success' && (
                 <motion.div
@@ -627,6 +660,7 @@ const Contact = () => {
                 </motion.button>
               </form>
             </div>
+            )}
           </motion.div>
 
           {/* Sidebar - Fixed for better screen utilization */}
