@@ -9,7 +9,7 @@ const Collaboration = () => {
     <Section crosses>
       <div className="container lg:flex">
         <div className="max-w-[25rem]">
-          <h2 className="h2 mb-4 md:mb-8">
+          <h2 className="h2 mb-4 md:mb-8 text-black">
             AI-Powered RWA Tokenization for Seamless
             <span className="inline-block relative font-semibold">
               Asset Management
@@ -34,11 +34,11 @@ const Collaboration = () => {
                     height={24}
                     className="pointer-events-none select-none"
                   />
-                  <h6 className="body-2 ml-5">{item.title}</h6>
+                  <h6 className="body-2 ml-5 text-black">{item.title}</h6>
                 </div>
 
                 {item.text && (
-                  <p className="body-2 mt-3 text-n-4">{item.text}</p>
+                  <p className="body-2 mt-3 text-black">{item.text}</p>
                 )}
               </li>
             ))}
@@ -48,14 +48,14 @@ const Collaboration = () => {
         </div>
 
         <div className="lg:ml-auto xl:w-[38rem] mt-4">
-          <p className="body-2 mb-4 text-n-4 md:mb-16 lg:mb-32 lg:w-[32rem] lg:mx-auto">
+          <p className="body-2 mb-4 text-black md:mb-16 lg:mb-32 lg:w-[32rem] lg:mx-auto">
             {collabText}
           </p>
 
-          <div className="relative left-1/2 flex w-[22rem] aspect-square border border-n-6 rounded-full -translate-x-1/2 scale-75 md:scale-100">
-            <div className="flex w-60 aspect-square m-auto border border-n-6 rounded-full">
+          <div className="relative left-1/2 flex w-[22rem] aspect-square border border-gray-300 rounded-full -translate-x-1/2 scale-75 md:scale-100">
+            <div className="flex w-60 aspect-square m-auto border border-gray-300 rounded-full">
               <div className="w-[6rem] aspect-square m-auto p-[0.2rem] bg-conic-gradient rounded-full">
-                <div className="flex items-center justify-center w-full h-full bg-[#1a2b3c] rounded-full">
+                <div className="flex items-center justify-center w-full h-full bg-gray-50 rounded-full">
                   <img
                     src={copymColoredIcon}
                     width={48}
@@ -75,7 +75,7 @@ const Collaboration = () => {
                   }`}
                 >
                   <div
-                    className={`relative -top-[1.6rem] flex w-[3.2rem] h-[3.2rem] bg-n-7 border border-n-1/15 rounded-xl -rotate-${
+                    className={`relative -top-[1.6rem] flex w-[3.2rem] h-[3.2rem] bg-gray-200 border border-gray-300 rounded-xl -rotate-${
                       i * 45
                     } animate-pulse`}
                   >

@@ -7,7 +7,6 @@ import Heading from "./Heading";
 import Section from "./Section";
 import { curve } from "../assets";
 import {
-  Gradient,
   PhotoChatMessage,
   VideoBar,
   VideoChatMessage,
@@ -40,10 +39,10 @@ const Services = () => {
 
         <div className="relative">
           {/* Service 1 */}
-          <div className="relative z-1 flex items-center h-[39rem] mb-5 p-8 border border-n-1/10 rounded-3xl overflow-hidden lg:p-20 xl:h-[46rem]">
+          <div className="relative z-1 flex items-center h-[39rem] mb-5 p-8 border border-gray-300 rounded-3xl overflow-hidden lg:p-20 xl:h-[46rem]">
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none select-none md:w-3/5 xl:w-auto">
               <img
-                className="w-full h-full object-cover md:object-right"
+                className="w-full h-full object-cover ml-6 mt-10 md:object-right scale-[1.29]"
                 width={800}
                 height={730}
                 alt="Smartest AI"
@@ -52,12 +51,12 @@ const Services = () => {
             </div>
 
                          <div className="relative z-1 max-w-[17rem] ml-auto">
-               <h4 className="h4 mb-4">COPYM AI</h4>
-                              <p className="body-2 mb-[3rem] text-n-3">
+               <h4 className="h4 mb-4 text-black">COPYM AI</h4>
+                              <p className="body-2 mb-[3rem] text-black">
                   COPYM-AI is the first unified platform that integrates the world's leading RWA platforms with advanced AI capabilities, creating a seamless tokenization experience.
                 </p>
               <ul className="body-2">
-                <li className="flex items-start py-4 border-t border-n-6">
+                <li className="flex items-start py-4 border-t border-gray-300">
                   <img
                     width={24}
                     height={24}
@@ -65,9 +64,9 @@ const Services = () => {
                     alt="check"
                     className="pointer-events-none select-none"
                   />
-                  <p className="ml-4">Securitize Compliance AI</p>
+                  <p className="ml-4 text-black">Securitize Compliance AI</p>
                 </li>
-                <li className="flex items-start py-4 border-t border-n-6">
+                <li className="flex items-start py-4 border-t border-gray-300">
                   <img
                     width={24}
                     height={24}
@@ -75,9 +74,9 @@ const Services = () => {
                     alt="check"
                     className="pointer-events-none select-none"
                   />
-                  <p className="ml-4">Polymath Security Intelligence</p>
+                  <p className="ml-4 text-black">Polymath Security Intelligence</p>
                 </li>
-                <li className="flex items-start py-4 border-t border-n-6">
+                <li className="flex items-start py-4 border-t border-gray-300">
                   <img
                     width={24}
                     height={24}
@@ -85,7 +84,7 @@ const Services = () => {
                     alt="check"
                     className="pointer-events-none select-none"
                   />
-                  <p className="ml-4">Centrifuge DeFi Integration</p>
+                  <p className="ml-4 text-black">Centrifuge DeFi Integration</p>
                 </li>
               </ul>
             </div>
@@ -95,7 +94,7 @@ const Services = () => {
 
           {/* Service 2 & 3 */}
           <div className="relative z-1 grid gap-5 lg:grid-cols-2">
-            <div className="relative min-h-[39rem] border border-n-1/10 rounded-3xl overflow-hidden">
+            <div className="relative min-h-[39rem] border border-gray-300 rounded-3xl overflow-hidden">
               <div className="absolute inset-0">
                 <img
                   src={service2}
@@ -107,19 +106,21 @@ const Services = () => {
               </div>
 
               <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-b from-n-8/0 to-n-8/90 lg:p-15">
-                                 <h4 className="h4 mb-4">COPYM-AI Real Estate</h4>
-                 <p className="body-2 mb-[3rem] text-n-3">
+              <div className="bg-blue-100 p-4 opacity-70 rounded-2xl mb-6">
+                                 <h4 className="h4 mb-4 text-black">COPYM-AI Real Estate</h4>
+                 <p className="body-2 mb-[3rem] text-black">
                    COPYM-AI's proprietary AI models for real estate valuation and rental income prediction, enhanced by RealT's proven tokenization infrastructure.
                  </p>
+                 </div>
               </div>
 
               <PhotoChatMessage />
             </div>
 
-            <div className="p-4 bg-n-7 rounded-3xl overflow-hidden lg:min-h-[46rem]">
+            <div className="p-4 bg-transparent rounded-3xl overflow-hidden lg:min-h-[46rem]">
               <div className="py-12 px-4 xl:px-8">
-                                 <h4 className="h4 mb-4">COPYM-AI Smart Contracts</h4>
-                 <p className="body-2 mb-[2rem] text-n-3">
+                                 <h4 className="h4 mb-4 text-black">COPYM-AI Smart Contracts</h4>
+                 <p className="body-2 mb-[2rem] text-black">
                    COPYM-AI's intelligent smart contract generation and atomic transfer optimization, powered by Algorand's advanced blockchain technology.
                  </p>
 
@@ -130,13 +131,13 @@ const Services = () => {
                       className={`flex items-center justify-center rounded-2xl ${
                         i === 2
                           ? "w-[3rem] h-[3rem] p-0.25 bg-conic-gradient md:w-[4.5rem] md:h-[4.5rem]"
-                          : "flex w-10 h-10 bg-n-6 md:w-15 md:h-15"
+                          : "flex w-10 h-10 bg-gray-800 md:w-15 md:h-15"
                       }`}
                     >
                       <div
                         className={
                           i === 2
-                            ? "flex items-center justify-center w-full h-full bg-n-7 rounded-[1rem]"
+                            ? "flex items-center justify-center w-full h-full bg-gray-700 rounded-[1rem]"
                             : ""
                         }
                       >
@@ -152,7 +153,7 @@ const Services = () => {
                 </ul>
               </div>
 
-              <div className="relative h-[20rem] bg-[#1a2b3c] rounded-xl overflow-hidden md:h-[25rem]">
+              <div className="relative h-[20rem] bg-transparent rounded-xl overflow-hidden md:h-[25rem]">
                 <img
                   src={service3}
                   className={`w-full h-full object-cover ${
@@ -169,77 +170,77 @@ const Services = () => {
             </div>
           </div>
 
-          <Gradient />
+          {/* Gradient removed to eliminate purple and blue background colors */}
         </div>
 
         {/* Comparison Table */}
         <div className="mt-20">
-          <h3 className="h3 text-center mb-12">Institutional Advantage: COPYmAI vs Traditional Platforms</h3>
-          <div className="relative z-1 border border-n-1/10 rounded-3xl overflow-hidden">
+          <h3 className="h3 text-center mb-12 text-black">Institutional Advantage: COPYmAI vs Traditional Platforms</h3>
+          <div className="relative z-1 border border-gray-300 rounded-3xl overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
                                  <thead>
-                   <tr className="border-b border-n-1/10">
-                     <th className="p-6 text-left bg-n-7/50">Feature</th>
-                     <th className="p-6 text-center bg-color-1/10 text-color-1 font-bold">COPYM AI</th>
-                     <th className="p-6 text-center bg-n-7/50">Traditional Platforms</th>
+                   <tr className="border-b border-gray-300">
+                     <th className="p-6 text-left bg-transparent text-black">Feature</th>
+                     <th className="p-6 text-center bg-transparent text-color-1 font-bold">COPYM AI</th>
+                     <th className="p-6 text-center bg-transparent text-black">Traditional Platforms</th>
                    </tr>
                  </thead>
-                <tbody>
-                  <tr className="border-b border-n-1/10">
-                    <td className="p-6 font-semibold">AI-Driven Decisioning</td>
-                                         <td className="p-6 text-center">
-                       <span className="inline-flex items-center px-3 py-1 rounded-full bg-color-4/20 text-color-4 text-sm font-semibold">
-                         Advanced
-                       </span>
-                     </td>
-                     <td className="p-6 text-center">
-                       <span className="inline-flex items-center px-3 py-1 rounded-full bg-n-6 text-n-3 text-sm">
-                         Basic / None
-                       </span>
-                     </td>
-                  </tr>
-                  <tr className="border-b border-n-1/10">
-                    <td className="p-6 font-semibold">Minimum Investment</td>
+                                  <tbody>
+                    <tr className="border-b border-gray-300">
+                      <td className="p-6 font-semibold text-black">AI-Driven Decisioning</td>
+                                           <td className="p-6 text-center">
+                         <span className="inline-flex items-center px-3 py-1 rounded-full bg-color-4/20 text-color-4 text-sm font-semibold">
+                           Advanced
+                         </span>
+                       </td>
+                       <td className="p-6 text-center">
+                         <span className="inline-flex items-center px-3 py-1 rounded-full bg-gray-200 text-black text-sm">
+                           Basic / None
+                         </span>
+                       </td>
+                    </tr>
+                    <tr className="border-b border-gray-300">
+                    <td className="p-6 font-semibold text-black">Minimum Investment</td>
                     <td className="p-6 text-center text-color-1 font-bold">$100</td>
-                    <td className="p-6 text-center text-n-3">$10K+</td>
+                    <td className="p-6 text-center text-black">$10K+</td>
                   </tr>
-                  <tr className="border-b border-n-1/10">
-                    <td className="p-6 font-semibold">Asset Verification</td>
-                                         <td className="p-6 text-center">
-                       <span className="inline-flex items-center px-3 py-1 rounded-full bg-color-4/20 text-color-4 text-sm font-semibold">
-                         AI + Expert Review
-                       </span>
-                     </td>
-                     <td className="p-6 text-center">
-                       <span className="inline-flex items-center px-3 py-1 rounded-full bg-n-6 text-n-3 text-sm">
-                         Manual / Limited
-                       </span>
-                     </td>
-                  </tr>
-                  <tr className="border-b border-n-1/10">
-                    <td className="p-6 font-semibold">Liquidity</td>
+                                       <tr className="border-b border-gray-300">
+                       <td className="p-6 font-semibold text-black">Asset Verification</td>
+                                            <td className="p-6 text-center">
+                          <span className="inline-flex items-center px-3 py-1 rounded-full bg-color-4/20 text-color-4 text-sm font-semibold">
+                            AI + Expert Review
+                          </span>
+                        </td>
+                        <td className="p-6 text-center">
+                          <span className="inline-flex items-center px-3 py-1 rounded-full bg-gray-200 text-black text-sm">
+                            Manual / Limited
+                          </span>
+                        </td>
+                     </tr>
+                     <tr className="border-b border-gray-300">
+                    <td className="p-6 font-semibold text-black">Liquidity</td>
                                          <td className="p-6 text-center">
                        <span className="inline-flex items-center px-3 py-1 rounded-full bg-color-4/20 text-color-4 text-sm font-semibold">
                          Instant Trades
                        </span>
                      </td>
-                    <td className="p-6 text-center text-n-3">Weeks / Months</td>
+                    <td className="p-6 text-center text-black">Weeks / Months</td>
                   </tr>
                   <tr>
-                    <td className="p-6 font-semibold">Portfolio Management</td>
+                    <td className="p-6 font-semibold text-black">Portfolio Management</td>
                                          <td className="p-6 text-center">
                        <span className="inline-flex items-center px-3 py-1 rounded-full bg-color-4/20 text-color-4 text-sm font-semibold">
                          AI-Optimized
                        </span>
                      </td>
                      <td className="p-6 text-center">
-                       <span className="inline-flex items-center px-3 py-1 rounded-full bg-n-6 text-n-3 text-sm">
+                                              <span className="inline-flex items-center px-3 py-1 rounded-full bg-gray-200 text-black text-sm">
                          Manual / Limited
                        </span>
                      </td>
-                  </tr>
-                </tbody>
+                   </tr>
+                 </tbody>
               </table>
             </div>
           </div>

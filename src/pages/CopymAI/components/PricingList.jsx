@@ -8,18 +8,18 @@ const PricingList = () => {
       {pricing.map((plan, i) => (
         <div
           key={plan.id}
-          className="w-[19rem] max-lg:w-full h-full px-6 bg-[#1a2b3c] border border-n-6 rounded-[2rem] lg:w-auto even:py-14 odd:py-8 odd:my-4 [&>h4]:first:text-color-2 [&>h4]:even:text-color-1 [&>h4]:last:text-color-3"
+          className="w-[19rem] max-lg:w-full h-full px-6 bg-gray-50 border border-gray-300 rounded-[2rem] lg:w-auto even:py-14 odd:py-8 odd:my-4 [&>h4]:first:text-color-2 [&>h4]:even:text-color-1 [&>h4]:last:text-color-3"
         >
-          <h4 className="h4 mb-4">{plan.title}</h4>
-          <p className="body-2 min-h-[4rem] mb-3 text-n-1/50">
+          <h4 className="h4 mb-4 text-black">{plan.title}</h4>
+          <p className="body-2 min-h-[4rem] mb-3 text-black/50">
             {plan.description}
           </p>
 
           <div className="flex items-center h-[5.5rem] mb-6">
             {plan.price && (
               <>
-                <div className="h-3">$</div>
-                <div className="text-[5.5rem] leading-none font-bold">
+                <div className="h-3 text-black">$</div>
+                <div className="text-[5.5rem] leading-none font-bold text-black">
                   {plan.price}
                 </div>
               </>
@@ -38,7 +38,7 @@ const PricingList = () => {
             {plan.features.map((feature, j) => (
               <li
                 key={`plan-${i}-feature-${j}`}
-                className="flex items-start py-5 border-t border-n-6"
+                className="flex items-start py-5 border-t border-gray-300"
               >
                 <img
                   src={check}
@@ -47,7 +47,7 @@ const PricingList = () => {
                   height={24}
                   className="pointer-events-none select-none"
                 />
-                <p className="body-2 ml-4">{feature}</p>
+                <p className="body-2 ml-4 text-black">{feature}</p>
               </li>
             ))}
           </ul>

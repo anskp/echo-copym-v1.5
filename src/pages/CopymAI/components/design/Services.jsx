@@ -49,7 +49,7 @@ export const PhotoChatMessage = () => {
 
 export const VideoChatMessage = ({ isPlaying }) => {
   return (
-    <div className="absolute top-8 left-[3.125rem] w-full max-w-[14rem] pt-2.5 pr-2.5 pb-7 pl-5 bg-n-6 rounded-t-xl rounded-br-xl font-code text-base md:max-w-[17.5rem]">
+    <div className="absolute top-8 left-[3.125rem] w-full max-w-[14rem] pt-2.5 pr-2.5 pb-7 pl-5 bg-gray-800 rounded-t-xl rounded-br-xl font-code text-base md:max-w-[17.5rem]">
       <Typewriter
         options={{
           strings: isPlaying ? ["Chart generating..."] : ["Chart generated!"],
@@ -67,7 +67,7 @@ export const VideoChatMessage = ({ isPlaying }) => {
           alt="Copym"
         />
       </div>
-      <div className="tagline absolute right-2.5 bottom-1 text-[0.625rem] text-n-3 uppercase">
+      <div className="tagline absolute right-2.5 bottom-1 text-[0.625rem] text-black uppercase">
         {isPlaying ? (
           <img
             src={loading}
@@ -75,7 +75,7 @@ export const VideoChatMessage = ({ isPlaying }) => {
             className="w-4 h-4 animate-spin pointer-events-none select-none"
           />
         ) : (
-          <span>just now</span>
+          <span className="text-black">just now</span>
         )}
       </div>
       <ChatBubbleWing

@@ -74,7 +74,7 @@ function App() {
       ) : (
         <Box
         ref={appRef} 
-         className={`min-h-screen relative text-text-primary overflow-x-hidden ${isCopymAIPage ? '' : 'bg-blue-100'}`}>
+         className={`min-h-screen relative text-text-primary overflow-x-hidden ${isCopymAIPage ? 'bg-blue-100' : 'bg-blue-100'}`}>
           <ScrollToTop />
           <Header />
           <main className="relative z-20 overflow-x-hidden">
