@@ -50,7 +50,7 @@ const Services = () => {
               />
             </div>
 
-            <div className="relative z-1 max-w-[18rem] ml-auto bg-blue-100 opacity-70 rounded-2xl p-4">
+            <div className="relative z-1 max-w-[25rem] ml-auto bg-blue-100 opacity-70 rounded-2xl p-4">
               <div className="bg-blue-100 opacity-70 rounded-2xl mb-6">
                <h4 className="h4 mb-4 text-black">COPYM AI</h4>
                               <p className="body-2 mb-[3rem] text-black">
